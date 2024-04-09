@@ -1,0 +1,82 @@
+# 2024.1 - Undertale
+
+<div align="center"> <img src="https://www.geeksapiens.com.br/wp-content/uploads/2021/03/undertale-no-game-pass.png" height="230" width="auto"/> </div>
+
+<div align="center">Repositório para desenvolvimento de um MUD inspirado em Undertale da disciplina de SBD1 - 2024.1</div>
+
+## Contribuidores
+<div align = "center">
+<table>
+  <tr>
+    <td align="center"><a href="https://github.com/BiancaPatrocinio7"><img style="border-radius: 50%;" src="https://github.com/BiancaPatrocinio7.png" width="190;" alt=""/><br /><sub><b>Bianca Castro - 221008801</b></sub></a><br /><a href="Link git" title="Rocketseat"></a></td>
+    <td align="center"><a href="https://github.com/GabrielMS00"><img style="border-radius: 50%;" src="https://github.com/DiegoCarlito.png" width="190px;" alt=""/><br /><sub><b>Diego Carlito - 221007690</b></sub></a><br /><a href="Link git" title="Rocketseat"></a></td>
+        <td align="center"><a href="https://github.com/JohnnyLopess"><img style="border-radius: 50%;" src="https://github.com/Marcosatc147.png" width="190px;" alt=""/><br /><sub><b>Marcos Castilhos - 221008300</b></sub></a><br />
+        <td align="center"><a href="https://github.com/JoseFilipi"><img style="border-radius: 50%;" src="https://github.com/samarawwleticia.png" width="190px;" alt=""/><br /><sub><b>Samara Letícia - 221008445</b></sub></a><br />
+  </tr>
+</table>
+
+</div>
+
+
+
+## Jogo
+
+"Undertale" é um RPG indie com uma história envolvente sobre um personagem humano que cai em um mundo subterrâneo habitado por monstros. O jogo se destaca por suas mecânicas de combate únicas, onde você pode escolher entre lutar ou resolver conflitos de maneira pacífica. Suas escolhas ao longo do jogo têm consequências significativas na narrativa e nos personagens, levando a múltiplos finais diferentes. Com gráficos pixelizados charmosos e uma trilha sonora marcante, "Undertale" é conhecido por sua originalidade e capacidade de cativar os jogadores com sua história e personagens cativantes.
+### Como o jogo funciona?
+
+Em andamento 🛠.
+
+**No vídeo abaixo é possível identificar de forma visual:**
+
+<div align="center">
+<a href="https://youtu.be/xArt5AvMzd4?si=NVoOL_LMn0U_Ncqf"><img src="https://img.odcdn.com.br/wp-content/uploads/2021/03/Undertale03.jpg" width="50%"></a>
+</div>
+
+### Como jogar?
+
+Em andamento 🛠.
+
+## Como jogar?
+
+Em andamento 🛠.
+
+## Apresentações
+
+| Módulo | Link da gravação                                                                                    | Data       |
+| ------ | --------------------------------------------------------------------------------------------------- | ---------- |
+| 1      | [Apresentação Módulo 1]()                                  | Em andamento 🛠. |
+| 2      | [Apresentação Módulo 2](./docs/apresentacoes/apresentacao_m02.mp4)                                  | Em andamento 🛠. |
+| 3      | [Apresentação Módulo 3](./docs/apresentacoes/apresentacao_m03%20-%20Edilberto%20e%20Zenilda.mp4)    | Em andamento 🛠. |
+| Final  | [Apresentação Final](./docs/apresentacoes/apresentacao_final_zenilda_matheus.mp4) | Em andamento 🛠. |
+
+## Entregas
+
+- Módulo 1
+
+  - [Diagrama Entidade-Relacionamento]()
+  - [Dicionário de Dados]()
+  - [Modelo Entidade-Relacionamento]()
+  - [Modelo Relacional]()
+
+- Módulo 2
+
+  - [Normalização]()
+  - [DDL]()
+  - [DML]()
+  - [DQL]()
+  - [Álgebra Relacional]()
+
+- Módulo 3
+
+  - [Dinâmica do Jogo]()
+  - [Histórias de usuários adaptado]()
+  - [Stored Procedures, Triggers e Views]()
+
+- Módulo Final
+  - Jogo MUD
+
+### Histórico de versões
+
+| Versão |    Data    | Descrição                                      | Autor                                               | Revisão                                                      |
+| :----: | :--------: | ---------------------------------------------- | --------------------------------------------------- | ------------------------------------------------------------ |
+| `1.0`  | 08/04/2024 | Estruturação do README do projeto              | [Bianca Castro](https://github.com/BiancaPatrocinio7) |                                                              |
