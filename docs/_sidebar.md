@@ -1,4 +1,0 @@
-- [**Home**](./)
-- [**Módulo 1**](modulo1.md)
-- [**Módulo 2**](modulo2.md)
-- [**Módulo 3**](modulo3.md)

@@ -1,0 +1,33 @@
+repo_url: https://github.com/SBD1/2024.1-Undertale
+repo_name: 2024.1-Undertale
+site_url: https://github.com/SBD1/2024.1-Undertale
+
+site_name: Undertale
+nav:
+    - Início: "index.md"
+    - Apresentações: 
+        - Apresentação 1: "apresentacao/modulo1.md"
+    - Modulos:
+        - Módulo 1: "modulos/DER.md"
+      
+    
+theme:
+  name: material
+  logo: images/logo.png
+  features:
+    - navigation.tabs
+  palette: 
+
+    # Palette toggle for light mode
+    - scheme: default
+      primary: orange
+      toggle:
+        icon: material/eye
+        name: Mudar para o modo escuro
+
+    # Palette toggle for dark mode
+    - scheme: slate
+      primary: brown
+      toggle:
+        icon: material/eye-outline
+        name: Mudar para o modo claro
