@@ -4,7 +4,6 @@
 
 Repositório para desenvolvimento de um MUD inspirado em Undertale da disciplina de SBD1 - 2024.1
 
-O Meu INSS é uma ferramenta digital projetada para simplificar o acesso dos usuários aos serviços oferecidos pelo INSS, permitindo consultas de benefícios, extratos previdenciários, agendamento de atendimentos, simulações de aposentadoria, atualização de dados cadastrais e requerimento de benefícios, entre outras funcionalidades. O aplicativo atua como uma central de informações e interações entre os cidadãos e o sistema previdenciário nacional, contribuindo para uma experiência mais ágil, transparente e eficiente na gestão da vida previdenciária.
 
 ## Jogo
 
