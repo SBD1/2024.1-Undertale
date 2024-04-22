@@ -7,10 +7,12 @@ nav:
     - Início: "index.md"
     - Apresentações: 
         - Apresentação 1: "apresentacao/modulo1.md"
-    - Modulos:
-        - Módulo 1: "modulos/DER.md"
-      
-    
+    - Modelagem:
+        - Diagrama Entidade Relacionamento: "modulo1/DER.md"
+        - Modelo Entidade Relacionamento: "modulo1/MER.md"
+        - Dicionário de Dados: "modulo1/DD.md"
+        - Modelo Relacional: "modulo1/MR.md"
+        
 theme:
   name: material
   logo: images/logo.png
