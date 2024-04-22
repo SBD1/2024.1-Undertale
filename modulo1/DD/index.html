@@ -1,0 +1,1747 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://github.com/SBD1/2024.1-Undertale/modulo1/DD/">
+      
+      
+        <link rel="prev" href="../MER/">
+      
+      
+        <link rel="next" href="../MR/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.15">
+    
+    
+      
+        <title>Dicionário de Dados - Undertale</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.7e359304.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="orange" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#dd-dicionario-de-dados" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Undertale" class="md-header__button md-logo" aria-label="Undertale" data-md-component="logo">
+      
+  <img src="../../images/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Undertale
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Dicionário de Dados
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="orange" data-md-color-accent="indigo"  aria-label="Mudar para o modo escuro"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Mudar para o modo escuro" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0 8a5 5 0 0 1-5-5 5 5 0 0 1 5-5 5 5 0 0 1 5 5 5 5 0 0 1-5 5m0-12.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="brown" data-md-color-accent="indigo"  aria-label="Mudar para o modo claro"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Mudar para o modo claro" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 9a3 3 0 0 1 3 3 3 3 0 0 1-3 3 3 3 0 0 1-3-3 3 3 0 0 1 3-3m0-4.5c5 0 9.27 3.11 11 7.5-1.73 4.39-6 7.5-11 7.5S2.73 16.39 1 12c1.73-4.39 6-7.5 11-7.5M3.18 12a9.821 9.821 0 0 0 17.64 0 9.821 9.821 0 0 0-17.64 0Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/SBD1/2024.1-Undertale" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    2024.1-Undertale
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+    
+  
+  Início
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../apresentacao/modulo1/" class="md-tabs__link">
+          
+  
+  Apresentações
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../DER/" class="md-tabs__link">
+          
+  
+  Modelagem
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Undertale" class="md-nav__button md-logo" aria-label="Undertale" data-md-component="logo">
+      
+  <img src="../../images/logo.png" alt="logo">
+
+    </a>
+    Undertale
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/SBD1/2024.1-Undertale" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    2024.1-Undertale
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Início
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Apresentações
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Apresentações
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../apresentacao/modulo1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Apresentação 1
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Modelagem
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Modelagem
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../DER/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Diagrama Entidade Relacionamento
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../MER/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Modelo Entidade Relacionamento
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Dicionário de Dados
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Dicionário de Dados
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#entidade-jogador" class="md-nav__link">
+    <span class="md-ellipsis">
+      Entidade: Jogador
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#entidade-missao" class="md-nav__link">
+    <span class="md-ellipsis">
+      Entidade: Missão
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#entidade-inventario" class="md-nav__link">
+    <span class="md-ellipsis">
+      Entidade: Inventário
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#entidade-dialogo" class="md-nav__link">
+    <span class="md-ellipsis">
+      Entidade: Diálogo
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#entidade-npc" class="md-nav__link">
+    <span class="md-ellipsis">
+      Entidade: NPC
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#entidade-mercador" class="md-nav__link">
+    <span class="md-ellipsis">
+      Entidade: Mercador
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#entidade-aliado" class="md-nav__link">
+    <span class="md-ellipsis">
+      Entidade: Aliado
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#entidade-monstro" class="md-nav__link">
+    <span class="md-ellipsis">
+      Entidade: Monstro
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#entidade-item" class="md-nav__link">
+    <span class="md-ellipsis">
+      Entidade: Item
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#entidade-armadura" class="md-nav__link">
+    <span class="md-ellipsis">
+      Entidade: Armadura
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#entidade-consumivel" class="md-nav__link">
+    <span class="md-ellipsis">
+      Entidade: Consumível
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#entidade-chave" class="md-nav__link">
+    <span class="md-ellipsis">
+      Entidade: Chave
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#entidade-cenario" class="md-nav__link">
+    <span class="md-ellipsis">
+      Entidade: Cenário
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#entidade-afinidade" class="md-nav__link">
+    <span class="md-ellipsis">
+      Entidade: Afinidade
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#historico-de-versao" class="md-nav__link">
+    <span class="md-ellipsis">
+      Histórico de Versão
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../MR/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Modelo Relacional
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#entidade-jogador" class="md-nav__link">
+    <span class="md-ellipsis">
+      Entidade: Jogador
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#entidade-missao" class="md-nav__link">
+    <span class="md-ellipsis">
+      Entidade: Missão
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#entidade-inventario" class="md-nav__link">
+    <span class="md-ellipsis">
+      Entidade: Inventário
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#entidade-dialogo" class="md-nav__link">
+    <span class="md-ellipsis">
+      Entidade: Diálogo
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#entidade-npc" class="md-nav__link">
+    <span class="md-ellipsis">
+      Entidade: NPC
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#entidade-mercador" class="md-nav__link">
+    <span class="md-ellipsis">
+      Entidade: Mercador
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#entidade-aliado" class="md-nav__link">
+    <span class="md-ellipsis">
+      Entidade: Aliado
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#entidade-monstro" class="md-nav__link">
+    <span class="md-ellipsis">
+      Entidade: Monstro
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#entidade-item" class="md-nav__link">
+    <span class="md-ellipsis">
+      Entidade: Item
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#entidade-armadura" class="md-nav__link">
+    <span class="md-ellipsis">
+      Entidade: Armadura
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#entidade-consumivel" class="md-nav__link">
+    <span class="md-ellipsis">
+      Entidade: Consumível
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#entidade-chave" class="md-nav__link">
+    <span class="md-ellipsis">
+      Entidade: Chave
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#entidade-cenario" class="md-nav__link">
+    <span class="md-ellipsis">
+      Entidade: Cenário
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#entidade-afinidade" class="md-nav__link">
+    <span class="md-ellipsis">
+      Entidade: Afinidade
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#historico-de-versao" class="md-nav__link">
+    <span class="md-ellipsis">
+      Histórico de Versão
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<h1 id="dd-dicionario-de-dados">DD - Dicionário de Dados</h1>
+<hr />
+<p>Um dicionário de dados é um recurso essencial na área da ciência de dados e da informática. Ele funciona como um catálogo ou compilação de informações sobre os dados utilizados em um sistema, banco de dados, projeto de pesquisa ou qualquer contexto em que a manipulação e interpretação de dados sejam necessárias.</p>
+<blockquote>
+<p>O dicionário de dados contém uma série de elementos que descrevem de forma detalhada e organizada os dados utilizados, como:<br></p>
+<p><strong>Nomes das variáveis</strong>: São os identificadores dados a cada conjunto de dados específico. Por exemplo, em uma tabela de vendas, poderíamos ter variáveis como "ID do cliente", "Data da compra", "Valor total", etc.<br>
+<strong>Descrições das variáveis</strong>: Oferecem uma explicação sobre o significado e o propósito de cada variável. Por exemplo, para a variável "Valor total" na tabela de vendas, a descrição poderia indicar que se refere ao montante financeiro total de cada transação.<br>
+<strong>Tipos de dados</strong>: Indicam o tipo de informação que cada variável contém, como texto, número inteiro, número decimal, data, etc.<br>
+<strong>Valores permitidos</strong>: Especificam os valores possíveis que cada variável pode assumir. Por exemplo, uma variável tipo inteiro de 1 a 10.<br>
+<strong>Permite valores nulos?</strong>: Indica se a variável pode ter valores nulos ou vazios.<br>
+<strong>É chave?</strong>: Informa se a variável é uma chave primária ou estrangeira em um banco de dados relacional, ou se desempenha um papel crucial na estruturação e organização dos dados.<br></p>
+</blockquote>
+<h2 id="entidade-jogador">Entidade: Jogador</h2>
+<p><strong>Descrição</strong>: A entidade Jogador descreve as informações ligadas ao personável jogável, como: seu número de identificação, o local onde está, a região onde está, a estação atual do seu jogo, a missão que está fazendo, seu nome, seu nível de saúde e energia, o dia em que está e a quantidade de ouro que tem.</p>
+<p><strong>Observação</strong>: Essa tabela possui chaves estrangeiras das entidades <code>Cenário</code>, <code>Iventário</code>,<code>Item</code>, <code>Diálogo</code> e <code>Missão</code>.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">Nome Variável</th>
+<th style="text-align: center;">Tipo</th>
+<th style="text-align: center;">Descrição</th>
+<th style="text-align: center;">Valores permitidos</th>
+<th style="text-align: center;">Permite valores nulos?</th>
+<th style="text-align: center;">É chave?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">id-jogador</td>
+<td style="text-align: center;">int</td>
+<td style="text-align: center;">Código de identificação do jogador</td>
+<td style="text-align: center;">1-5000</td>
+<td style="text-align: center;">não</td>
+<td style="text-align: center;">PK</td>
+</tr>
+<tr>
+<td style="text-align: center;">nome</td>
+<td style="text-align: center;">varchar[50]</td>
+<td style="text-align: center;">Nome do jogador</td>
+<td style="text-align: center;">a-z, A-Z</td>
+<td style="text-align: center;">não</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td style="text-align: center;">item-equipado</td>
+<td style="text-align: center;">int</td>
+<td style="text-align: center;">Itdentificador do equipado</td>
+<td style="text-align: center;">1-5000</td>
+<td style="text-align: center;">sim</td>
+<td style="text-align: center;">FK</td>
+</tr>
+<tr>
+<td style="text-align: center;">inventario-jogador</td>
+<td style="text-align: center;">int</td>
+<td style="text-align: center;">Itdentificador do inventário</td>
+<td style="text-align: center;">1-5000</td>
+<td style="text-align: center;">não</td>
+<td style="text-align: center;">FK</td>
+</tr>
+<tr>
+<td style="text-align: center;">dialogo-jogador</td>
+<td style="text-align: center;">int</td>
+<td style="text-align: center;">Identificador do diálogo</td>
+<td style="text-align: center;">1-5000</td>
+<td style="text-align: center;">sim</td>
+<td style="text-align: center;">FK</td>
+</tr>
+<tr>
+<td style="text-align: center;">cenario-atual</td>
+<td style="text-align: center;">int</td>
+<td style="text-align: center;">Identificador do cenario-atual</td>
+<td style="text-align: center;">1-5000</td>
+<td style="text-align: center;">não</td>
+<td style="text-align: center;">FK</td>
+</tr>
+<tr>
+<td style="text-align: center;">missao-atual</td>
+<td style="text-align: center;">int</td>
+<td style="text-align: center;">Identificador da missao-atual</td>
+<td style="text-align: center;">1-5000</td>
+<td style="text-align: center;">sim</td>
+<td style="text-align: center;">FK</td>
+</tr>
+<tr>
+<td style="text-align: center;">afinidade</td>
+<td style="text-align: center;">int</td>
+<td style="text-align: center;">Identificador da afinidade</td>
+<td style="text-align: center;">1-5000</td>
+<td style="text-align: center;">sim</td>
+<td style="text-align: center;">FK</td>
+</tr>
+<tr>
+<td style="text-align: center;">nivel</td>
+<td style="text-align: center;">int</td>
+<td style="text-align: center;">Nível do jogador</td>
+<td style="text-align: center;">1-100</td>
+<td style="text-align: center;">não</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td style="text-align: center;">qtd-xp</td>
+<td style="text-align: center;">int</td>
+<td style="text-align: center;">Quantidade de experiência do jogador</td>
+<td style="text-align: center;">1-100</td>
+<td style="text-align: center;">não</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td style="text-align: center;">vida-maxima</td>
+<td style="text-align: center;">int</td>
+<td style="text-align: center;">Limite de vida do jogador</td>
+<td style="text-align: center;">1-100</td>
+<td style="text-align: center;">não</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td style="text-align: center;">vida-atual</td>
+<td style="text-align: center;">int</td>
+<td style="text-align: center;">Quantidade de vida atual do jogador</td>
+<td style="text-align: center;">1-100</td>
+<td style="text-align: center;">não</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td style="text-align: center;">qtd-gold</td>
+<td style="text-align: center;">int</td>
+<td style="text-align: center;">Quantidade de ouro do jogador</td>
+<td style="text-align: center;">min. 0</td>
+<td style="text-align: center;">sim</td>
+<td style="text-align: center;"></td>
+</tr>
+</tbody>
+</table>
+<h2 id="entidade-missao">Entidade: Missão</h2>
+<p><strong>Descrição</strong>: A entidade Missão relaciona o número de identificação da missão, seu nome e sua descrição.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">Nome Variável</th>
+<th style="text-align: center;">Tipo</th>
+<th style="text-align: center;">Descrição</th>
+<th style="text-align: center;">Valores permitidos</th>
+<th style="text-align: center;">Permite valores nulos?</th>
+<th style="text-align: center;">É chave?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">id-missao</td>
+<td style="text-align: center;">int</td>
+<td style="text-align: center;">Código de identificação da missão</td>
+<td style="text-align: center;">1-5000</td>
+<td style="text-align: center;">não</td>
+<td style="text-align: center;">PK</td>
+</tr>
+<tr>
+<td style="text-align: center;">nome</td>
+<td style="text-align: center;">varchar[50]</td>
+<td style="text-align: center;">Nome da missão</td>
+<td style="text-align: center;">a-z, A-Z</td>
+<td style="text-align: center;">não</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td style="text-align: center;">descricao-missao</td>
+<td style="text-align: center;">varchar[150]</td>
+<td style="text-align: center;">Descrição da missão</td>
+<td style="text-align: center;">a-z, A-Z</td>
+<td style="text-align: center;">sim</td>
+<td style="text-align: center;"></td>
+</tr>
+</tbody>
+</table>
+<h2 id="entidade-inventario">Entidade: Inventário</h2>
+<p><strong>Descrição</strong>: A entidade Inventário relaciona o número de identificação do inventário, os seus itens e a quantidade de itens disponíveis no inventário.</p>
+<p><strong>Observação</strong>: Essa tabela possui chave estrangeira da entidade <code>Item</code>.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">Nome Variável</th>
+<th style="text-align: center;">Tipo</th>
+<th style="text-align: center;">Descrição</th>
+<th style="text-align: center;">Valores permitidos</th>
+<th style="text-align: center;">Permite valores nulos?</th>
+<th style="text-align: center;">É chave?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">id-inventario</td>
+<td style="text-align: center;">int</td>
+<td style="text-align: center;">Identificador do inventário</td>
+<td style="text-align: center;">1-5000</td>
+<td style="text-align: center;">não</td>
+<td style="text-align: center;">PK</td>
+</tr>
+<tr>
+<td style="text-align: center;">id-item</td>
+<td style="text-align: center;">int</td>
+<td style="text-align: center;">Identificador do item</td>
+<td style="text-align: center;">1-5000</td>
+<td style="text-align: center;">não</td>
+<td style="text-align: center;">FK</td>
+</tr>
+<tr>
+<td style="text-align: center;">qtd-item</td>
+<td style="text-align: center;">int</td>
+<td style="text-align: center;">Quantidade do item</td>
+<td style="text-align: center;">1-5000</td>
+<td style="text-align: center;">não</td>
+<td style="text-align: center;"></td>
+</tr>
+</tbody>
+</table>
+<h2 id="entidade-dialogo">Entidade: Diálogo</h2>
+<p><strong>Descrição</strong>: A entidade Diálogo relaciona o número de identificação do diálogo e o texto do diálogo.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">Nome Variável</th>
+<th style="text-align: center;">Tipo</th>
+<th style="text-align: center;">Descrição</th>
+<th style="text-align: center;">Valores permitidos</th>
+<th style="text-align: center;">Permite valores nulos?</th>
+<th style="text-align: center;">É chave?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">id-dialogo</td>
+<td style="text-align: center;">int</td>
+<td style="text-align: center;">Identificador do diálogo</td>
+<td style="text-align: center;">1-5000</td>
+<td style="text-align: center;">não</td>
+<td style="text-align: center;">PK</td>
+</tr>
+<tr>
+<td style="text-align: center;">texto-dialogo</td>
+<td style="text-align: center;">varchar[255]</td>
+<td style="text-align: center;">Texto do diálogo</td>
+<td style="text-align: center;">a-z, A-Z</td>
+<td style="text-align: center;">não</td>
+<td style="text-align: center;"></td>
+</tr>
+</tbody>
+</table>
+<h2 id="entidade-npc">Entidade: NPC</h2>
+<p><strong>Descrição</strong>: A entidade NPC guarda as informações relacionada aos personagens não-jogáveis, tais como: seu número de identificação, o cenário em que está, seu nome e seus diálogos.</p>
+<p><strong>Observação</strong>: Essa tabela possui chaves estrangeiras das entidades <code>Cenário</code> e <code>Diálogo</code>.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">Nome Variável</th>
+<th style="text-align: center;">Tipo</th>
+<th style="text-align: center;">Descrição</th>
+<th style="text-align: center;">Valores permitidos</th>
+<th style="text-align: center;">Permite valores nulos?</th>
+<th style="text-align: center;">É chave?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">id-npc</td>
+<td style="text-align: center;">int</td>
+<td style="text-align: center;">Código de identificação do npc</td>
+<td style="text-align: center;">1-5000</td>
+<td style="text-align: center;">não</td>
+<td style="text-align: center;">PK</td>
+</tr>
+<tr>
+<td style="text-align: center;">id-cenario</td>
+<td style="text-align: center;">int</td>
+<td style="text-align: center;">Identificador do cenário onde o NPC está</td>
+<td style="text-align: center;">1-5000</td>
+<td style="text-align: center;">não</td>
+<td style="text-align: center;">FK</td>
+</tr>
+<tr>
+<td style="text-align: center;">nome</td>
+<td style="text-align: center;">varchar[50]</td>
+<td style="text-align: center;">Nome do npc</td>
+<td style="text-align: center;">a-z, A-Z</td>
+<td style="text-align: center;">não</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td style="text-align: center;">dialogo-npc</td>
+<td style="text-align: center;">varchar[255]</td>
+<td style="text-align: center;">Diálogo do npc</td>
+<td style="text-align: center;">a-z, A-Z</td>
+<td style="text-align: center;">não</td>
+<td style="text-align: center;">FK</td>
+</tr>
+</tbody>
+</table>
+<h2 id="entidade-mercador">Entidade: Mercador</h2>
+<p><strong>Descrição</strong>: A entidade Mercador guarda as informações relacionada aos personagens não-jogáveis responsáveis por negociar itens com o jogador, tais como: seu número de identificação, o cenário em que está, seu nome, seus diálogos e o seu inventário.</p>
+<p><strong>Observação</strong>: Essa tabela possui chaves estrangeiras das entidades <code>NPC</code>, <code>Cenário</code>, <code>Diálogo</code> e <code>Inventário</code>.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">Nome Variável</th>
+<th style="text-align: center;">Tipo</th>
+<th style="text-align: center;">Descrição</th>
+<th style="text-align: center;">Valores permitidos</th>
+<th style="text-align: center;">Permite valores nulos?</th>
+<th style="text-align: center;">É chave?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">id-mercador</td>
+<td style="text-align: center;">int</td>
+<td style="text-align: center;">Código de identificação do mercador</td>
+<td style="text-align: center;">1-5000</td>
+<td style="text-align: center;">não</td>
+<td style="text-align: center;">FK</td>
+</tr>
+<tr>
+<td style="text-align: center;">id-cenario</td>
+<td style="text-align: center;">int</td>
+<td style="text-align: center;">Identificador do cenário onde o mercador está</td>
+<td style="text-align: center;">1-5000</td>
+<td style="text-align: center;">não</td>
+<td style="text-align: center;">FK</td>
+</tr>
+<tr>
+<td style="text-align: center;">nome</td>
+<td style="text-align: center;">varchar[50]</td>
+<td style="text-align: center;">Nome do mercador</td>
+<td style="text-align: center;">a-z, A-Z</td>
+<td style="text-align: center;">não</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td style="text-align: center;">dialogo-npc</td>
+<td style="text-align: center;">varchar[255]</td>
+<td style="text-align: center;">Diálogo do mercador</td>
+<td style="text-align: center;">a-z, A-Z</td>
+<td style="text-align: center;">não</td>
+<td style="text-align: center;">FK</td>
+</tr>
+<tr>
+<td style="text-align: center;">inventario-mercador</td>
+<td style="text-align: center;">int</td>
+<td style="text-align: center;">Código de identificação do inventário do mercador</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">não</td>
+<td style="text-align: center;">FK</td>
+</tr>
+</tbody>
+</table>
+<h2 id="entidade-aliado">Entidade: Aliado</h2>
+<p><strong>Descrição</strong>: A entidade Aliado guarda as informações relacionada aos personagens não-jogáveis que auxiliam o jogador, tais como: seu número de identificação, o cenário em que está, seu nome, seus diálogos e os itens que o jogador recebe como recompensa.</p>
+<p><strong>Observação</strong>: Essa tabela possui chaves estrangeiras das entidades <code>NPC</code>, <code>Cenário</code>, <code>Diálogo</code> e <code>Item</code>.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">Nome Variável</th>
+<th style="text-align: center;">Tipo</th>
+<th style="text-align: center;">Descrição</th>
+<th style="text-align: center;">Valores permitidos</th>
+<th style="text-align: center;">Permite valores nulos?</th>
+<th style="text-align: center;">É chave?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">id-aliado</td>
+<td style="text-align: center;">int</td>
+<td style="text-align: center;">Código de identificação do aliado</td>
+<td style="text-align: center;">1-5000</td>
+<td style="text-align: center;">não</td>
+<td style="text-align: center;">FK</td>
+</tr>
+<tr>
+<td style="text-align: center;">id-cenario</td>
+<td style="text-align: center;">int</td>
+<td style="text-align: center;">Identificador do cenário onde o aliado está</td>
+<td style="text-align: center;">1-5000</td>
+<td style="text-align: center;">não</td>
+<td style="text-align: center;">FK</td>
+</tr>
+<tr>
+<td style="text-align: center;">nome</td>
+<td style="text-align: center;">varchar[50]</td>
+<td style="text-align: center;">Nome do aliado</td>
+<td style="text-align: center;">a-z, A-Z</td>
+<td style="text-align: center;">não</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td style="text-align: center;">dialogo-npc</td>
+<td style="text-align: center;">varchar[255]</td>
+<td style="text-align: center;">Diálogo do aliado</td>
+<td style="text-align: center;">a-z, A-Z</td>
+<td style="text-align: center;">não</td>
+<td style="text-align: center;">FK</td>
+</tr>
+<tr>
+<td style="text-align: center;">recompensa-item</td>
+<td style="text-align: center;">int</td>
+<td style="text-align: center;">Código de identificação do item de recompensa</td>
+<td style="text-align: center;">1-5000</td>
+<td style="text-align: center;">não</td>
+<td style="text-align: center;">FK</td>
+</tr>
+</tbody>
+</table>
+<h2 id="entidade-monstro">Entidade: Monstro</h2>
+<p><strong>Descrição</strong>: A entidade Monstro guarda as informações relacionada aos personagens não-jogáveis que batalham com o jogador, tais como: seu número de identificação, o cenário em que está, seu nome, seus diálogos, dano de ataque, quantidade de gold e a quantidade de xp.</p>
+<p><strong>Observação</strong>: Essa tabela possui chaves estrangeiras das entidades <code>NPC</code>, <code>Cenário</code> e <code>Diálogo</code>.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">Nome Variável</th>
+<th style="text-align: center;">Tipo</th>
+<th style="text-align: center;">Descrição</th>
+<th style="text-align: center;">Valores permitidos</th>
+<th style="text-align: center;">Permite valores nulos?</th>
+<th style="text-align: center;">É chave?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">id-monstro</td>
+<td style="text-align: center;">int</td>
+<td style="text-align: center;">Código de identificação do monstro</td>
+<td style="text-align: center;">1-5000</td>
+<td style="text-align: center;">não</td>
+<td style="text-align: center;">FK</td>
+</tr>
+<tr>
+<td style="text-align: center;">id-cenario</td>
+<td style="text-align: center;">int</td>
+<td style="text-align: center;">Identificador do cenário onde o monstro está</td>
+<td style="text-align: center;">1-5000</td>
+<td style="text-align: center;">não</td>
+<td style="text-align: center;">FK</td>
+</tr>
+<tr>
+<td style="text-align: center;">nome</td>
+<td style="text-align: center;">varchar[50]</td>
+<td style="text-align: center;">Nome do monstro</td>
+<td style="text-align: center;">a-z, A-Z</td>
+<td style="text-align: center;">não</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td style="text-align: center;">dialogo-npc</td>
+<td style="text-align: center;">varchar[255]</td>
+<td style="text-align: center;">Diálogo do monstro</td>
+<td style="text-align: center;">a-z, A-Z</td>
+<td style="text-align: center;">não</td>
+<td style="text-align: center;">FK</td>
+</tr>
+<tr>
+<td style="text-align: center;">dano-ataque</td>
+<td style="text-align: center;">int</td>
+<td style="text-align: center;">Quantidade de dano do monstro</td>
+<td style="text-align: center;">1-25</td>
+<td style="text-align: center;">não</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td style="text-align: center;">recompensa-gold</td>
+<td style="text-align: center;">int</td>
+<td style="text-align: center;">Quantidade de ouro do monstro</td>
+<td style="text-align: center;">1-100</td>
+<td style="text-align: center;">não</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td style="text-align: center;">recompensa-xp</td>
+<td style="text-align: center;">int</td>
+<td style="text-align: center;">Quantidade de xp do monstro</td>
+<td style="text-align: center;">1-100</td>
+<td style="text-align: center;">não</td>
+<td style="text-align: center;"></td>
+</tr>
+</tbody>
+</table>
+<h2 id="entidade-item">Entidade: Item</h2>
+<p><strong>Descrição</strong>: A entidade Item armazena as informações de identificação do item, nome, descrição e valor.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">Nome Variável</th>
+<th style="text-align: center;">Tipo</th>
+<th style="text-align: center;">Descrição</th>
+<th style="text-align: center;">Valores permitidos</th>
+<th style="text-align: center;">Permite valores nulos?</th>
+<th style="text-align: center;">É chave?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">id-item</td>
+<td style="text-align: center;">int</td>
+<td style="text-align: center;">Código de Identificação do item</td>
+<td style="text-align: center;">1-5000</td>
+<td style="text-align: center;">não</td>
+<td style="text-align: center;">PK</td>
+</tr>
+<tr>
+<td style="text-align: center;">nome</td>
+<td style="text-align: center;">varchar[50]</td>
+<td style="text-align: center;">Nome do item</td>
+<td style="text-align: center;">a-z, A-Z</td>
+<td style="text-align: center;">não</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td style="text-align: center;">descricao-item</td>
+<td style="text-align: center;">varchar[150]</td>
+<td style="text-align: center;">Descrição do item</td>
+<td style="text-align: center;">a-z, A-Z</td>
+<td style="text-align: center;">sim</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td style="text-align: center;">valor-item</td>
+<td style="text-align: center;">int</td>
+<td style="text-align: center;">Valor em gold do item</td>
+<td style="text-align: center;">1-100</td>
+<td style="text-align: center;">não</td>
+<td style="text-align: center;"></td>
+</tr>
+</tbody>
+</table>
+<h2 id="entidade-armadura">Entidade: Armadura</h2>
+<p><strong>Descrição</strong>: A entidade Armadura é um item que pode ser equipado pelo jogador e armazena as informações de identificação da armadura, nome, descrição, valor e defesa.</p>
+<p><strong>Observação</strong>: Essa tabela possui chave estrangeira da entidade <code>Item</code>.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">Nome Variável</th>
+<th style="text-align: center;">Tipo</th>
+<th style="text-align: center;">Descrição</th>
+<th style="text-align: center;">Valores permitidos</th>
+<th style="text-align: center;">Permite valores nulos?</th>
+<th style="text-align: center;">É chave?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">id-armadura</td>
+<td style="text-align: center;">int</td>
+<td style="text-align: center;">Código de Identificação da armadura</td>
+<td style="text-align: center;">1-5000</td>
+<td style="text-align: center;">não</td>
+<td style="text-align: center;">FK</td>
+</tr>
+<tr>
+<td style="text-align: center;">nome</td>
+<td style="text-align: center;">varchar[50]</td>
+<td style="text-align: center;">Nome da armadura</td>
+<td style="text-align: center;">a-z, A-Z</td>
+<td style="text-align: center;">não</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td style="text-align: center;">descricao-item</td>
+<td style="text-align: center;">varchar[150]</td>
+<td style="text-align: center;">Descrição da armadura</td>
+<td style="text-align: center;">a-z, A-Z</td>
+<td style="text-align: center;">sim</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td style="text-align: center;">valor-item</td>
+<td style="text-align: center;">int</td>
+<td style="text-align: center;">Valor em gold da armadura</td>
+<td style="text-align: center;">1-100</td>
+<td style="text-align: center;">não</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td style="text-align: center;">qtd-defesa</td>
+<td style="text-align: center;">int</td>
+<td style="text-align: center;">Quantidade de defesa da armadura</td>
+<td style="text-align: center;">1-20</td>
+<td style="text-align: center;">não</td>
+<td style="text-align: center;"></td>
+</tr>
+</tbody>
+</table>
+<h2 id="entidade-consumivel">Entidade: Consumível</h2>
+<p><strong>Descrição</strong>: A entidade Consumível é um item que pode ser consumido pelo jogador e armazena as informações de identificação do consumível, nome, descrição, valor e quantidade de cura.</p>
+<p><strong>Observação</strong>: Essa tabela possui chave estrangeira da entidade <code>Item</code>.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">Nome Variável</th>
+<th style="text-align: center;">Tipo</th>
+<th style="text-align: center;">Descrição</th>
+<th style="text-align: center;">Valores permitidos</th>
+<th style="text-align: center;">Permite valores nulos?</th>
+<th style="text-align: center;">É chave?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">id-consumivel</td>
+<td style="text-align: center;">int</td>
+<td style="text-align: center;">Código de Identificação do consumível</td>
+<td style="text-align: center;">1-5000</td>
+<td style="text-align: center;">não</td>
+<td style="text-align: center;">FK</td>
+</tr>
+<tr>
+<td style="text-align: center;">nome</td>
+<td style="text-align: center;">varchar[50]</td>
+<td style="text-align: center;">Nome do consumível</td>
+<td style="text-align: center;">a-z, A-Z</td>
+<td style="text-align: center;">não</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td style="text-align: center;">descricao-item</td>
+<td style="text-align: center;">varchar[150]</td>
+<td style="text-align: center;">Descrição do consumível</td>
+<td style="text-align: center;">a-z, A-Z</td>
+<td style="text-align: center;">sim</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td style="text-align: center;">valor-item</td>
+<td style="text-align: center;">int</td>
+<td style="text-align: center;">Valor em gold do consumível</td>
+<td style="text-align: center;">1-100</td>
+<td style="text-align: center;">não</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td style="text-align: center;">qtd-cura</td>
+<td style="text-align: center;">int</td>
+<td style="text-align: center;">Quantidade de pontos de vida recuperados</td>
+<td style="text-align: center;">1-25</td>
+<td style="text-align: center;">não</td>
+<td style="text-align: center;"></td>
+</tr>
+</tbody>
+</table>
+<h2 id="entidade-chave">Entidade: Chave</h2>
+<p><strong>Descrição</strong>: A entidade Chave é um item que pode ser usado pelo jogador para acessar outros cenários e armazena as informações de identificação da chave, nome, descrição, valor e cenário de destino.</p>
+<p><strong>Observação</strong>: Essa tabela possui chaves estrangeiras das entidades <code>Item</code> e <code>Cenário</code>.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">Nome Variável</th>
+<th style="text-align: center;">Tipo</th>
+<th style="text-align: center;">Descrição</th>
+<th style="text-align: center;">Valores permitidos</th>
+<th style="text-align: center;">Permite valores nulos?</th>
+<th style="text-align: center;">É chave?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">id-chave</td>
+<td style="text-align: center;">int</td>
+<td style="text-align: center;">Código de Identificação da chave</td>
+<td style="text-align: center;">1-5000</td>
+<td style="text-align: center;">não</td>
+<td style="text-align: center;">FK</td>
+</tr>
+<tr>
+<td style="text-align: center;">nome</td>
+<td style="text-align: center;">varchar[50]</td>
+<td style="text-align: center;">Nome da chave</td>
+<td style="text-align: center;">a-z, A-Z</td>
+<td style="text-align: center;">não</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td style="text-align: center;">descricao-item</td>
+<td style="text-align: center;">varchar[150]</td>
+<td style="text-align: center;">Descrição da chave</td>
+<td style="text-align: center;">a-z, A-Z</td>
+<td style="text-align: center;">sim</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td style="text-align: center;">valor-item</td>
+<td style="text-align: center;">int</td>
+<td style="text-align: center;">Valor em gold da chave</td>
+<td style="text-align: center;">1-100</td>
+<td style="text-align: center;">não</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td style="text-align: center;">cenario-destino</td>
+<td style="text-align: center;">int</td>
+<td style="text-align: center;">Código de Identificação do cenário de destino</td>
+<td style="text-align: center;">1-5000</td>
+<td style="text-align: center;">não</td>
+<td style="text-align: center;">FK</td>
+</tr>
+</tbody>
+</table>
+<h2 id="entidade-cenario">Entidade: Cenário</h2>
+<p><strong>Descrição</strong>: Descreve os cenários disponíveis no jogo, o identificador do cenário, seu nome, tipo e a descrição do cenário.</p>
+<p><strong>Observação</strong>: A entidade Cenário relaciona o número de identificação do Cenário, a descição, nome e o tipo  do Cenário.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">Nome Variável</th>
+<th style="text-align: center;">Tipo</th>
+<th style="text-align: center;">Descrição</th>
+<th style="text-align: center;">Valores permitidos</th>
+<th style="text-align: center;">Permite valores nulos?</th>
+<th style="text-align: center;">É chave?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">id-cenario</td>
+<td style="text-align: center;">int</td>
+<td style="text-align: center;">Identificador do cenário</td>
+<td style="text-align: center;">1-5000</td>
+<td style="text-align: center;">não</td>
+<td style="text-align: center;">PK</td>
+</tr>
+<tr>
+<td style="text-align: center;">nome</td>
+<td style="text-align: center;">varchar[50]</td>
+<td style="text-align: center;">Nome do cenário</td>
+<td style="text-align: center;">a-z, A-Z</td>
+<td style="text-align: center;">não</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td style="text-align: center;">tipo</td>
+<td style="text-align: center;">int</td>
+<td style="text-align: center;">Tipo de cenário</td>
+<td style="text-align: center;">1-5000</td>
+<td style="text-align: center;">não</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td style="text-align: center;">descricao-cenario</td>
+<td style="text-align: center;">varchar[150]</td>
+<td style="text-align: center;">Descrição do cenário</td>
+<td style="text-align: center;">a-z, A-Z</td>
+<td style="text-align: center;">sim</td>
+<td style="text-align: center;"></td>
+</tr>
+</tbody>
+</table>
+<h2 id="entidade-afinidade">Entidade: Afinidade</h2>
+<p><strong>Descrição</strong>: A entidade Afinidade representa o grau de afinidade do jogador com um personagem não-jogável e armazena as informações de identificação da relação, quatidade atual de afinidade e quantidade máxima de afinidade.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">Nome Variável</th>
+<th style="text-align: center;">Tipo</th>
+<th style="text-align: center;">Descrição</th>
+<th style="text-align: center;">Valores permitidos</th>
+<th style="text-align: center;">Permite valores nulos?</th>
+<th style="text-align: center;">É chave?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">id-afinidade</td>
+<td style="text-align: center;">int</td>
+<td style="text-align: center;">Identificador da relação de afinidade</td>
+<td style="text-align: center;">1-5000</td>
+<td style="text-align: center;">não</td>
+<td style="text-align: center;">PK</td>
+</tr>
+<tr>
+<td style="text-align: center;">afinidade-atual</td>
+<td style="text-align: center;">int</td>
+<td style="text-align: center;">Quantidade atual de afinidade</td>
+<td style="text-align: center;">1-10</td>
+<td style="text-align: center;">não</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td style="text-align: center;">afinidade-maxima</td>
+<td style="text-align: center;">int</td>
+<td style="text-align: center;">Quantidade máxima de afinidade</td>
+<td style="text-align: center;">10</td>
+<td style="text-align: center;">não</td>
+<td style="text-align: center;"></td>
+</tr>
+</tbody>
+</table>
+<h2 id="historico-de-versao">Histórico de Versão</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">Versão</th>
+<th style="text-align: center;">Data</th>
+<th style="text-align: center;">Descrição</th>
+<th style="text-align: center;">Autor(es)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><code>1.0</code></td>
+<td style="text-align: center;">21/04/2024</td>
+<td style="text-align: center;">Primeira versão  do DD</td>
+<td style="text-align: center;"><a href="https://github.com/BiancaPatrocinio7">Bianca Castro</a> e <a href="ttps://github.com/DiegoCarlito">Diego Carlito</a></td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.bd41221c.min.js"></script>
+      
+    
+  </body>
+</html>
