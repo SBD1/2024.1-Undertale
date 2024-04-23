@@ -213,4 +213,4 @@ Um dicionário de dados é um recurso essencial na área da ciência de dados e 
 ## Histórico de Versão
 | Versão | Data | Descrição | Autor(es) |
 | :-: | :-: | :-: | :-: | 
-| `1.0`  | 21/04/2024 | Primeira versão  do DD    | [Bianca Castro](https://github.com/BiancaPatrocinio7) e [Diego Carlito](ttps://github.com/DiegoCarlito) |                                                              
+| `1.0`  | 21/04/2024 | Primeira versão  do DD    | [Bianca Castro](https://github.com/BiancaPatrocinio7) e [Diego Carlito](https://github.com/DiegoCarlito) |                                                              
