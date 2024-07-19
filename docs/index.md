@@ -10,6 +10,7 @@ Repositório para desenvolvimento de um MUD inspirado em Undertale da disciplina
 "Undertale" é um RPG indie com uma história envolvente sobre um personagem humano que cai em um mundo subterrâneo habitado por monstros. O jogo se destaca por suas mecânicas de combate únicas, onde você pode escolher entre lutar ou resolver conflitos de maneira pacífica. Suas escolhas ao longo do jogo têm consequências significativas na narrativa e nos personagens, levando a múltiplos finais diferentes. Com gráficos pixelizados charmosos e uma trilha sonora marcante, "Undertale" é conhecido por sua originalidade e capacidade de cativar os jogadores com sua história e personagens cativantes.
 
 ## Grupo
+<center>
 <table>
   <tr>
     <td align="center"><a href="https://github.com/BiancaPatrocinio7"><img style="border-radius: 50%;" src="https://github.com/BiancaPatrocinio7.png" width="190;" alt=""/><br /><sub><b>Bianca Castro - 221008801</b></sub></a><br /><a href="Link git" title="Rocketseat"></a></td>
@@ -17,7 +18,7 @@ Repositório para desenvolvimento de um MUD inspirado em Undertale da disciplina
         <td align="center"><a href="https://github.com/Marcosatc147"><img style="border-radius: 50%;" src="https://github.com/Marcosatc147.png" width="190px;" alt=""/><br /><sub><b>Marcos Castilhos - 221008300</b></sub></a><br />
   </tr>
 </table>
-
+</center>
 ## Histórico de Versão
 | Versão | Data | Descrição | Autor(es) | 
 | :-: | :-: | :-: | :-: |
