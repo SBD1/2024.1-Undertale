@@ -12,6 +12,7 @@ O Modelo Entidade Relacionamento de um bancos de dados é um modelo conceitual q
 - **Jogador**
 - **Missão**
 - **Inventário**
+- **Loja**
 - **Diálogo**
 - **NPC**
     - **Mercador**
@@ -26,12 +27,13 @@ O Modelo Entidade Relacionamento de um bancos de dados é um modelo conceitual q
 
 ## Atributos
 
-- **Jogador**: <ins>id-jogador</ins>, nome, item-equipado, nivel, qtd-xp, cenario-atual, vida-maxima, vida-atual, qtd-gold, dialogo-jogador, inventario-jogador, missao-atual, afinidade
+- **Jogador**: <ins>id-jogador</ins>, nome, item-equipado, nivel, qtd-xp, cenario-atual, vida-maxima, vida-atual, dialogo-jogador, inventario-jogador, missao-atual, afinidade
 - **Missão**: <ins>id-missao</ins>, nome, descricao-missao
-- **Inventário**: <ins>id-inventario</ins>, qtd-item, id-item
+- **Inventário**: <ins>id-inventario</ins>, qtd-item, id-item, qtd-gold
+- **Loja**: <ins>id-loja</ins>, id-item, qtd-item
 - **Diálogo**: <ins>id-dialogo</ins>, texto-dialogo
 - **NPC**: <ins>id-npc</ins>, nome, id-cenario, dialogo-npc
-     - **Mercador**: <ins>id-mercador</ins>, inventario-mercador
+     - **Mercador**: <ins>id-mercador</ins>, id-loja
      - **Aliado**: <ins>id-aliado</ins>, recompensa-item
      - **Monstro**: <ins>id-monstro</ins>, dano-ataque, recompensa-xp, recompensa-gold
 - **Item**: <ins>id-item</ins>, nome, descricao-item, valor-item

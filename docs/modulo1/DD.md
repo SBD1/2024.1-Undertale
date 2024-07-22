@@ -147,7 +147,7 @@ Um dicionário de dados é um recurso essencial na área da ciência de dados e 
 
 ---
 
-## Entidade: Monstro
+## Entidade: Monstro , 
 
 **Descrição**: A entidade Monstro guarda as informações relacionadas aos personagens não-jogáveis que o jogador deve enfrentar, incluindo número de identificação, cenário, nome e pontos de vida.
 
@@ -157,8 +157,8 @@ Um dicionário de dados é um recurso essencial na área da ciência de dados e 
 |--------------------|------------|-------------------------------------------|--------------------|------------------------|
 | id-monstro         | int        | Código de identificação do monstro         | 1-5000             | PK, FK                 |
 | id-npc             | int        | Identificador do NPC                      | 1-5000             | FK, Not Null           |
-| vida               | int        | Quantidade de vida do monstro             | 1-1000             | Not Null, Check (1-1000)|
-| item-derramado     | int        | Identificador do item que o monstro pode derramar | 1-5000     | FK                     |
+| recompensa-xp             | int        | Quantidade de vida do monstro             | 1-1000             | Not Null, Check (1-1000)|
+| recompensa-gold     | int        | Identificador do item que o monstro pode derramar | 1-5000     | FK                     |
 
 ---
 
