@@ -50,15 +50,22 @@ Um dicionário de dados é um recurso essencial na área da ciência de dados e 
 | nome              | varchar(50)| Nome do jogador                           | a-z, A-Z           | Not Null               |
 | item-equipado     | int        | Identificador do item equipado            | 1-5000             | FK                     |
 | inventario-jogador| int        | Identificador do inventário do jogador    | 1-5000             | FK, Not Null           |
-| dialogo-jogador   | int        | Identificador do diálogo do jogador        | 1-5000             | FK                     |
-| cenario-atual     | int        | Identificador do cenário atual             | 1-5000             | FK, Not Null           |
-| missao-atual      | int        | Identificador da missão atual              | 1-5000             | FK                     |
-| afinidade         | int        | Identificador da afinidade                 | 1-5000             | FK                     |
+| dialogo-jogador*   | int        | Identificador do diálogo do jogador        | 1-5000             | FK                     |
+| missao-atual*      | int        | Identificador da missão atual              | 1-5000             | FK                     |
 | nivel             | int        | Nível do jogador                           | 1-100              | Not Null, Check (1-100)|
 | qtd-xp            | int        | Quantidade de experiência do jogador       | 1-100              | Not Null, Check (1-100)|
 | vida-maxima       | int        | Limite de vida do jogador                  | 1-100              | Not Null, Check (1-100)|
 | vida-atual        | int        | Quantidade de vida atual do jogador        | 1-100              | Not Null, Check (1-100)|
-| qtd-gold          | int        | Quantidade de ouro do jogador              | Mínimo 0           | Check (>= 0)           |
+
+---
+
+## Relacionamento Jogador_está_em_Cenário
+
+**Descrição**: Relacionamento Jogador está em cenário, a cada vez que o jogador troca de cenário é atualizado o valor de cenário_atual, por isso o atributo se encontra no relacionamento e não na entidade jogador ou cenário.
+
+| Nome Variável     | Tipo       | Descrição                                 | Valores Permitidos | Restrições de Domínio |
+|-------------------|------------|-------------------------------------------|--------------------|------------------------|
+| cenario-atual     | int        | Identificador do cenário atual             | 1-5000             | FK, Not Null           |
 
 ---
 
@@ -91,16 +98,16 @@ Um dicionário de dados é um recurso essencial na área da ciência de dados e 
 
 ## Entidade: Inventário
 
-**Descrição**: A entidade Inventário relaciona o número de identificação do inventário, os itens e a quantidade de itens disponíveis no inventário.
+**Descrição**: A entidade Inventário relaciona o número de identificação do jogador, os itens e a quantidade de itens disponíveis no inventário.
 
-**Observação**: Esta tabela possui chave estrangeira da entidade `Item`.
+**Observação**: Esta tabela possui chave estrangeira da entidade `Item` e `Jogador`.
 
 | Nome Variável      | Tipo       | Descrição                                 | Valores Permitidos | Restrições de Domínio |
 |--------------------|------------|-------------------------------------------|--------------------|------------------------|
-| id-inventario      | int        | Identificador do inventário                | 1-5000             | PK                     |
+| id-jogador      | int        | Identificador do inventário                | 1-5000             | PK                     |
 | id-item            | int        | Identificador do item                     | 1-5000             | FK, Not Null           |
 | qtd-item           | int        | Quantidade do item                        | 1-5000             | Not Null, Check (>= 0) |
-| qtd-gold          | int        | Quantidade de dinheiro                       | 1-5000             | Not Null, Check (>= 0) |
+| qtd-gold          | int        | Quantidade de ouro do jogador              | Mínimo 0           | Check (>= 0)           |
 
 ---
 
@@ -115,6 +122,15 @@ Um dicionário de dados é um recurso essencial na área da ciência de dados e 
 
 ---
 
+## Relacionamento Jogador_possui_Afinidade
+
+**Descrição**: Relacionamento Jogador possui afinidade, a cada vez que o jogador adquire mais afinidade é atualizado o valor de qtd_afinidade, por isso o atributo se encontra no relacionamento e não na entidade diálogo ou jogador ou afinidade.
+
+| Nome Variável      | Tipo       | Descrição                                 | Valores Permitidos | Restrições de Domínio |
+|--------------------|------------|-------------------------------------------|--------------------|------------------------|
+| qtd_afinidade      | int        | Quantidade de afinidade                   | 1-5000             | FK                     |
+
+---
 
 ## Entidade: NPC
 
@@ -250,4 +266,5 @@ Um dicionário de dados é um recurso essencial na área da ciência de dados e 
 | :-: | :-: | :-: | :-: | 
 | `1.0`  | 21/04/2024 | Primeira versão  do DD    | [Bianca Castro](https://github.com/BiancaPatrocinio7) e [Diego Carlito](https://github.com/DiegoCarlito) | 
 | `1.1`  | 21/07/2024 | Normalizando as Entidade e formatando as tabelas | [Bianca Castro](https://github.com/BiancaPatrocinio7)  |                                                              
-| `1.2`  | 21/07/2024 | V1 do DD | [Bianca Castro](https://github.com/BiancaPatrocinio7)  |                                                              
+| `1.2`  | 21/07/2024 | Corrige e adiciona atributos de relacionamento | [Marcos Castilhos](https://github.com/Marcosatc147)  | 
+| `1.3`  | 22/07/2024 | V1 do DD | [Bianca Castro](https://github.com/BiancaPatrocinio7)  | 
