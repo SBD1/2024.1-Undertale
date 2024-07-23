@@ -26,20 +26,21 @@ O Modelo Entidade Relacionamento de um bancos de dados é um modelo conceitual q
 
 ## Atributos
 
-- **Jogador**: <ins>id-jogador</ins>, nome, item-equipado, nivel, qtd-xp, cenario-atual, vida-maxima, vida-atual, qtd-gold, dialogo-jogador, inventario-jogador, missao-atual, afinidade
-- **Missão**: <ins>id-missao</ins>, nome, descricao-missao
-- **Inventário**: <ins>id-inventario</ins>, qtd-item, id-item
-- **Diálogo**: <ins>id-dialogo</ins>, texto-dialogo
-- **NPC**: <ins>id-npc</ins>, nome, id-cenario, dialogo-npc
-     - **Mercador**: <ins>id-mercador</ins>, inventario-mercador
-     - **Aliado**: <ins>id-aliado</ins>, recompensa-item
-     - **Monstro**: <ins>id-monstro</ins>, dano-ataque, recompensa-xp, recompensa-gold
-- **Item**: <ins>id-item</ins>, nome, descricao-item, valor-item
-     - **Armadura**: <ins>id-item</ins>, qtd-defesa
-      - **Consumível**: <ins>id-item</ins>, qtd-cura
-      - **Chave**: <ins>id-item</ins>, cenario-destino
-- **Cenário**: <ins>id-cenario</ins>, nome, tipo, descricao-cenario
-- **Afinidade**: <ins>id-afinidade</ins>, afinidade-atual, afinidade-maxima
+- **Jogador**:{<ins>id-jogador</ins>, nome, item-equipado, nivel, qtd-xp, cenario-atual, vida-maxima, vida-atual, dialogo-jogador, inventario-jogador, missao-atual, afinidade}
+- **Missão**:{<ins>id-missao</ins>, nome, descricao-missao}
+- **Inventário**:{<ins>id-inventario</ins>, qtd-item, id-item, qtd-gold}
+- **Loja**:{<ins>id-loja</ins>, nome, id-item, id-cenario}
+- **Diálogo**:{<ins>id-dialogo</ins>, texto-dialogo}
+- **NPC**:{<ins>id-npc</ins>, nome, id-cenario, dialogo-npc}
+     - **Mercador**:{<ins>id-mercador</ins>, id-loja}
+     - **Aliado**:{<ins>id-aliado</ins>, recompensa-item}
+     - **Monstro**:{<ins>id-monstro</ins>, dano-ataque, recompensa-xp, recompensa-gold}
+- **Item**: {<ins>id-item</ins>, nome, descricao-item, valor-item}
+     - **Armadura**: {<ins>id-item</ins>, qtd-defesa}
+      - **Consumível**: {<ins>id-item</ins>, qtd-cura}
+      - **Chave**: {<ins>id-item</ins>, cenario-destino}
+- **Cenário**: {<ins>id-cenario</ins>, nome, tipo, descricao-cenario}
+- **Afinidade**: {<ins>id-afinidade</ins>, afinidade-atual, afinidade-maxima}
 
 ## Relacionamentos
 
@@ -93,10 +94,12 @@ O Modelo Entidade Relacionamento de um bancos de dados é um modelo conceitual q
 - **NPC _possui exclusivamente_ tipos**
   - (1,1) NPC pode ser classificado apenas como Mercador, Aliado ou Monstro
 
+<center>
 
 ## Histórico de Versão
 | Versão | Data | Descrição | Autor(es) |
 | :-: | :-: | :-: | :-: | 
 | `1.0`  | 21/04/2024 | Primeira versão  do MER  | [Bianca Castro](https://github.com/BiancaPatrocinio7) e [Samara Letícia](https://github.com/samarawwleticia) |       
 | `1.1`  | 21/07/2024 | Atualizando os atributos e relacionamentos | [Bianca Castro](https://github.com/BiancaPatrocinio7)  |                                                              
-
+| `1.2`  | 22/07/2024 | V1 MR       | [Diego Carlito](https://github.com/DiegoCarlito) e [Bianca Castro](https://github.com/BiancaPatrocinio7)|         
+</center>

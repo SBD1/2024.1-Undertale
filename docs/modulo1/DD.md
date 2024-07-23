@@ -17,7 +17,7 @@ Um dicionário de dados é um recurso essencial na área da ciência de dados e 
 | valor             | decimal(10,2)| Valor numérico do exemplo                   | 0.00-9999.99       | Not Null, Check (>= 0) |
 | ativo             | boolean    | Indicador se o exemplo está ativo ou não    | True, False        | Not Null               |
 
-  <font size="3"><p style="text-align: center"><b>Autor:</b> <a href="https://github.com/BiancaPatrocinio7">Bianca Castro</a>, 2024</p></font>
+  <font size="3"><p style="text-align: center"><b>Autores:</b> <a href="https://github.com/BiancaPatrocinio7">Bianca Castro</a>, <a href="https://github.com/DiegoCarlito">Bianca Castro</a>, <a href="https://github.com/Marcosatc147">Marcos Castilhos</a>, 2024</p></font>
 
 <details>
   <summary>Descrição de cada título da coluna</summary>
@@ -78,6 +78,21 @@ Um dicionário de dados é um recurso essencial na área da ciência de dados e 
 | id-missao          | int        | Código de identificação da missão           | 1-5000             | PK                     |
 | nome               | varchar(50)| Nome da missão                             | a-z, A-Z           | Not Null               |
 | descricao-missao   | varchar(150)| Descrição da missão                        | a-z, A-Z           |                        |
+
+---
+
+
+
+## Entidade: Loja
+
+**Descrição**: A entidade Loja relaciona o número de identificação de item.
+
+| Nome Variável      | Tipo       | Descrição                                  | Valores Permitidos | Restrições de Domínio |
+|--------------------|------------|--------------------------------------------|--------------------|------------------------|
+| id-loja         | int        | Código de identificação da loja        | 1-5000             | PK                     |
+| nome             | varchar(50)| Nome da missão                             | a-z, A-Z           | Not Null               |
+| id-cenario    | int        | Identificador do cenario               | 1-5000             | FK, Not Null                      |
+| id-item            | int        | Identificador do item                     | 1-5000             | FK, Not Null         |
 
 ---
 
@@ -151,14 +166,14 @@ Um dicionário de dados é um recurso essencial na área da ciência de dados e 
 
 **Descrição**: A entidade Monstro guarda as informações relacionadas aos personagens não-jogáveis que o jogador deve enfrentar, incluindo número de identificação, cenário, nome e pontos de vida.
 
-**Observação**: Esta tabela herda de `NPC` e possui chaves estrangeiras das entidades `Item`. A `id-monstro` é uma FK referenciando `id-npc`.
+**Observação**: Esta tabela herda de `NPC`. A `id-monstro` é uma FK referenciando `id-npc`.
 
 | Nome Variável      | Tipo       | Descrição                                 | Valores Permitidos | Restrições de Domínio |
 |--------------------|------------|-------------------------------------------|--------------------|------------------------|
 | id-monstro         | int        | Código de identificação do monstro         | 1-5000             | PK, FK                 |
 | id-npc             | int        | Identificador do NPC                      | 1-5000             | FK, Not Null           |
-| vida               | int        | Quantidade de vida do monstro             | 1-1000             | Not Null, Check (1-1000)|
-| item-derramado     | int        | Identificador do item que o monstro pode derramar | 1-5000     | FK                     |
+| recompensa-xp             | int        | Quantidade de recompesa em XP             | 1-1000             | Not Null, Check (1-1000)|
+| recompensa-gold     | int        | Quantidade de recompesa em gold            | 1-5000     | Not Null, Check (1-1000)      
 
 ---
 
@@ -166,13 +181,13 @@ Um dicionário de dados é um recurso essencial na área da ciência de dados e 
 
 **Descrição**: A entidade Mercador guarda as informações relacionadas aos personagens não-jogáveis responsáveis por negociar itens com o jogador.
 
-**Observação**: Esta tabela herda de `NPC` e possui chaves estrangeiras das entidades `Inventário`. A `id-mercador` é uma FK referenciando `id-npc`.
+**Observação**: Esta tabela herda de `NPC` e possui chaves estrangeiras das entidades `Loja`. A `id-mercador` é uma FK referenciando `id-npc`.
 
 | Nome Variável      | Tipo       | Descrição                                 | Valores Permitidos | Restrições de Domínio |
 |--------------------|------------|-------------------------------------------|--------------------|------------------------|
 | id-mercador        | int        | Código de identificação do mercador        | 1-5000             | PK, FK                 |
 | id-npc             | int        | Identificador do NPC                      | 1-5000             | FK, Not Null           |
-| inventario-mercador| int        | Identificador do inventário do mercador   | 1-5000             | FK, Not Null           |
+| id-loja | int        | Identificador da loja do mercador   | 1-5000             | FK, Not Null           |
 
 ---
 
@@ -185,7 +200,8 @@ Um dicionário de dados é um recurso essencial na área da ciência de dados e 
 |--------------------|------------|-------------------------------------------|--------------------|------------------------|
 | id-cenario         | int        | Código de identificação do cenário         | 1-5000             | PK                     |
 | nome               | varchar(50)| Nome do cenário                           | a-z, A-Z           | Not Null               |
-| regiao             | varchar(50)| Região associada ao cenário               | a-z, A-Z           | Not Null               |
+| descricao-cenario            | varchar(50)| Descrição da região associada ao cenário               | a-z, A-Z           | Not Null               |
+| tipo            | varchar(50)| Tipo do Cenário             | a-z, A-Z           | Not Null               |
 
 ---
 
@@ -197,7 +213,7 @@ Um dicionário de dados é um recurso essencial na área da ciência de dados e 
 |--------------------|------------|-------------------------------------------|--------------------|------------------------|
 | id-item            | int        | Código de identificação do item            | 1-5000             | PK                     |
 | nome               | varchar(50)| Nome do item                              | a-z, A-Z           | Not Null               |
-| tipo-item          | varchar(20)| Tipo do item                              | Armadura, Consumível, Chave | Not Null, Enum        |
+| valor-item         | int | Valor do item                              | 1-1500| Not Null, Enum        |
 | descricao-item     | varchar(100)| Descrição do item                         | a-z, A-Z           |                        |
 
 ---
@@ -212,6 +228,7 @@ Um dicionário de dados é um recurso essencial na área da ciência de dados e 
 |--------------------|------------|-------------------------------------------|--------------------|------------------------|
 | id-chave           | int        | Identificador da chave                     | 1-5000             | PK, FK                 |
 | id-item            | int        | Identificador do item                      | 1-5000             | FK, Not Null           |
+| cenario-destino           | int        | Identificador do cenário destino                      | 1-5000             | FK, Not Null           |
 
 ---
 
@@ -225,7 +242,7 @@ Um dicionário de dados é um recurso essencial na área da ciência de dados e 
 |--------------------|------------|-------------------------------------------|--------------------|------------------------|
 | id-armadura        | int        | Identificador da armadura                 | 1-5000             | PK, FK                 |
 | id-item            | int        | Identificador do item                     | 1-5000             | FK, Not Null           |
-| protecao           | int        | Quantidade de proteção fornecida           | 1-1000             | Not Null, Check (1-1000) |
+| qtd-defesa         | int        | Quantidade de proteção fornecida           | 1-1000             | Not Null, Check (1-1000) |
 
 ---
 
@@ -239,8 +256,7 @@ Um dicionário de dados é um recurso essencial na área da ciência de dados e 
 |--------------------|------------|-------------------------------------------|--------------------|------------------------|
 | id-consumivel      | int        | Identificador do consumível                | 1-5000             | PK, FK                 |
 | id-item            | int        | Identificador do item                     | 1-5000             | FK, Not Null           |
-| efeito             | varchar(100)| Efeito do consumível                      | a-z, A-Z           | Not Null               |
-| durabilidade       | int        | Quantidade de uso restante                | 1-100              | Not Null, Check (1-100) |
+| qtd-cura       | int        | Quantidade de cura            | 1-100              | Not Null, Check (1-100) |
 
 ---
 
@@ -249,5 +265,6 @@ Um dicionário de dados é um recurso essencial na área da ciência de dados e 
 | Versão | Data | Descrição | Autor(es) |
 | :-: | :-: | :-: | :-: | 
 | `1.0`  | 21/04/2024 | Primeira versão  do DD    | [Bianca Castro](https://github.com/BiancaPatrocinio7) e [Diego Carlito](https://github.com/DiegoCarlito) | 
-| `1.1`  | 21/07/2024 | Normalizando as Entidade e formatando as tabelas | [Bianca Castro](https://github.com/BiancaPatrocinio7)  |    
-| `1.1.1`  | 21/07/2024 | Corrige e adiciona atributos de relacionamento | [Marcos Castilhos](https://github.com/Marcosatc147)  | 
+| `1.1`  | 21/07/2024 | Normalizando as Entidade e formatando as tabelas | [Bianca Castro](https://github.com/BiancaPatrocinio7)  |                                                              
+| `1.2`  | 21/07/2024 | Corrige e adiciona atributos de relacionamento | [Marcos Castilhos](https://github.com/Marcosatc147)  | 
+| `1.3`  | 22/07/2024 | V1 do DD | [Bianca Castro](https://github.com/BiancaPatrocinio7)  | 
