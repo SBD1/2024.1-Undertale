@@ -1,5 +1,7 @@
 # Diagrama Entidade-Relacionamento
 
+## Introdução
+
 <p style="text-align: justify">
 
 O Diagrama Entidade Relacionamento (DER) é composto por um conjunto de objetos gráficos que visa representar todos os objetos do modelo Entidade-Relacionamento tais como entidades, atributos, atributos chaves, relacionamentos, restrições estruturais, etc.

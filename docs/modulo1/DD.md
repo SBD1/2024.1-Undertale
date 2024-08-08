@@ -1,5 +1,7 @@
 # DD - Dicionário de Dados
 
+## Introdução
+
 Um dicionário de dados é um recurso essencial na área da ciência de dados e da informática. Ele funciona como um catálogo ou compilação de informações sobre os dados utilizados em um sistema, banco de dados, projeto de pesquisa ou qualquer contexto em que a manipulação e interpretação de dados sejam necessárias.
 
 

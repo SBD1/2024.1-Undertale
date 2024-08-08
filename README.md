@@ -9,7 +9,6 @@
 <table>
   <tr>
     <td align="center"><a href="https://github.com/BiancaPatrocinio7"><img style="border-radius: 50%;" src="https://github.com/BiancaPatrocinio7.png" width="190;" alt=""/><br /><sub><b>Bianca Castro - 221008801</b></sub></a><br /><a href="Link git" title="Rocketseat"></a></td>
-    <td align="center"><a href="https://github.com/DiegoCarlito"><img style="border-radius: 50%;" src="https://github.com/DiegoCarlito.png" width="190px;" alt=""/><br /><sub><b>Diego Carlito - 221007690</b></sub></a><br /><a href="Link git" title="Rocketseat"></a></td>
     <td align="center"><a href="https://github.com/Marcosatc147"><img style="border-radius: 50%;" src="https://github.com/Marcosatc147.png" width="190px;" alt=""/><br /><sub><b>Marcos Castilhos - 221008300</b></sub></a><br />
   </tr>
 </table>
@@ -43,23 +42,22 @@ Em andamento 🛠.
 
 | Módulo | Link da gravação                                                                                    | Data       |
 | ------ | --------------------------------------------------------------------------------------------------- | ---------- |
-| 1      | [Apresentação Módulo 1]()                                  | Em andamento 🛠. |
-| 2      | [Apresentação Módulo 2](./docs/apresentacoes/apresentacao_m02.mp4)                                  | Em andamento 🛠. |
-| 3      | [Apresentação Módulo 3](./docs/apresentacoes/apresentacao_m03%20-%20Edilberto%20e%20Zenilda.mp4)    | Em andamento 🛠. |
-| Final  | [Apresentação Final](./docs/apresentacoes/apresentacao_final_zenilda_matheus.mp4) | Em andamento 🛠. |
+| 1      | [Apresentação Módulo 1](https://sbd1.github.io/2024.1-Undertale/apresentacao/modulo1/)                                  | 21/07/2024 |
+| 2      | [Apresentação Módulo 2]()                                  | Em andamento 🛠. |
+| 3      | [Apresentação Módulo 3]()    | Em andamento 🛠. |
+| Final  | [Apresentação Final]() | Em andamento 🛠. |
 
 ## Entregas
 
 - Módulo 1
 
-  - [Diagrama Entidade-Relacionamento]()
-  - [Dicionário de Dados]()
-  - [Modelo Entidade-Relacionamento]()
-  - [Modelo Relacional]()
+  - [Diagrama Entidade-Relacionamento](https://sbd1.github.io/2024.1-Undertale/modulo1/DER/)
+  - [Dicionário de Dados](https://sbd1.github.io/2024.1-Undertale/modulo1/DD/)
+  - [Modelo Entidade-Relacionamento](https://sbd1.github.io/2024.1-Undertale/modulo1/MER/)
+  - [Modelo Relacional](https://sbd1.github.io/2024.1-Undertale/modulo1/MR/)
 
 - Módulo 2
 
-  - [Normalização]()
   - [DDL]()
   - [DML]()
   - [DQL]()
