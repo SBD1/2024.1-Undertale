@@ -14,7 +14,6 @@ Repositório para desenvolvimento de um MUD inspirado em Undertale da disciplina
 <table>
   <tr>
     <td align="center"><a href="https://github.com/BiancaPatrocinio7"><img style="border-radius: 50%;" src="https://github.com/BiancaPatrocinio7.png" width="190;" alt=""/><br /><sub><b>Bianca Castro - 221008801</b></sub></a><br /><a href="Link git" title="Rocketseat"></a></td>
-    <td align="center"><a href="ttps://github.com/DiegoCarlito"><img style="border-radius: 50%;" src="https://github.com/DiegoCarlito.png" width="190px;" alt=""/><br /><sub><b>Diego Carlito - 221007690</b></sub></a><br /><a href="Link git" title="Rocketseat"></a></td>
         <td align="center"><a href="https://github.com/Marcosatc147"><img style="border-radius: 50%;" src="https://github.com/Marcosatc147.png" width="190px;" alt=""/><br /><sub><b>Marcos Castilhos - 221008300</b></sub></a><br />
   </tr>
 </table>

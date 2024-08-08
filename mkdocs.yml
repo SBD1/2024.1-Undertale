@@ -7,11 +7,14 @@ nav:
     - Início: "index.md"
     - Apresentações: 
         - Apresentação 1: "apresentacao/modulo1.md"
-    - Modelagem:
+    - Módulo 1 (Modelagem):
         - Diagrama Entidade Relacionamento: "modulo1/DER.md"
         - Modelo Entidade Relacionamento: "modulo1/MER.md"
         - Dicionário de Dados: "modulo1/DD.md"
         - Modelo Relacional: "modulo1/MR.md"
+    - Módulo 2 (SQL):
+        - Data Definition Language: "modulo2/DLL.md"
+        - Data Manipulation Language: "modulo2/DML.md"
         
 theme:
   name: material
