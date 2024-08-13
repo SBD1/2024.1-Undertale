@@ -16,6 +16,10 @@ V1 do DER. Autores - [Bianca Castro](https://github.com/BiancaPatrocinio7), [Die
 <iframe frameborder="0" style="width:100%;height:500px;" src="https://viewer.diagrams.net/?tags=%7B%7D&lightbox=1&highlight=0000ff&edit=_blank&layers=1&nav=1&title=DERv.2.drawio#Uhttps%3A%2F%2Fdrive.google.com%2Fuc%3Fid%3D1IWm6VF77YW6MW-GzEiGMGTkPt8_e4Axn%26export%3Ddownload"></iframe>
 V2 do DER. Autores - [Bianca Castro](https://github.com/BiancaPatrocinio7) e [Marcos Castilhos](https://github.com/Marcosatc147), 2024.
 
+<iframe frameborder="0" style="width:100%;height:500px;" src="https://viewer.diagrams.net/?tags=%7B%7D&lightbox=1&highlight=0000ff&edit=_blank&layers=1&nav=1&title=DERv2.1.drawio#Uhttps%3A%2F%2Fdrive.google.com%2Fuc%3Fid%3D1wM20Sr0PulVSxTTwfN2T3TpzON59t6il%26export%3Ddownload"></iframe>
+V3 do DER. Autores - [Bianca Castro](https://github.com/BiancaPatrocinio7) e [Marcos Castilhos](https://github.com/Marcosatc147), 2024.
+
+
 
 
 
@@ -26,4 +30,5 @@ V2 do DER. Autores - [Bianca Castro](https://github.com/BiancaPatrocinio7) e [Ma
 | `1.1`  | 18/07/2024 | Adição do arquivo do diagrama        | [Bianca Castro](https://github.com/BiancaPatrocinio7) |          
 | `1.2`  | 21/07/2024 | V1 do DER       | [Marcos Castilhos](https://github.com/Marcosatc147) e [Bianca Castro](https://github.com/BiancaPatrocinio7) |                                                               
 |`1.3` | 09/08/2024 | Adição da V2 do DER | [Marcos Castilhos](https://github.com/Marcosatc147)
+|`1.4` | 13/08/2024 | Adição da V3 do DER | [Marcos Castilhos](https://github.com/Marcosatc147) e [Bianca Castro](https://github.com/BiancaPatrocinio7)
 </center>
