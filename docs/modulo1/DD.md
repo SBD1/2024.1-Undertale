@@ -39,230 +39,180 @@ Um dicionário de dados é um recurso essencial na área da ciência de dados e 
 </details>
 
 
+### **Entidade: Jogador**
 
-## Entidade: Jogador
-
-**Descrição**: A entidade Jogador descreve as informações ligadas ao personagem jogável, como número de identificação, localização, região, estação do jogo, missão, nome, nível de saúde e energia, data atual e quantidade de ouro.
-
-**Observação**: Esta tabela possui chaves estrangeiras das entidades `Cenário`, `Inventário`, `Item`, `Diálogo` e `Missão`.
-
-| Nome Variável     | Tipo       | Descrição                                 | Valores Permitidos | Restrições de Domínio |
-|-------------------|------------|-------------------------------------------|--------------------|------------------------|
-| id-jogador        | int        | Código de identificação do jogador         | 1-5000             | PK                     |
-| nome              | varchar(50)| Nome do jogador                           | a-z, A-Z           | Not Null               |
-| item-equipado     | int        | Identificador do item equipado            | 1-5000             | FK                     |
-| inventario-jogador| int        | Identificador do inventário do jogador    | 1-5000             | FK, Not Null           |
-| dialogo-jogador*   | int        | Identificador do diálogo do jogador        | 1-5000             | FK                     |
-| missao-atual*      | int        | Identificador da missão atual              | 1-5000             | FK                     |
-| nivel             | int        | Nível do jogador                           | 1-100              | Not Null, Check (1-100)|
-| qtd-xp            | int        | Quantidade de experiência do jogador       | 1-100              | Not Null, Check (1-100)|
-| vida-maxima       | int        | Limite de vida do jogador                  | 1-100              | Not Null, Check (1-100)|
-| vida-atual        | int        | Quantidade de vida atual do jogador        | 1-100              | Not Null, Check (1-100)|
-
----
-
-## Relacionamento Jogador_está_em_Cenário
-
-**Descrição**: Relacionamento Jogador está em cenário, a cada vez que o jogador troca de cenário é atualizado o valor de cenário_atual, por isso o atributo se encontra no relacionamento e não na entidade jogador ou cenário.
-
-| Nome Variável     | Tipo       | Descrição                                 | Valores Permitidos | Restrições de Domínio |
-|-------------------|------------|-------------------------------------------|--------------------|------------------------|
-| cenario-atual     | int        | Identificador do cenário atual             | 1-5000             | FK, Not Null           |
-
----
-
-## Entidade: Missão
-
-**Descrição**: A entidade Missão relaciona o número de identificação da missão, seu nome e sua descrição.
-
-| Nome Variável      | Tipo       | Descrição                                  | Valores Permitidos | Restrições de Domínio |
-|--------------------|------------|--------------------------------------------|--------------------|------------------------|
-| id-missao          | int        | Código de identificação da missão           | 1-5000             | PK                     |
-| nome               | varchar(50)| Nome da missão                             | a-z, A-Z           | Not Null               |
-| descricao-missao   | varchar(150)| Descrição da missão                        | a-z, A-Z           |                        |
-
----
-
-
-
-## Entidade: Loja
-
-**Descrição**: A entidade Loja relaciona o número de identificação de item.
-
-| Nome Variável      | Tipo       | Descrição                                  | Valores Permitidos | Restrições de Domínio |
-|--------------------|------------|--------------------------------------------|--------------------|------------------------|
-| id-loja         | int        | Código de identificação da loja        | 1-5000             | PK                     |
-| nome             | varchar(50)| Nome da missão                             | a-z, A-Z           | Not Null               |
-| id-cenario    | int        | Identificador do cenario               | 1-5000             | FK, Not Null                      |
-| id-item            | int        | Identificador do item                     | 1-5000             | FK, Not Null         |
-
----
-
-## Entidade: Inventário
-
-**Descrição**: A entidade Inventário relaciona o número de identificação do jogador, os itens e a quantidade de itens disponíveis no inventário.
-
-**Observação**: Esta tabela possui chave estrangeira da entidade `Item` e `Jogador`.
-
-| Nome Variável      | Tipo       | Descrição                                 | Valores Permitidos | Restrições de Domínio |
-|--------------------|------------|-------------------------------------------|--------------------|------------------------|
-| id-jogador      | int        | Identificador do inventário                | 1-5000             | PK                     |
-| id-item            | int        | Identificador do item                     | 1-5000             | FK, Not Null           |
-| qtd-item           | int        | Quantidade do item                        | 1-5000             | Not Null, Check (>= 0) |
-| qtd-gold          | int        | Quantidade de ouro do jogador              | Mínimo 0           | Check (>= 0)           |
-
----
-
-## Entidade: Diálogo
-
-**Descrição**: A entidade Diálogo relaciona o número de identificação do diálogo e o texto do diálogo.
-
-| Nome Variável      | Tipo       | Descrição                                 | Valores Permitidos | Restrições de Domínio |
-|--------------------|------------|-------------------------------------------|--------------------|------------------------|
-| id-dialogo         | int        | Identificador do diálogo                   | 1-5000             | PK                     |
-| texto-dialogo      | varchar(255)| Texto do diálogo                          | a-z, A-Z           | Not Null               |
-
----
-
-## Relacionamento Jogador_possui_Afinidade
-
-**Descrição**: Relacionamento Jogador possui afinidade, a cada vez que o jogador adquire mais afinidade é atualizado o valor de qtd_afinidade, por isso o atributo se encontra no relacionamento e não na entidade diálogo ou jogador ou afinidade.
-
-| Nome Variável      | Tipo       | Descrição                                 | Valores Permitidos | Restrições de Domínio |
-|--------------------|------------|-------------------------------------------|--------------------|------------------------|
-| qtd_afinidade      | int        | Quantidade de afinidade                   | 1-5000             | FK                     |
-
----
-
-## Entidade: NPC
-
-**Descrição**: A entidade NPC guarda as informações relacionadas aos personagens não-jogáveis, como número de identificação, cenário, nome e diálogos.
-
-**Observação**: Esta tabela possui chaves estrangeiras das entidades `Cenário` e `Diálogo`.
-
-| Nome Variável      | Tipo       | Descrição                                 | Valores Permitidos | Restrições de Domínio |
-|--------------------|------------|-------------------------------------------|--------------------|------------------------|
-| id-npc             | int        | Código de identificação do NPC             | 1-5000             | PK                     |
-| id-cenario         | int        | Identificador do cenário onde o NPC está  | 1-5000             | FK, Not Null           |
-| nome               | varchar(50)| Nome do NPC                               | a-z, A-Z           | Not Null               |
-| dialogo-npc        | varchar(255)| Diálogo do NPC                            | a-z, A-Z           | FK                     |
-
----
-
-## Entidade: Aliado
-
-**Descrição**: A entidade Aliado guarda as informações relacionadas aos personagens não-jogáveis que auxiliam o jogador, incluindo número de identificação, cenário, nome, diálogos e itens de recompensa.
-
-**Observação**: Esta tabela herda de `NPC` e possui chaves estrangeiras das entidades `Item`. A `id-aliado` é uma FK referenciando `id-npc`.
-
-| Nome Variável      | Tipo       | Descrição                                 | Valores Permitidos | Restrições de Domínio |
-|--------------------|------------|-------------------------------------------|--------------------|------------------------|
-| id-aliado          | int        | Código de identificação do aliado           | 1-5000             | PK, FK                 |
-| id-npc             | int        | Identificador do NPC                      | 1-5000             | FK, Not Null           |
-| recompensa-item    | int        | Código de identificação do item de recompensa | 1-5000        | FK, Not Null           |
+| Nome Variável     | Tipo       | Descrição                                   | Valores Permitidos  | Restrições de Domínio |
+|-------------------|------------|---------------------------------------------|---------------------|------------------------|
+| id-jogador                | int        | Código de identificação do jogador          | 1-5000              | PK, Not Null           |
+| nome              | varchar(50)| Nome do jogador                            | a-z, A-Z            | Not Null               |
+| item-equipado     | int        | Identificador do item equipado              | 1-5000              | FK                     |
+| nivel             | int        | Nível do jogador                            | 1-100               | Not Null, Check (1-100)|
+| qtd-xp            | int        | Quantidade de experiência do jogador        | 0-1000              | Not Null, Check (0-1000)|
+| vida-maxima       | int        | Limite de vida do jogador                   | 1-1000              | Not Null, Check (1-1000)|
+| vida-atual        | int        | Quantidade de vida atual do jogador         | 0-1000              | Not Null, Check (0-1000)|
+| afinidade      | int        | Identificador da afinidade do jogador       | 1-5000              | FK, Not Null               |
+| tipo-rota         | varchar(50)| Tipo de rota do jogador (Pacifista, Genocida e Neutra)                     | a-z, A-Z            | Not Null               |
+| sala            | int         | Identificador da sala onde o Jogador está      | 1-5000              | FK, Not Null               |
+| missao           | int         | Identificador da missão atual           | 1-5000              | FK, Not Null           |
+| inventário          | int         | Identificador do inventário do jogador       | 1-5000              | FK, Not Null           |
 
 
 ---
 
-## Entidade: Monstro
+### **Entidade: Missão**
 
-**Descrição**: A entidade Monstro guarda as informações relacionadas aos personagens não-jogáveis que o jogador deve enfrentar, incluindo número de identificação, cenário, nome e pontos de vida.
-
-**Observação**: Esta tabela herda de `NPC`. A `id-monstro` é uma FK referenciando `id-npc`.
-
-| Nome Variável      | Tipo       | Descrição                                 | Valores Permitidos | Restrições de Domínio |
-|--------------------|------------|-------------------------------------------|--------------------|------------------------|
-| id-monstro         | int        | Código de identificação do monstro         | 1-5000             | PK, FK                 |
-| id-npc             | int        | Identificador do NPC                      | 1-5000             | FK, Not Null           |
-| recompensa-xp             | int        | Quantidade de recompesa em XP             | 1-1000             | Not Null, Check (1-1000)|
-| recompensa-gold     | int        | Quantidade de recompesa em gold            | 1-5000     | Not Null, Check (1-1000)      
+| Nome Variável      | Tipo        | Descrição                                   | Valores Permitidos  | Restrições de Domínio |
+|--------------------|-------------|---------------------------------------------|---------------------|------------------------|
+| id-missao          | int         | Código de identificação da missão           | 1-5000              | PK, Not Null           |
+| nome               | varchar(50) | Nome da missão                             | a-z, A-Z            | Not Null               |
+| descricao   | varchar(150)| Descrição da missão                        | a-z, A-Z            |                        |
+| status             | varchar(50) | Status da missão (ativa, concluída, etc.)   | a-z, A-Z            | Not Null               |
 
 ---
 
-## Entidade: Mercador
+### **Entidade: Inventário**
 
-**Descrição**: A entidade Mercador guarda as informações relacionadas aos personagens não-jogáveis responsáveis por negociar itens com o jogador.
-
-**Observação**: Esta tabela herda de `NPC` e possui chaves estrangeiras das entidades `Loja`. A `id-mercador` é uma FK referenciando `id-npc`.
-
-| Nome Variável      | Tipo       | Descrição                                 | Valores Permitidos | Restrições de Domínio |
-|--------------------|------------|-------------------------------------------|--------------------|------------------------|
-| id-mercador        | int        | Código de identificação do mercador        | 1-5000             | PK, FK                 |
-| id-npc             | int        | Identificador do NPC                      | 1-5000             | FK, Not Null           |
-| id-loja | int        | Identificador da loja do mercador   | 1-5000             | FK, Not Null           |
+| Nome Variável      | Tipo        | Descrição                                   | Valores Permitidos  | Restrições de Domínio |
+|--------------------|-------------|---------------------------------------------|---------------------|------------------------|
+| qtd-item           | int         | Quantidade de itens no inventário           | 0-10000             | Not Null, Check (0-10000)|
+| tamanho-total      | decimal(10,2)| Tamanho total do inventário em unidades    | 0.00-10000.00       | Not Null, Check (>= 0) |
+| qtd-gold           | int         | Quantidade de ouro do jogador              | 0-10000             | Not Null, Check (>= 0) |
+| jogador         | int         | Identificador do jogador                    | 1-5000              | PK, FK, Not Null       |
+| item            | int         | Identificador do item associado             | 1-5000              | FK, Not Null           |
 
 ---
 
+### **Entidade: Diálogo**
 
-## Entidade: Cenário
-
-**Descrição**: A entidade Cenário descreve as informações relacionadas aos diferentes cenários do jogo, como número de identificação, nome e a região associada.
-
-| Nome Variável      | Tipo       | Descrição                                 | Valores Permitidos | Restrições de Domínio |
-|--------------------|------------|-------------------------------------------|--------------------|------------------------|
-| id-cenario         | int        | Código de identificação do cenário         | 1-5000             | PK                     |
-| nome               | varchar(50)| Nome do cenário                           | a-z, A-Z           | Not Null               |
-| descricao-cenario            | varchar(50)| Descrição da região associada ao cenário               | a-z, A-Z           | Not Null               |
-| tipo            | varchar(50)| Tipo do Cenário             | a-z, A-Z           | Not Null               |
+| Nome Variável      | Tipo        | Descrição                                   | Valores Permitidos  | Restrições de Domínio |
+|--------------------|-------------|---------------------------------------------|---------------------|------------------------|
+| id-dialogo         | int         | Código de identificação do diálogo          | 1-5000              | PK, Not Null           |
+| texto      | varchar(255)| Texto do diálogo                           | a-z, A-Z            | Not Null               |
+| npc             | int         | Identificador do NPC que fala o diálogo     | 1-5000              | FK                     |
 
 ---
 
-## Entidade: Item
+### **Entidade: NPC**
 
-**Descrição**: A entidade Item descreve todos os itens disponíveis no jogo, como número de identificação, nome, tipo e descrição.
+| Nome Variável      | Tipo        | Descrição                                   | Valores Permitidos  | Restrições de Domínio |
+|--------------------|-------------|---------------------------------------------|---------------------|------------------------|
+| id-npc             | int         | Código de identificação do NPC              | 1-5000              | PK, Not Null           |
+| nome               | varchar(50) | Nome do NPC                                | a-z, A-Z            | Not Null               |
+| sala            | int         | Identificador da sala onde o NPC está      | 1-5000              | FK, Null               |
+| dialogo        | varchar(255)| Diálogo do NPC                             | a-z, A-Z            | FK, Null               |
+| tipo               | varchar(50) | Tipo de NPC (Mercador, Aliado, Monstro)    | Mercador, Aliado, Monstro | Not Null            |
+| afinidade       | int         | Identificador da afinidade do NPC           | 1-5000              | FK, Null               |
 
-| Nome Variável      | Tipo       | Descrição                                 | Valores Permitidos | Restrições de Domínio |
-|--------------------|------------|-------------------------------------------|--------------------|------------------------|
-| id-item            | int        | Código de identificação do item            | 1-5000             | PK                     |
-| nome               | varchar(50)| Nome do item                              | a-z, A-Z           | Not Null               |
-| valor-item         | int | Valor do item                              | 1-1500| Not Null, Enum        |
-| descricao-item     | varchar(100)| Descrição do item                         | a-z, A-Z           |                        |
+#### **Mercador**
 
----
+| Nome Variável      | Tipo        | Descrição                                   | Valores Permitidos  | Restrições de Domínio |
+|--------------------|-------------|---------------------------------------------|---------------------|------------------------|
+| loja            | int         | Identificador da loja do mercador           | 1-5000              | FK, Not Null           |
 
-## Entidade: Chave
+#### **Aliado**
 
-**Descrição**: A entidade Chave descreve itens que são usados para desbloquear áreas ou itens no jogo.
+| Nome Variável      | Tipo        | Descrição                                   | Valores Permitidos  | Restrições de Domínio |
+|--------------------|-------------|---------------------------------------------|---------------------|------------------------|
+| gold-drop          | int         | Quantidade de ouro que o aliado pode soltar | 0-10000             | Not Null, Check (>= 0) |
+| xp-drop            | int         | Quantidade de XP que o aliado pode soltar  | 0-10000             | Not Null, Check (>= 0) |
+| dano-ataque        | int         | Dano de ataque do aliado                    | 0-1000              | Not Null, Check (>= 0) |
 
-**Observação**: Esta tabela possui chave estrangeira da entidade `Item`.  A `id-chave` é uma FK referenciando `id-item`.
+#### **Monstro**
 
-| Nome Variável      | Tipo       | Descrição                                 | Valores Permitidos | Restrições de Domínio |
-|--------------------|------------|-------------------------------------------|--------------------|------------------------|
-| id-chave           | int        | Identificador da chave                     | 1-5000             | PK, FK                 |
-| id-item            | int        | Identificador do item                      | 1-5000             | FK, Not Null           |
-| cenario-destino           | int        | Identificador do cenário destino                      | 1-5000             | FK, Not Null           |
-
----
-
-## Entidade: Armadura
-
-**Descrição**: A entidade Armadura descreve itens que fornecem proteção ao jogador.
-
-**Observação**: Esta tabela possui chave estrangeira da entidade `Item`. A `id-armadura` é uma FK referenciando `id-item`.
-
-| Nome Variável      | Tipo       | Descrição                                 | Valores Permitidos | Restrições de Domínio |
-|--------------------|------------|-------------------------------------------|--------------------|------------------------|
-| id-armadura        | int        | Identificador da armadura                 | 1-5000             | PK, FK                 |
-| id-item            | int        | Identificador do item                     | 1-5000             | FK, Not Null           |
-| qtd-defesa         | int        | Quantidade de proteção fornecida           | 1-1000             | Not Null, Check (1-1000) |
+| Nome Variável      | Tipo        | Descrição                                   | Valores Permitidos  | Restrições de Domínio |
+|--------------------|-------------|---------------------------------------------|---------------------|------------------------|
+| dano-ataque        | int         | Dano de ataque do monstro                   | 0-1000              | Not Null, Check (>= 0) |
+| xp-drop            | int         | Quantidade de XP que o monstro pode soltar | 0-10000             | Not Null, Check (>= 0) |
+| gold-drop          | int         | Quantidade de ouro que o monstro pode soltar | 0-10000           | Not Null, Check (>= 0) |
+| item-drop           | int         | Identificador do item associado             | 1-5000              | FK, Not Null           |
 
 ---
 
-## Entidade: Consumível
+### **Entidade: Item**
 
-**Descrição**: A entidade Consumível descreve itens que podem ser consumidos pelo jogador para obter um benefício temporário.
+| Nome Variável      | Tipo        | Descrição                                   | Valores Permitidos  | Restrições de Domínio |
+|--------------------|-------------|---------------------------------------------|---------------------|------------------------|
+| id-item            | int         | Código de identificação do item             | 1-5000              | PK, Not Null           |
+| nome               | varchar(50) | Nome do item                                | a-z, A-Z            | Not Null               |
+| descricao     | varchar(100)| Descrição do item                           | a-z, A-Z            |                        |
+| valor        | decimal(10,2)| Valor do item                               | 0.00-1500.00        | Not Null, Check (>= 0) |
+| tipo               | varchar(50) | Tipo do item (Armadura, Consumível, etc.)   | Armadura, Consumível, Chave | Not Null         |
 
-**Observação**: Esta tabela possui chave estrangeira da entidade `Item`. A `id-consumivel` é uma FK referenciando `id-item`.
 
-| Nome Variável      | Tipo       | Descrição                                 | Valores Permitidos | Restrições de Domínio |
-|--------------------|------------|-------------------------------------------|--------------------|------------------------|
-| id-consumivel      | int        | Identificador do consumível                | 1-5000             | PK, FK                 |
-| id-item            | int        | Identificador do item                     | 1-5000             | FK, Not Null           |
-| qtd-cura       | int        | Quantidade de cura            | 1-100              | Not Null, Check (1-100) |
+##### **Defesa**
+
+| Nome Variável      | Tipo        | Descrição                                   | Valores Permitidos  | Restrições de Domínio |
+|--------------------|-------------|---------------------------------------------|---------------------|------------------------|
+| protecao           | int         | Quantidade de proteção fornecida            | 0-1000              | Not Null, Check (>= 0) |
+
+##### **Consumível**
+
+| Nome Variável      | Tipo        | Descrição                                   | Valores Permitidos  | Restrições de Domínio |
+|--------------------|-------------|---------------------------------------------|---------------------|------------------------|
+| qtd-cura           | int         | Quantidade de cura fornecida                | 0-100              | Not Null, Check (>= 0) |
+
+##### **Ataque**
+
+| Nome Variável      | Tipo        | Descrição                                   | Valores Permitidos  | Restrições de Domínio |
+|--------------------|-------------|---------------------------------------------|---------------------|------------------------|
+| dano               | int         | Dano de ataque do item                      | 0-1000              | Not Null, Check (>= 0) |
+
 
 ---
 
-                       
+### **Entidade: Sala**
+
+| Nome Variável      | Tipo        | Descrição                                   | Valores Permitidos  | Restrições de Domínio |
+|--------------------|-------------|---------------------------------------------|---------------------|------------------------|
+| id-sala            | int         | Código de identificação da sala             | 1-5000              | PK, Not Null           |
+| nome               | varchar(50) | Nome da sala                               | a-z, A-Z            | Not Null               |
+| descricao          | varchar(150)| Descrição da sala                          | a-z, A-Z            |                        |
+| porta           | int         | Identificador das portas na sala              | 1-5000              | FK, Null               |
+
+---
+
+### **Entidade: Porta**
+
+| Nome Variável      | Tipo        | Descrição                                   | Valores Permitidos  | Restrições de Domínio |
+|--------------------|-------------|---------------------------------------------|---------------------|------------------------|
+| id-porta           | int         | Código de identificação da porta            | 1-5000              | PK, Not Null           |
+| status             | varchar(50) | Status da porta (aberta, fechada, trancada) | Aberta, Fechada, Trancada | Not Null           |
+| sala            | int         | Identificador da sala que a porta conecta   | 1-5000              | FK, Not Null           |
+
+---
+
+### **Entidade: Baú**
+
+| Nome Variável      | Tipo        | Descrição                                   | Valores Permitidos  | Restrições de Domínio |
+|--------------------|-------------|---------------------------------------------|---------------------|------------------------|
+| id-bau             | int         | Código de identificação do baú              | 1-5000              | PK, Not Null           |
+| sala            | int         | Identificador da sala onde o baú está      | 1-5000              | FK, Not Null           |
+| capacidade         | int         | Capacidade máxima de itens do baú           | 1-1000              | Not Null, Check (>= 1) |
+| item            | int         | Identificador do item armazenado            | 1-5000              | FK, Null               |
+
+---
+
+### **Entidade: Afinidade**
+
+| Nome Variável      | Tipo        | Descrição                                   | Valores Permitidos  | Restrições de Domínio |
+|--------------------|-------------|---------------------------------------------|---------------------|------------------------|
+| id-afinidade       | int         | Código de identificação da afinidade        | 1-5000              | PK, Not Null           |
+| qtd-atual          | int         | Quantidade atual de afinidade              | 0-1000              | Not Null, Check (>= 0) |
+| qtd-max            | int         | Quantidade máxima de afinidade             | 1-1000              | Not Null, Check (> 0)  |
+
+---
+
+### **Entidade: Loja**
+
+| Nome Variável      | Tipo        | Descrição                                   | Valores Permitidos  | Restrições de Domínio |
+|--------------------|-------------|---------------------------------------------|---------------------|------------------------|
+| id-loja            | int         | Código de identificação da loja              | 1-5000              | PK, Not Null           |
+| mercador        | int         | Identificador do mercador associado          | 1-5000              | FK, Not Null           |
+| sala            | int         | Identificador da sala onde a loja está      | 1-5000              | FK, Not Null           |
+
+---
+
+       
 ## Histórico de Versão
 | Versão | Data | Descrição | Autor(es) |
 | :-: | :-: | :-: | :-: | 
@@ -270,3 +220,4 @@ Um dicionário de dados é um recurso essencial na área da ciência de dados e 
 | `1.1`  | 21/07/2024 | Normalizando as Entidade e formatando as tabelas | [Bianca Castro](https://github.com/BiancaPatrocinio7)  |                                                              
 | `1.2`  | 21/07/2024 | Corrige e adiciona atributos de relacionamento | [Marcos Castilhos](https://github.com/Marcosatc147)  | 
 | `1.3`  | 22/07/2024 | V1 do DD | [Bianca Castro](https://github.com/BiancaPatrocinio7)  | 
+| `1.4` | 13/08/2024 | V2 do DD | [Marcos Castilhos](https://github.com/Marcosatc147) e [Bianca Castro](https://github.com/BiancaPatrocinio7) |
