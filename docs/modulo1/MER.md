@@ -46,10 +46,10 @@ O Modelo Entidade Relacionamento de um bancos de dados é um modelo conceitual q
 	- *Instância-item*
 	    - *Defesa*: {protecao}
 	    - *Consumível*: {qtd-cura}
-	    - *Ataque*: {dano, item-id }
+	    - *Ataque*: {dano}
 - *Sala*: {<ins>id-sala</ins>, nome, descricao, porta-id }
 - *Porta*: {<ins>id-porta</ins>, status, sala-id }
-- *Baú*: {<ins>id-bau</ins>, item, sala, capacidade, sala-id , item-id }
+- *Baú*: {<ins>id-bau</ins>, capacidade, sala-id , item-id }
 - *Afinidade*: {<ins>id-afinidade</ins>, qtd-atual, qtd-max}
 - *Interação*: {<ins>id-interação</ins>, id-npc, dialogo}
 
@@ -71,10 +71,22 @@ O Modelo Entidade Relacionamento de um bancos de dados é um modelo conceitual q
 - **Jogador _possui_ Inventário**
   - (1,1) Jogador possui um inventário
   - (1,1) Inventário pertence a um jogador
+ 
+- **Sala _possui_ Porta**
+  - (0,N) Sala pode possuir várias portas
+  - (1,1) Porta está em uma sala
+ 
+- **Sala _possui_ Baú**
+  - (0,1) Sala pode possuir um baú
+  - (1,1) Baú está em uma sala
 
+- **Sala _possui_ Loja**
+  - (0,1) Sala pode possuir uma loja
+  - (1,1) Loja está em uma sala
+    
 - **Missão _está disponível_ em Sala**
   - (1,3) Missão está disponível em um a três Salas
-  - (1,N) Sala contém várias missões
+  - (0,N) Sala contém várias missões
 
 - **Missão _desbloqueia_ Porta**
   - (1,1) Missão desloqueia uma Porta
@@ -86,11 +98,23 @@ O Modelo Entidade Relacionamento de um bancos de dados é um modelo conceitual q
   
   **Item _possui_ Instância-Item**
   - (1,N) Item pode possuir várias instâncias
-  - (1,1) Instância pertence a um item 
+  - (1,1) Instância pertence a um item
+
+- **Item _possui Instância-item**
+  - (1,N) Item possui várias instâncias
+  - (1,1) Instância está relacionada a um item
 
 - **Mercador _vende_ Item**
-  - (1,N) Mercador pode negociar vários itens
+  - (0,N) Mercador pode negociar vários itens
   - (1,N) Item pode ser negociado por vários mercadores
+
+- **Loja _possui_ Mercador**
+  - (1,1) Loja possui um mercador
+  - (1,1) Mercador possui uma loja
+
+- **Loja _possui_ Item**
+  - (0,N) Loja possui vários itens
+  - (0,N) Item está em várias lojas
 
 - **Item _possui exclusivamente_ tipos**
   - (1,1) Item pode ser classificado apenas como Defesa, Consumível ou Ataque
