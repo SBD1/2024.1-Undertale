@@ -38,7 +38,7 @@ O Modelo Entidade Relacionamento de um bancos de dados é um modelo conceitual q
 - *Inventário*: {qtd-item, tamanho-total, qtd-gold }
 - *Loja*: {<ins>id-loja</ins>, mercador-id , sala-id }
 - *Diálogo*: {<ins>id-dialogo</ins>, texto-dialogo, interacao-id }
-- *NPC*: {<ins>id-npc</ins>, nome, sala, dialogo-npc, tipo, sala-id, afinidade-id }
+- *NPC*: {<ins>id-npc</ins>, nome, dialogo-npc, tipo, sala-id, afinidade-id }
     - *Mercador*: {id-loja, mercador-id }
     - *Aliado*: {gold-drop, xp-drop, dano-ataque}
     - *Monstro*: {dano-ataque, xp-drop, gold-drop, afinidade-id }
@@ -106,5 +106,5 @@ O Modelo Entidade Relacionamento de um bancos de dados é um modelo conceitual q
 | `1.0`  | 21/04/2024 | Primeira versão  do MER  | [Bianca Castro](https://github.com/BiancaPatrocinio7) e [Samara Letícia](https://github.com/samarawwleticia) |       
 | `1.1`  | 21/07/2024 | Atualizando os atributos e relacionamentos | [Bianca Castro](https://github.com/BiancaPatrocinio7)  |                                                              
 | `1.2`  | 22/07/2024 | V1 MR       | [Diego Carlito](https://github.com/DiegoCarlito) e [Bianca Castro](https://github.com/BiancaPatrocinio7)|    
-| '2.0' | 13/08/2024 |V2 MER | [Marcos Castilhos] (https://github.com/Marcosatc147) e [Bianca Castro](https://github.com/BiancaPatrocinio7) |
+| `1.3` | 13/08/2024 |V2 MER | [Marcos Castilhos](https://github.com/Marcosatc147) e [Bianca Castro](https://github.com/BiancaPatrocinio7) |
 </center>
