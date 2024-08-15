@@ -43,7 +43,7 @@ O Modelo Entidade Relacionamento de um bancos de dados é um modelo conceitual q
     - *Aliado*: {gold-drop, xp-drop, dano-ataque}
     - *Monstro*: {dano-ataque, xp-drop, gold-drop, afinidade-id }
 - *Item*: {<ins>id-item</ins>, nome, descricao-item, valor-item, tipo}
-	- *Instância-item*
+	- *Instância-item*: {id-instancia}
 	    - *Defesa*: {protecao}
 	    - *Consumível*: {qtd-cura}
 	    - *Ataque*: {dano}
@@ -71,6 +71,14 @@ O Modelo Entidade Relacionamento de um bancos de dados é um modelo conceitual q
 - **Jogador _possui_ Inventário**
   - (1,1) Jogador possui um inventário
   - (1,1) Inventário pertence a um jogador
+
+- **Jogador _encontra_ Npc**
+  - (0,N) Jogador pode encontrar vários NPCS
+  - (0,N) NPC se encontra com vários jogadores
+
+- **Jogador _possui_ Afinidade**
+  - (1,1) Jogador possui afinidade
+  - (1,1) Afinidade pertence a um jogador
  
 - **Sala _possui_ Porta**
   - (0,N) Sala pode possuir várias portas
