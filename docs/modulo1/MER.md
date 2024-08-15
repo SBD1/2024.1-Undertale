@@ -35,13 +35,13 @@ O Modelo Entidade Relacionamento de um bancos de dados é um modelo conceitual q
 
 - *Jogador*: {<ins>id</ins>, nome, item-equipado, nivel, qtd-xp, vida-maxima, vida-atual, afinidade-id, tipo-rota}
 - *Missão*: {<ins>id-missao</ins>, nome, descricao-missao, status}
-- *Inventário*: {qtd-item, tamanho-total, qtd-gold }
-- *Loja*: {<ins>id-loja</ins>, mercador-id , sala-id }
+- *Inventário*: {<ins>id-jogador</ins>, qtd-item, tamanho-total, qtd-gold }
+- *Loja*: {<ins>id-loja</ins>, mercador-id , sala-id, item-id }
 - *Diálogo*: {<ins>id-dialogo</ins>, texto-dialogo, interacao-id }
-- *NPC*: {<ins>id-npc</ins>, nome, dialogo-npc, tipo, sala-id, afinidade-id }
-    - *Mercador*: {id-loja, mercador-id }
+- *NPC*: {<ins>id-npc</ins>, nome, dialogo-npc, tipo, sala-id }
+    - *Mercador*: {id-loja}
     - *Aliado*: {gold-drop, xp-drop, dano-ataque}
-    - *Monstro*: {dano-ataque, xp-drop, gold-drop, afinidade-id }
+    - *Monstro*: {dano-ataque, xp-drop, gold-drop, item-drop }
 - *Item*: {<ins>id-item</ins>, nome, descricao-item, valor-item, tipo}
 	- *Instância-item*: {id-instancia}
 	    - *Defesa*: {protecao}
@@ -49,9 +49,9 @@ O Modelo Entidade Relacionamento de um bancos de dados é um modelo conceitual q
 	    - *Ataque*: {dano}
 - *Sala*: {<ins>id-sala</ins>, nome, descricao, porta-id }
 - *Porta*: {<ins>id-porta</ins>, status, sala-id }
-- *Baú*: {<ins>id-bau</ins>, capacidade, sala-id , item-id }
+- *Baú*: {<ins>id-bau</ins>, capacidade, sala-id, item-id}
 - *Afinidade*: {<ins>id-afinidade</ins>, qtd-atual, qtd-max}
-- *Interação*: {<ins>id-interação</ins>, id-npc, dialogo}
+- *Interação*: {<ins>id-interação</ins>, id-npc, id-jogador, dialogo}
 
 
 ## Relacionamentos
@@ -138,5 +138,5 @@ O Modelo Entidade Relacionamento de um bancos de dados é um modelo conceitual q
 | `1.0`  | 21/04/2024 | Primeira versão  do MER  | [Bianca Castro](https://github.com/BiancaPatrocinio7) e [Samara Letícia](https://github.com/samarawwleticia) |       
 | `1.1`  | 21/07/2024 | Atualizando os atributos e relacionamentos | [Bianca Castro](https://github.com/BiancaPatrocinio7)  |                                                              
 | `1.2`  | 22/07/2024 | V1 MR       | [Diego Carlito](https://github.com/DiegoCarlito) e [Bianca Castro](https://github.com/BiancaPatrocinio7)|    
-| `1.3` | 13/08/2024 |V2 MER | [Marcos Castilhos](https://github.com/Marcosatc147) e [Bianca Castro](https://github.com/BiancaPatrocinio7) |
+| `1.3` | 13/08/2024 | V2 MER | [Marcos Castilhos](https://github.com/Marcosatc147) e [Bianca Castro](https://github.com/BiancaPatrocinio7) |
 </center>
