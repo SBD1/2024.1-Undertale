@@ -19,7 +19,7 @@ Um dicionário de dados é um recurso essencial na área da ciência de dados e 
 | valor             | decimal(10,2)| Valor numérico do exemplo                   | 0.00-9999.99       | Not Null, Check (>= 0) |
 | ativo             | boolean    | Indicador se o exemplo está ativo ou não    | True, False        | Not Null               |
 
-  <font size="3"><p style="text-align: center"><b>Autores:</b> <a href="https://github.com/BiancaPatrocinio7">Bianca Castro</a>, <a href="https://github.com/DiegoCarlito">Bianca Castro</a>, <a href="https://github.com/Marcosatc147">Marcos Castilhos</a>, 2024</p></font>
+  <font size="3"><p style="text-align: center"><b>Autores:</b> <a href="https://github.com/BiancaPatrocinio7">Bianca Castro</a>, <a href="https://github.com/Marcosatc147">Marcos Castilhos</a>, 2024</p></font>
 
 <details>
   <summary>Descrição de cada título da coluna</summary>
@@ -52,10 +52,6 @@ Um dicionário de dados é um recurso essencial na área da ciência de dados e 
 | vida-atual        | int        | Quantidade de vida atual do jogador         | 0-1000              | Not Null, Check (0-1000)|
 | afinidade      | int        | Identificador da afinidade do jogador       | 1-5000              | FK, Not Null               |
 | tipo-rota         | varchar(50)| Tipo de rota do jogador (Pacifista, Genocida e Neutra)                     | a-z, A-Z            | Not Null               |
-| sala            | int         | Identificador da sala onde o Jogador está      | 1-5000              | FK, Not Null               |
-| missao           | int         | Identificador da missão atual           | 1-5000              | FK, Not Null           |
-| inventário          | int         | Identificador do inventário do jogador       | 1-5000              | FK, Not Null           |
-
 
 ---
 
@@ -77,8 +73,7 @@ Um dicionário de dados é um recurso essencial na área da ciência de dados e 
 | qtd-item           | int         | Quantidade de itens no inventário           | 0-10000             | Not Null, Check (0-10000)|
 | tamanho-total      | decimal(10,2)| Tamanho total do inventário em unidades    | 0.00-10000.00       | Not Null, Check (>= 0) |
 | qtd-gold           | int         | Quantidade de ouro do jogador              | 0-10000             | Not Null, Check (>= 0) |
-| jogador         | int         | Identificador do jogador                    | 1-5000              | PK, FK, Not Null       |
-| item            | int         | Identificador do item associado             | 1-5000              | FK, Not Null           |
+| id-jogador         | int         | Identificador do jogador                    | 1-5000              | PK, FK, Not Null       |
 
 ---
 
@@ -88,7 +83,7 @@ Um dicionário de dados é um recurso essencial na área da ciência de dados e 
 |--------------------|-------------|---------------------------------------------|---------------------|------------------------|
 | id-dialogo         | int         | Código de identificação do diálogo          | 1-5000              | PK, Not Null           |
 | texto      | varchar(255)| Texto do diálogo                           | a-z, A-Z            | Not Null               |
-| npc             | int         | Identificador do NPC que fala o diálogo     | 1-5000              | FK                     |
+| id-interação             | int         | Identificador da interação que está o diálogo     | 1-5000              | FK                     |
 
 ---
 
@@ -99,9 +94,7 @@ Um dicionário de dados é um recurso essencial na área da ciência de dados e 
 | id-npc             | int         | Código de identificação do NPC              | 1-5000              | PK, Not Null           |
 | nome               | varchar(50) | Nome do NPC                                | a-z, A-Z            | Not Null               |
 | sala            | int         | Identificador da sala onde o NPC está      | 1-5000              | FK, Null               |
-| dialogo        | varchar(255)| Diálogo do NPC                             | a-z, A-Z            | FK, Null               |
 | tipo               | varchar(50) | Tipo de NPC (Mercador, Aliado, Monstro)    | Mercador, Aliado, Monstro | Not Null            |
-| afinidade       | int         | Identificador da afinidade do NPC           | 1-5000              | FK, Null               |
 
 #### **Mercador**
 
@@ -137,6 +130,13 @@ Um dicionário de dados é um recurso essencial na área da ciência de dados e 
 | descricao     | varchar(100)| Descrição do item                           | a-z, A-Z            |                        |
 | valor        | decimal(10,2)| Valor do item                               | 0.00-1500.00        | Not Null, Check (>= 0) |
 | tipo               | varchar(50) | Tipo do item (Armadura, Consumível, etc.)   | Armadura, Consumível, Chave | Not Null         |
+
+### **Entidade: Instância-Item**
+
+| Nome Variável      | Tipo        | Descrição                                   | Valores Permitidos  | Restrições de Domínio |
+|--------------------|-------------|---------------------------------------------|---------------------|------------------------|
+| id-instancia            | int         | Código de identificação da instancia            | 1-5000              | PK, Not Null           |
+| item            | int         | Código identificador do item que a instância está relacionada             | 1-5000              | FK, Not Null           |
 
 
 ##### **Defesa**
@@ -209,6 +209,18 @@ Um dicionário de dados é um recurso essencial na área da ciência de dados e 
 | id-loja            | int         | Código de identificação da loja              | 1-5000              | PK, Not Null           |
 | mercador        | int         | Identificador do mercador associado          | 1-5000              | FK, Not Null           |
 | sala            | int         | Identificador da sala onde a loja está      | 1-5000              | FK, Not Null           |
+| item            | int         | Identificador do item que a loja possui            | 1-5000              | FK, Null               |
+
+---
+
+### **Entidade: Interação**
+
+| Nome Variável      | Tipo        | Descrição                                   | Valores Permitidos  | Restrições de Domínio |
+|--------------------|-------------|---------------------------------------------|---------------------|------------------------|
+| id-interação            | int         | Código de identificação da interação              | 1-5000              | PK, Not Null           |
+| npc        | int         | Identificador do npc associado          | 1-5000              | FK, Not Null           |
+| jogador            | int         | Identificador do jogador que interagiu     | 1-5000              | FK, Not Null           |
+| dialogo           | int         | Identificador do dialogo que ocorreu            | 1-5000              | FK, Null               |
 
 ---
 
@@ -219,5 +231,6 @@ Um dicionário de dados é um recurso essencial na área da ciência de dados e 
 | `1.0`  | 21/04/2024 | Primeira versão  do DD    | [Bianca Castro](https://github.com/BiancaPatrocinio7) e [Diego Carlito](https://github.com/DiegoCarlito) | 
 | `1.1`  | 21/07/2024 | Normalizando as Entidade e formatando as tabelas | [Bianca Castro](https://github.com/BiancaPatrocinio7)  |                                                              
 | `1.2`  | 21/07/2024 | Corrige e adiciona atributos de relacionamento | [Marcos Castilhos](https://github.com/Marcosatc147)  | 
+| `1.2`  | 21/07/2024 | Corrige e adiciona atributos  | [Marcos Castilhos](https://github.com/Marcosatc147)  | 
 | `1.3`  | 22/07/2024 | V1 do DD | [Bianca Castro](https://github.com/BiancaPatrocinio7)  | 
 | `1.4` | 13/08/2024 | V2 do DD | [Marcos Castilhos](https://github.com/Marcosatc147) e [Bianca Castro](https://github.com/BiancaPatrocinio7) |
