@@ -26,14 +26,14 @@ theme:
 
     # Palette toggle for light mode
     - scheme: default
-      primary: orange
+      primary: purple
       toggle:
         icon: material/eye
         name: Mudar para o modo escuro
 
     # Palette toggle for dark mode
     - scheme: slate
-      primary: brown
+      primary: purple
       toggle:
         icon: material/eye-outline
         name: Mudar para o modo claro
