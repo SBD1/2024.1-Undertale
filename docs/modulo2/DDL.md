@@ -19,7 +19,7 @@ CREATE TABLE IF NOT EXISTS Jogador (
     qtd_xp INT NOT NULL CHECK (qtd_xp BETWEEN 0 AND 1000),
     vida_maxima INT NOT NULL CHECK (vida_maxima BETWEEN 1 AND 1000),
     vida_atual INT NOT NULL CHECK (vida_atual BETWEEN 0 AND 1000),
-    afinidade INT,
+    afinidade INT NOT NULL CHECK (afinidade BETWEEN 0 AND 100),
     tipo_rota VARCHAR(50) NOT NULL CHECK (tipo_rota IN ('Pacifista', 'Genocida', 'Neutra')),
     FOREIGN KEY (item_equipado) REFERENCES Item(id_item),
     FOREIGN KEY (afinidade) REFERENCES Afinidade(id_afinidade)
@@ -48,6 +48,15 @@ CREATE TABLE IF NOT EXISTS Dialogo (
     texto VARCHAR(255) NOT NULL,
     id_interacao INT,
     FOREIGN KEY (id_interacao) REFERENCES Interacao(id_interacao)
+);
+
+-- Tabela de Escolhas de Diálogos
+CREATE TABLE IF NOT EXISTS EscolhaDialogo(
+    id_dialogo INT REFERENCES Dialogo(id_dialogo),
+    escolha_id SERIAL,
+    escolha VARCHAR(50) NOT NULL,
+    prox_dialogo INT REFERENCES Dialogo(id_dialogo),
+    PRIMARY KEY (id_dialogo, escolha_id)
 );
 
 -- Tabela: NPC
