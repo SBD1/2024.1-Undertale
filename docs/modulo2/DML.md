@@ -5,35 +5,32 @@
 A Data Manipulation Language (DML), ou Linguagem de Manipulação de Dados, é uma parte essencial do SQL (Structured Query Language), utilizada para gerenciar e manipular dados dentro de um banco de dados relacional. Os comandos DML permitem que os desenvolvedores e administradores de banco de dados realizem tarefas essenciais como inserção, atualização, remoção e consulta de dados. Esses comandos são fundamentais para garantir que as informações sejam mantidas atualizadas e precisas, permitindo assim que as aplicações que dependem desses dados funcionem corretamente.
 
 
-
-
-
 #### 1. Inserção de Dados
 
 ```sql
 -- Inserir um novo jogador
 INSERT INTO Jogador (nome, item_equipado, nivel, qtd_xp, vida_maxima, vida_atual, afinidade, tipo_rota)
-VALUES ('Herói', NULL, 1, 0, 100, 100, NULL, 'Neutra');
+VALUES ('Frisk', NULL, 1, 0, 100, 100, NULL, 'Pacifista');
 
 -- Inserir uma nova missão
 INSERT INTO Missao (nome, descricao, status)
-VALUES ('Salvar a Vila', 'Libere a vila do monstro ameaçador.', 'ativa');
+VALUES ('Resolva o puzzle', 'Resolva o puzzle das Ruinas para liberar a porta para a outra sala', 'ativa');
 
 -- Inserir um novo item
 INSERT INTO Item (nome, descricao, valor, tipo)
-VALUES ('Espada', 'Espada afiada de ferro.', 50.00, 'Armadura');
+VALUES ('Bandana Viril', '7DF - Tem abdominais nela', 50.00, 'Armadura');
 
 -- Inserir uma nova sala
 INSERT INTO Sala (nome_sala, descricao, x_coord, y_coord)
-VALUES ('Entrada da Vila', 'A entrada principal da vila.', 0, 0);
+VALUES ('Ruinas', 'A entrada principal do mundo subterraneo', 0, 0);
 
 -- Inserir uma nova conexão entre salas
 INSERT INTO Conexao (id_sala_origem, id_sala_destino, direcao, descricao_conexao)
-VALUES (1, 2, 'Norte', 'Caminho que leva ao centro da vila.');
+VALUES (1, 2, 'Norte', 'Caminho que leva ao centro das ruinas');
 
 -- Inserir um novo NPC
 INSERT INTO NPC (nome, sala, tipo)
-VALUES ('Guarda', 1, 'Aliado');
+VALUES ('Flowey', 1, 'Aliado');
 
 -- Inserir um novo mercador
 INSERT INTO Mercador (loja)
