@@ -10,7 +10,7 @@ A Data Manipulation Language (DML), ou Linguagem de Manipulação de Dados, é u
 ```sql
 -- Inserir um novo jogador
 INSERT INTO Jogador (nome, item_equipado, nivel, qtd_xp, vida_maxima, vida_atual, afinidade, tipo_rota)
-VALUES ('Frisk', NULL, 1, 0, 100, 100, NULL, 'Pacifista');
+VALUES ('Frisk', NULL, 1, 0, 100, 100, 0, 'Pacifista');
 
 -- Inserir uma nova missão
 INSERT INTO Missao (nome, descricao, status)
