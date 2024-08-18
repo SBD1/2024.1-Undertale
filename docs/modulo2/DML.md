@@ -131,4 +131,5 @@ WHERE id_sala = 1;
 | :-: | :-: | :-: | :-: | 
 | `1.0`  | 07/08/2024 | Criação do documento  | [Bianca Castro](https://github.com/BiancaPatrocinio7) |   
 | `1.1`  | 17/08/2024 | Primeira versão do DML | [Bianca Castro](https://github.com/BiancaPatrocinio7) |
+| `1.2`  | 18/08/2024 | Adicionando algumas informações do jogo | [Marcos Castilhos](https://github.com/Marcosatc147) |
 </center>
