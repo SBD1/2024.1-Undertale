@@ -31,6 +31,65 @@ SELECT * FROM Aliado;
 -- Consultar todos os monstros e seus itens de drop
 SELECT * FROM Monstro
 JOIN Item ON Monstro.item_drop = Item.id_item;
+
+-- Consultar o inventário de um jogador específico
+SELECT Jogador.nome, Inventario.qtd_item, Inventario.tamanho_total, Inventario.qtd_gold
+FROM Inventario
+JOIN Jogador ON Inventario.id_jogador = Jogador.id_jogador
+WHERE Jogador.nome = 'NomeDoJogador';
+
+-- Consultar os itens que um jogador específico tem equipado
+SELECT Jogador.nome, Item.nome AS item_equipado
+FROM Jogador
+JOIN Item ON Jogador.item_equipado = Item.id_item
+WHERE Jogador.nome = 'NomeDoJogador';
+
+-- Consultar a rota seguida por cada jogador
+SELECT nome, tipo_rota
+FROM Jogador;
+
+-- Consultar todas as salas e os NPCs que estão nelas
+SELECT Sala.nome_sala, NPC.nome AS npc_nome
+FROM Sala
+LEFT JOIN NPC ON Sala.id_sala = NPC.sala;
+
+-- Consultar diálogos possíveis a partir de uma escolha específica
+SELECT EscolhaDialogo.escolha, Dialogo.texto AS prox_dialogo_texto
+FROM EscolhaDialogo
+JOIN Dialogo ON EscolhaDialogo.prox_dialogo = Dialogo.id_dialogo
+WHERE EscolhaDialogo.id_dialogo = 1;
+
+-- Consultar o total de XP acumulado por um jogador
+SELECT nome, SUM(qtd_xp) AS total_xp
+FROM Jogador
+GROUP BY nome;
+
+-- Consultar todas as portas trancadas em uma sala específica
+SELECT Porta.id_porta, Sala.nome_sala
+FROM Porta
+JOIN Sala ON Porta.sala = Sala.id_sala
+WHERE Porta.status = 'Trancada' AND Sala.id_sala = 1;
+
+-- Consultar jogadores que possuem afinidade máxima
+SELECT Jogador.nome, Afinidade.qtd_atual, Afinidade.qtd_max
+FROM Jogador
+JOIN Afinidade ON Jogador.afinidade = Afinidade.id_afinidade
+WHERE Afinidade.qtd_atual = Afinidade.qtd_max;
+
+-- Consultar todos os itens em uma loja específica
+SELECT Loja.id_loja, Item.nome AS item_nome, Item.valor
+FROM Loja
+JOIN Item ON Loja.item = Item.id_item
+WHERE Loja.id_loja = 1;
+
+-- Consultar todas as interações entre um jogador e um NPC específico
+SELECT Jogador.nome AS jogador_nome, NPC.nome AS npc_nome, Dialogo.texto AS dialogo
+FROM Interacao
+JOIN Jogador ON Interacao.jogador = Jogador.id_jogador
+JOIN NPC ON Interacao.npc = NPC.id_npc
+LEFT JOIN Dialogo ON Interacao.dialogo = Dialogo.id_dialogo
+WHERE NPC.nome = 'NomeDoNPC' AND Jogador.nome = 'NomeDoJogador';
+
 ```
 
 ### Histórico de Versão
