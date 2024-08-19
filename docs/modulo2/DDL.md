@@ -72,7 +72,7 @@ CREATE TABLE IF NOT EXISTS NPC (
 CREATE TABLE IF NOT EXISTS Mercador (
     loja INT PRIMARY KEY,
     FOREIGN KEY (loja) REFERENCES Loja(id_loja)
-);
+)INHERITS (NPC);
 
 -- Tabela: Aliado
 CREATE TABLE IF NOT EXISTS Aliado (
@@ -81,7 +81,7 @@ CREATE TABLE IF NOT EXISTS Aliado (
     dano_ataque INT NOT NULL CHECK (dano_ataque >= 0),
     PRIMARY KEY (id_npc),
     FOREIGN KEY (id_npc) REFERENCES NPC(id_npc)
-);
+)INHERITS (NPC);
 
 -- Tabela: Monstro
 CREATE TABLE IF NOT EXISTS Monstro (
@@ -92,7 +92,7 @@ CREATE TABLE IF NOT EXISTS Monstro (
     PRIMARY KEY (id_npc),
     FOREIGN KEY (id_npc) REFERENCES NPC(id_npc),
     FOREIGN KEY (item_drop) REFERENCES Item(id_item)
-);
+)INHERITS (NPC);
 
 -- Tabela: Item
 CREATE TABLE IF NOT EXISTS Item (

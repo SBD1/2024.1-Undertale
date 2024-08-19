@@ -29,10 +29,40 @@ INSERT INTO Conexao (id_sala_origem, id_sala_destino, direcao, descricao_conexao
 VALUES (1, 2, 'Norte', 'Caminho que leva ao centro das ruinas');
 
 -- Inserir um novo NPC
-INSERT INTO NPC (nome, sala, tipo)
-VALUES ('Flowey', 1, 'Aliado');
+--- Inserir Flowey como Aliado
+INSERT INTO Aliado (nome, sala, tipo, gold_drop, xp_drop, dano_ataque)
+VALUES ('Flowey', NULL, 'Aliado', 20, 10, 99);
 
--- Inserir um novo mercador
+-- Inserir Toriel como Aliado
+INSERT INTO Aliado (nome, sala, tipo, gold_drop, xp_drop, dano_ataque)
+VALUES ('Toriel', NULL, 'Aliado', 15, 5, 10);
+
+-- Inserir Sans como Aliado
+INSERT INTO Aliado (nome, sala, tipo, gold_drop, xp_drop, dano_ataque)
+VALUES ('Sans', NULL, 'Aliado', 25, 30, 20);
+
+-- Inserir Papyrus como Aliado
+INSERT INTO Aliado (nome, sala, tipo, gold_drop, xp_drop, dano_ataque)
+VALUES ('Papyrus', NULL, 'Aliado', 20, 25, 15);
+
+-- Inserir Napstablook como Monstro
+INSERT INTO Monstro (nome, sala, tipo, dano_ataque, xp_drop, gold_drop, item_drop)
+VALUES ('Napstablook', NULL, 'Monstro', 5, 5, 10, NULL);
+
+-- Inserir Doggo como Monstro
+INSERT INTO Monstro (nome, sala, tipo, dano_ataque, xp_drop, gold_drop, item_drop)
+VALUES ('Doggo', NULL, 'Monstro', 12, 30, 15, NULL);
+
+-- Inserir Dogamy e Dogaressa como Monstros
+INSERT INTO Monstro (nome, sala, tipo, dano_ataque, xp_drop, gold_drop, item_drop)
+VALUES ('Dogamy e Dogaressa', NULL, 'Monstro', 40, 40, 20, NULL);
+
+-- Inserir Dogão como Monstro
+INSERT INTO Monstro (nome, sala, tipo, dano_ataque, xp_drop, gold_drop, item_drop)
+VALUES ('Dogão', NULL, 'Monstro', 80, 60, 50, NULL);
+
+
+/* -- Inserir um novo mercador
 INSERT INTO Mercador (loja)
 VALUES (1);
 
@@ -42,7 +72,7 @@ VALUES (1, 10, 20, 5);
 
 -- Inserir um novo monstro
 INSERT INTO Monstro (id_npc, dano_ataque, xp_drop, gold_drop, item_drop)
-VALUES (2, 15, 30, 10, 1);
+VALUES (2, 15, 30, 10, 1); */
 
 -- Inserir uma nova defesa
 INSERT INTO Defesa (id_instancia, protecao)
