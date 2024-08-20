@@ -7,6 +7,36 @@ DQL é a sigla para Data Query Language. É uma linguagem de consulta de dados q
 #### Consulta de Dados
 
 ```sql
+-- Consultar a sala atual do jogador
+SELECT sala_atual
+FROM Jogador
+WHERE id_jogador = 1;
+
+-- Consultar as conexões disponíveis a partir da sala atual
+SELECT Conexao.id_sala_destino, Conexao.direcao, Sala.nome_sala
+FROM Conexao
+JOIN Sala ON Conexao.id_sala_destino = Sala.id_sala
+WHERE Conexao.id_sala_origem = (
+    SELECT sala_atual
+    FROM Jogador
+    WHERE id_jogador = 1
+);
+
+-- Atualizar a sala atual do jogador após a escolha de direção
+UPDATE Jogador
+SET sala_atual = (
+    SELECT id_sala_destino
+    FROM Conexao
+    WHERE id_sala_origem = (
+        SELECT sala_atual
+        FROM Jogador
+        WHERE id_jogador = 1
+    )
+    AND direcao = 'Norte' 
+)
+WHERE id_jogador = 1;
+
+
 -- Consultar nome de todos os jogadores
 SELECT nome FROM Jogador;
 
@@ -89,6 +119,11 @@ JOIN Jogador ON Interacao.jogador = Jogador.id_jogador
 JOIN NPC ON Interacao.npc = NPC.id_npc
 LEFT JOIN Dialogo ON Interacao.dialogo = Dialogo.id_dialogo
 WHERE NPC.nome = 'NomeDoNPC' AND Jogador.nome = 'NomeDoJogador';
+
+--- Consultar Lojas e Seus respectivos Mercadores
+SELECT loja.nome, mercador.nome
+FROM loja 
+JOIN mercador ON id_loja = loja;
 
 ```
 
