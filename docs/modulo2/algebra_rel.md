@@ -2,7 +2,7 @@
 
 ## Introdução
 
-DQL é a sigla para Data Query Language. É uma linguagem de consulta de dados que permite aos usuários recuperar dados de um banco de dados. O DQL é usado para consultar os dados armazenados em um banco de dados, como recuperar informações específicas de uma tabela ou visualização. O DQL é uma parte importante do projeto físico do banco de dados, pois permite recuperar os dados armazenados no banco de dados.
+A álgebra relacional é uma linguagem formal utilizada para manipular e consultar dados em bancos de dados relacionais. Ela fornece um conjunto de operações básicas, como seleção, projeção, união, diferença, produto cartesiano e junção, que permitem extrair e combinar dados de tabelas de forma precisa e matemática. Essas operações são fundamentais para a execução de consultas em SQL, pois definem como os dados devem ser filtrados, transformados e combinados para produzir os resultados desejados. A álgebra relacional serve como base teórica para a implementação e otimização de sistemas de gerenciamento de bancos de dados (SGBDs).
 
 ### Consultas
 

@@ -43,7 +43,7 @@ Em andamento 🛠.
 | Módulo | Link da gravação                                                                                    | Data       |
 | ------ | --------------------------------------------------------------------------------------------------- | ---------- |
 | 1      | [Apresentação Módulo 1](https://sbd1.github.io/2024.1-Undertale/apresentacao/modulo1/)                                  | 21/07/2024 |
-| 2      | [Apresentação Módulo 2]()                                  | Em andamento 🛠. |
+| 2      | [Apresentação Módulo 2](https://sbd1.github.io/2024.1-Undertale/apresentacao/modulo2/)                                  | 19/08/20024 |
 | 3      | [Apresentação Módulo 3]()    | Em andamento 🛠. |
 | Final  | [Apresentação Final]() | Em andamento 🛠. |
 
@@ -58,10 +58,10 @@ Em andamento 🛠.
 
 - Módulo 2
 
-  - [DDL]()
-  - [DML]()
-  - [DQL]()
-  - [Álgebra Relacional]()
+  - [DDL](https://sbd1.github.io/2024.1-Undertale/modulo2/DDL/)
+  - [DML](https://sbd1.github.io/2024.1-Undertale/modulo2/DML/)
+  - [DQL](https://sbd1.github.io/2024.1-Undertale/modulo2/DQL/)
+  - [Álgebra Relacional](https://sbd1.github.io/2024.1-Undertale/modulo2/algebra_rel/)
 
 - Módulo 3
 

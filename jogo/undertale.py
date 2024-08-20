@@ -17,7 +17,7 @@ class UndertaleGame(cmd.Cmd):
             )
             self.cursor = self.conn.cursor()
             self.jogador_id = None
-            self.sala_atual = 1
+            self.sala_atual = None
             self.inserir_dados_iniciais()  # Adiciona os dados iniciais ao iniciar
         except psycopg2.OperationalError as e:
             print(f"Erro ao conectar ao banco de dados: {e}")
@@ -226,5 +226,5 @@ class UndertaleGame(cmd.Cmd):
         return True
 
 if __name__ == '__main__':
-    game = UndertaleGame(dbname="undertale", user="seu_usuario", password="sua_senha")
+    game = UndertaleGame(dbname="Undertale2", user="postgres", password="admin")
     game.cmdloop()
