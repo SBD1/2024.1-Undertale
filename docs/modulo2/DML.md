@@ -21,14 +21,17 @@ INSERT INTO Item (nome, descricao, valor, tipo)
 VALUES ('Bandana Viril', '7DF - Tem abdominais nela', 50.00, 'Armadura');
 
 -- Inserir uma nova sala
-INSERT INTO Sala (nome_sala, descricao, x_coord, y_coord)
-VALUES ('Ruinas', 'A entrada principal do mundo subterraneo', 0, 0);
+INSERT INTO Sala (nome_sala, descricao)
+VALUES ('Ruinas', 'A entrada principal do mundo subterraneo');
+
+INSERT INTO Sala (nome_sala, descricao)
+VALUES ('Cachoeiras', 'Lugar misterioso protegido por uma poderosa guardiã');
 
 -- Inserir uma nova conexão entre salas
 INSERT INTO Conexao (id_sala_origem, id_sala_destino, direcao, descricao_conexao)
 VALUES (1, 2, 'Norte', 'Caminho que leva ao centro das ruinas');
 
--- Inserir um novo NPC
+-- ALIADOS
 --- Inserir Flowey como Aliado
 INSERT INTO Aliado (nome, sala, tipo, gold_drop, xp_drop, dano_ataque)
 VALUES ('Flowey', NULL, 'Aliado', 20, 10, 99);
@@ -45,6 +48,7 @@ VALUES ('Sans', NULL, 'Aliado', 25, 30, 20);
 INSERT INTO Aliado (nome, sala, tipo, gold_drop, xp_drop, dano_ataque)
 VALUES ('Papyrus', NULL, 'Aliado', 20, 25, 15);
 
+-- MONSTROS
 -- Inserir Napstablook como Monstro
 INSERT INTO Monstro (nome, sala, tipo, dano_ataque, xp_drop, gold_drop, item_drop)
 VALUES ('Napstablook', NULL, 'Monstro', 5, 5, 10, NULL);
@@ -61,18 +65,14 @@ VALUES ('Dogamy e Dogaressa', NULL, 'Monstro', 40, 40, 20, NULL);
 INSERT INTO Monstro (nome, sala, tipo, dano_ataque, xp_drop, gold_drop, item_drop)
 VALUES ('Dogão', NULL, 'Monstro', 80, 60, 50, NULL);
 
+-- MERCADOR
+-- Inserir Lojista de Nevada como Mercador
+INSERT INTO Mercador (nome, sala, tipo, loja)
+VALUES ('Lojista de Nevada', NULL, 'Mercador', 1);
 
-/* -- Inserir um novo mercador
-INSERT INTO Mercador (loja)
-VALUES (1);
-
--- Inserir um novo aliado
-INSERT INTO Aliado (id_npc, gold_drop, xp_drop, dano_ataque)
-VALUES (1, 10, 20, 5);
-
--- Inserir um novo monstro
-INSERT INTO Monstro (id_npc, dano_ataque, xp_drop, gold_drop, item_drop)
-VALUES (2, 15, 30, 10, 1); */
+-- Inserir Gerson como Mercador
+INSERT INTO Mercador (nome, sala, tipo, loja)
+VALUES ('Gerson', 2, 'Mercador', 2);
 
 -- Inserir uma nova defesa
 INSERT INTO Defesa (id_instancia, protecao)
@@ -99,8 +99,11 @@ INSERT INTO Afinidade (qtd_atual, qtd_max)
 VALUES (0, 100);
 
 -- Inserir uma nova loja
-INSERT INTO Loja (mercador, sala, item)
-VALUES (1, 1, 1);
+INSERT INTO Loja (nome, sala, item)
+VALUES ('Loja de Nevada', 1, 1);
+
+INSERT INTO Loja (nome, sala, item)
+VALUES ('Loja do Gerson', 2, 1);
 
 -- Inserir uma nova interação
 INSERT INTO Interacao (npc, jogador, dialogo)
