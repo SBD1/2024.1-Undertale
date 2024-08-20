@@ -7,6 +7,7 @@ nav:
     - Início: "index.md"
     - Apresentações: 
         - Apresentação 1: "apresentacao/modulo1.md"
+        - Apresentação 2: "apresentacao/modulo2.md"
     - Módulo 1 (Modelagem):
         - Diagrama Entidade Relacionamento: "modulo1/DER.md"
         - Modelo Entidade Relacionamento: "modulo1/MER.md"
