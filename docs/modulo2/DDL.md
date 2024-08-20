@@ -14,23 +14,31 @@ CREATE SCHEMA undertale;
 
 -- Tabela: Afinidade
 CREATE TABLE IF NOT EXISTS Afinidade (
-    id_afinidade INT AUTO_INCREMENT PRIMARY KEY,
+    id_afinidade SERIAL PRIMARY KEY,
     qtd_atual INT NOT NULL CHECK (qtd_atual >= 0),
     qtd_max INT NOT NULL CHECK (qtd_max > 0)
 );
 
 -- Tabela: Sala
 CREATE TABLE IF NOT EXISTS Sala (
-    id_sala INT AUTO_INCREMENT PRIMARY KEY,
+    id_sala SERIAL PRIMARY KEY,
     nome_sala VARCHAR(255) NOT NULL,
-    descricao TEXT,
-    x_coord INT NOT NULL,
-    y_coord INT NOT NULL
+    descricao TEXT
+);
+
+-- Tabela: Item
+CREATE TABLE IF NOT EXISTS Item (
+    id_item SERIAL PRIMARY KEY,
+    nome VARCHAR(50) NOT NULL,
+    descricao VARCHAR(100),
+    valor DECIMAL(10,2) NOT NULL CHECK (valor >= 0),
+    tipo VARCHAR(50) NOT NULL,
+    CHECK (tipo IN ('Armadura', 'Consumível', 'Chave'))
 );
 
 -- Tabela: Jogador
 CREATE TABLE IF NOT EXISTS Jogador (
-    id_jogador INT AUTO_INCREMENT PRIMARY KEY,
+    id_jogador SERIAL PRIMARY KEY,
     nome VARCHAR(50) NOT NULL,
     item_equipado INT,
     nivel INT NOT NULL CHECK (nivel BETWEEN 1 AND 100),
@@ -39,14 +47,16 @@ CREATE TABLE IF NOT EXISTS Jogador (
     vida_atual INT NOT NULL CHECK (vida_atual BETWEEN 0 AND 1000),
     afinidade INT NOT NULL CHECK (afinidade BETWEEN 0 AND 100),
     tipo_rota VARCHAR(50) NOT NULL,
+    sala_atual INT,
     FOREIGN KEY (item_equipado) REFERENCES Item(id_item),
     FOREIGN KEY (afinidade) REFERENCES Afinidade(id_afinidade),
+    FOREIGN KEY (sala_atual) REFERENCES Sala(id_sala),
     CHECK (tipo_rota IN ('Pacifista', 'Genocida', 'Neutra'))
 );
 
 -- Tabela: Missão
 CREATE TABLE IF NOT EXISTS Missao (
-    id_missao INT AUTO_INCREMENT PRIMARY KEY,
+    id_missao SERIAL PRIMARY KEY,
     nome VARCHAR(50) NOT NULL,
     descricao VARCHAR(150),
     status VARCHAR(50) NOT NULL,
@@ -64,7 +74,7 @@ CREATE TABLE IF NOT EXISTS Inventario (
 
 -- Tabela: Diálogo
 CREATE TABLE IF NOT EXISTS Dialogo (
-    id_dialogo INT AUTO_INCREMENT PRIMARY KEY,
+    id_dialogo SERIAL PRIMARY KEY,
     texto VARCHAR(255) NOT NULL,
     id_interacao INT
 );
@@ -82,18 +92,17 @@ CREATE TABLE IF NOT EXISTS EscolhaDialogo(
 
 -- Tabela: Loja
 CREATE TABLE IF NOT EXISTS Loja (
-    id_loja INT AUTO_INCREMENT PRIMARY KEY,
-    mercador INT NOT NULL,
-    sala INT NOT NULL,
+    id_loja SERIAL PRIMARY KEY,
+    nome VARCHAR(100),
+    sala INT,
     item INT,
-    FOREIGN KEY (mercador) REFERENCES NPC(id_npc),
     FOREIGN KEY (sala) REFERENCES Sala(id_sala),
     FOREIGN KEY (item) REFERENCES Item(id_item)
 );
 
 -- Tabela: NPC
 CREATE TABLE IF NOT EXISTS NPC (
-    id_npc INT AUTO_INCREMENT PRIMARY KEY,
+    id_npc SERIAL PRIMARY KEY,
     nome VARCHAR(50) NOT NULL,
     sala INT,
     tipo VARCHAR(50) NOT NULL,
@@ -109,37 +118,22 @@ CREATE TABLE IF NOT EXISTS Mercador (
 
 -- Tabela: Aliado
 CREATE TABLE IF NOT EXISTS Aliado (
-    id_npc INT PRIMARY KEY,
     gold_drop INT NOT NULL CHECK (gold_drop >= 0),
     xp_drop INT NOT NULL CHECK (xp_drop >= 0),
     dano_ataque INT NOT NULL CHECK (dano_ataque >= 0),
-    FOREIGN KEY (id_npc) REFERENCES NPC(id_npc)
 )INHERITS (NPC);
 
 -- Tabela: Monstro
 CREATE TABLE IF NOT EXISTS Monstro (
-    id_npc INT PRIMARY KEY,
     dano_ataque INT NOT NULL CHECK (dano_ataque >= 0),
     xp_drop INT NOT NULL CHECK (xp_drop >= 0),
     gold_drop INT NOT NULL CHECK (gold_drop >= 0),
-    item_drop INT,
-    FOREIGN KEY (id_npc) REFERENCES NPC(id_npc),
-    FOREIGN KEY (item_drop) REFERENCES Item(id_item)
+    item_drop INT
 )INHERITS (NPC);
-
--- Tabela: Item
-CREATE TABLE IF NOT EXISTS Item (
-    id_item INT AUTO_INCREMENT PRIMARY KEY,
-    nome VARCHAR(50) NOT NULL,
-    descricao VARCHAR(100),
-    valor DECIMAL(10,2) NOT NULL CHECK (valor >= 0),
-    tipo VARCHAR(50) NOT NULL,
-    CHECK (tipo IN ('Armadura', 'Consumível', 'Chave'))
-);
 
 -- Tabela: Instância-Item
 CREATE TABLE IF NOT EXISTS Instancia_Item (
-    id_instancia INT AUTO_INCREMENT PRIMARY KEY,
+    id_instancia SERIAL PRIMARY KEY,
     item INT NOT NULL,
     FOREIGN KEY (item) REFERENCES Item(id_item)
 );
@@ -168,7 +162,7 @@ CREATE TABLE IF NOT EXISTS Ataque (
 
 -- Tabela: Conexão entre Salas
 CREATE TABLE IF NOT EXISTS Conexao (
-    id_conexao INT AUTO_INCREMENT PRIMARY KEY,
+    id_conexao SERIAL PRIMARY KEY,
     id_sala_origem INT NOT NULL,
     id_sala_destino INT NOT NULL,
     direcao VARCHAR(20) NOT NULL,
@@ -180,7 +174,7 @@ CREATE TABLE IF NOT EXISTS Conexao (
 
 -- Tabela: Porta
 CREATE TABLE IF NOT EXISTS Porta (
-    id_porta INT AUTO_INCREMENT PRIMARY KEY,
+    id_porta SERIAL PRIMARY KEY,
     status VARCHAR(50) NOT NULL,
     sala INT NOT NULL,
     FOREIGN KEY (sala) REFERENCES Sala(id_sala),
@@ -189,7 +183,7 @@ CREATE TABLE IF NOT EXISTS Porta (
 
 -- Tabela: Baú
 CREATE TABLE IF NOT EXISTS Bau (
-    id_bau INT AUTO_INCREMENT PRIMARY KEY,
+    id_bau SERIAL PRIMARY KEY,
     sala INT NOT NULL,
     capacidade INT NOT NULL CHECK (capacidade >= 1),
     item INT,
