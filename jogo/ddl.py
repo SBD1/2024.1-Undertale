@@ -1,25 +1,89 @@
 import psycopg2
-from psycopg2 import sql
 
-# Conectar ao banco de dados PostgreSQL
-def connect_to_db():
-    return psycopg2.connect(
-        dbname="Undertale2",
-        user="postgres",
-        password="admin",
-        host="localhost",
-        port="5432"
-    )
+class DatabaseController:
+    def __init__(self, dbname="postgres", user="postgres", password="admin", host="localhost"):
+        self.dbname = dbname
+        self.user = user
+        self.password = password
+        self.host = host
+        self.connection = None
 
-# Função para criar o esquema e as tabelas
-def create_schema_and_tables(conn):
-    with conn.cursor() as cur:
+    def connect(self):
         try:
-            # Criar o esquema
-            cur.execute("CREATE SCHEMA IF NOT EXISTS undertale;")
-            
-            # List of DDL commands
-            ddl_commands = [
+            self.connection = psycopg2.connect(
+                dbname=self.dbname,
+                user=self.user,
+                password=self.password,
+                host=self.host
+            )
+            print(f"Conectado ao banco de dados {self.dbname} com sucesso!")
+        except Exception as e:
+            print(f"Erro ao conectar ao banco de dados {self.dbname}: {e}")
+
+    def close(self):
+        if self.connection:
+            self.connection.close()
+            print(f"Conexão com o banco de dados {self.dbname} foi fechada.")
+
+    def get_registered_players(self):
+        """Retorna os jogadores registrados no banco atual."""
+        self.connect()
+        cursor = self.connection.cursor()
+        cursor.execute("SELECT nome FROM Jogador;")
+        jogadores = [row[0] for row in cursor.fetchall()]
+        cursor.close()
+        self.close()
+        return jogadores
+
+    def add_player(self, jogador_nome):
+        """Adiciona um novo jogador à tabela 'Jogador'."""
+        if self.connection is None or self.connection.closed:
+            self.connect()  # Reabre a conexão se estiver fechada
+        cursor = self.connection.cursor()
+        
+        # Inserir na tabela Afinidade e obter o id_afinidade recém-criado
+        cursor.execute(
+            "INSERT INTO Afinidade (qtd_atual, qtd_max) "
+            "VALUES (%s, %s) RETURNING id_afinidade;",
+            (0, 50)
+        )
+        id_afinidade = cursor.fetchone()[0]
+        
+        # Inserir na tabela Jogador usando o id_afinidade obtido
+        cursor.execute(
+            "INSERT INTO Jogador (nome, nivel, qtd_xp, vida_maxima, vida_atual, afinidade, tipo_rota) "
+            "VALUES (%s, %s, %s, %s, %s, %s, %s);",
+            (jogador_nome, 1, 0, 100, 100, id_afinidade, 'Pacifista')
+        )
+        
+        self.connection.commit()
+        cursor.close()
+
+
+
+    def create_database(self, new_dbname):
+        try:
+            conn = psycopg2.connect(
+                dbname="postgres", 
+                user=self.user,
+                password=self.password,
+                host=self.host
+            )
+            conn.autocommit = True
+            cursor = conn.cursor()
+            cursor.execute(f"CREATE DATABASE {new_dbname};")
+            cursor.close()
+            conn.close()
+            print(f"Banco de dados {new_dbname} criado com sucesso!")
+        except Exception as e:
+            print(f"Erro ao criar o banco de dados {new_dbname}: {e}")
+
+    def create_tables(self, db_name):
+        try:
+            connection = psycopg2.connect(database=db_name, host=self.host, user=self.user, password=self.password)
+            cursor = connection.cursor()
+
+            create_table_queries = [
                 """
                 CREATE TABLE IF NOT EXISTS Afinidade (
                     id_afinidade SERIAL PRIMARY KEY,
@@ -208,49 +272,14 @@ def create_schema_and_tables(conn):
                 CHECK (direcao IN ('Norte', 'Sul', 'Leste', 'Oeste', 'Noroeste', 'Nordeste', 'Sudoeste', 'Sudeste'))
             );
             """
-            
-
             ]
-            # Executar os comandos DDL
-            for command in ddl_commands:
-                print(f"Executando comando DDL: {command.strip()}")
-                cur.execute(command)
-                print("Comando executado com sucesso.")
-            
-            # Confirmar as alterações
-            conn.commit()
-            print("Alterações confirmadas.")
-        
+            for query in create_table_queries:
+                cursor.execute(query)
+
+            connection.commit()
+
+            cursor.close()
+            connection.close()
+            print(f"Tabelas criadas no banco de dados '{db_name}' com sucesso!")
         except Exception as e:
-            print(f"Ocorreu um erro ao criar o esquema ou tabelas: {e}")
-            conn.rollback()  # Reverter quaisquer alterações em caso de erro
-
-# Função para verificar se as tabelas foram criadas
-def verify_tables(conn):
-    tables = [
-        "Afinidade", "Sala", "Jogador", "Missao", "Inventario",
-        "Dialogo", "EscolhaDialogo", "Loja", "NPC", "Mercador",
-        "Aliado", "Monstro", "Item", "Instancia_Item", "Defesa",
-        "Consumivel", "Ataque", "Conexao", "Porta", "Bau", "Interacao"
-    ]
-    
-    with conn.cursor() as cur:
-        for table in tables:
-            cur.execute(sql.SQL("SELECT EXISTS (SELECT 1 FROM information_schema.tables WHERE table_schema = 'undertale' AND table_name = %s)"), [table])
-            exists = cur.fetchone()[0]
-            print(f"Tabela '{table}' existe: {exists}")
-
-# Função principal
-def main():
-    conn = connect_to_db()
-    try:
-        create_schema_and_tables(conn)
-        verify_tables(conn)  # Verifica se as tabelas foram criadas
-        print("Esquema e tabelas criados com sucesso.")
-    except Exception as e:
-        print(f"Ocorreu um erro: {e}")
-    finally:
-        conn.close()
-
-if __name__ == "__main__":
-    main()
+            print(f"Erro ao criar tabelas: {e}")
