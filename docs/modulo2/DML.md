@@ -8,106 +8,121 @@ A Data Manipulation Language (DML), ou Linguagem de Manipulação de Dados, é u
 #### 1. Inserção de Dados
 
 ```sql
--- Inserir um novo jogador
-INSERT INTO Jogador (nome, item_equipado, nivel, qtd_xp, vida_maxima, vida_atual, afinidade, tipo_rota)
-VALUES ('Frisk', NULL, 1, 0, 100, 100, 0, 'Pacifista');
+
 
 -- Inserir uma nova missão
-INSERT INTO Missao (nome, descricao, status)
+INSERT INTO undertale_schema.Missao (nome, descricao, status)
 VALUES ('Resolva o puzzle', 'Resolva o puzzle das Ruinas para liberar a porta para a outra sala', 'ativa');
 
 -- Inserir um novo item
-INSERT INTO Item (nome, descricao, valor, tipo)
-VALUES ('Bandana Viril', '7DF - Tem abdominais nela', 50.00, 'Armadura');
+INSERT INTO undertale_schema.Item (nome, descricao, valor, tipo)
+VALUES ('Bandana Viril', '7DF - Tem abdominais nela', 50.00, 'Defesa');
+
+-- Inserir um novo item
+INSERT INTO undertale_schema.Item (nome, descricao, valor, tipo)
+VALUES ('Luva Forte', '5AT Na cara deles.', 50.00, 'Ataque');
+
+-- Inserir um novo item
+INSERT INTO undertale_schema.Item (nome, descricao, valor, tipo)
+VALUES ('Maçã de Siri', 'CR18 HP (Parece um siri.)', 25.00, 'Consumíve');
 
 -- Inserir uma nova sala
-INSERT INTO Sala (nome_sala, descricao)
+INSERT INTO undertale_schema.Sala (nome_sala, descricao)
 VALUES ('Ruinas', 'A entrada principal do mundo subterraneo');
 
-INSERT INTO Sala (nome_sala, descricao)
+INSERT INTO undertale_schema.Sala (nome_sala, descricao)
 VALUES ('Cachoeiras', 'Lugar misterioso protegido por uma poderosa guardiã');
 
 -- Inserir uma nova conexão entre salas
-INSERT INTO Conexao (id_sala_origem, id_sala_destino, direcao, descricao_conexao)
+INSERT INTO undertale_schema.Conexao (id_sala_origem, id_sala_destino, direcao, descricao_conexao)
 VALUES (1, 2, 'Norte', 'Caminho que leva ao centro das ruinas');
 
 -- ALIADOS
 --- Inserir Flowey como Aliado
-INSERT INTO Aliado (nome, sala, tipo, gold_drop, xp_drop, dano_ataque)
+INSERT INTO undertale_schema.Aliado (nome, sala, tipo, gold_drop, xp_drop, dano_ataque)
 VALUES ('Flowey', NULL, 'Aliado', 20, 10, 99);
 
 -- Inserir Toriel como Aliado
-INSERT INTO Aliado (nome, sala, tipo, gold_drop, xp_drop, dano_ataque)
+INSERT INTO undertale_schema.Aliado (nome, sala, tipo, gold_drop, xp_drop, dano_ataque)
 VALUES ('Toriel', NULL, 'Aliado', 15, 5, 10);
 
 -- Inserir Sans como Aliado
-INSERT INTO Aliado (nome, sala, tipo, gold_drop, xp_drop, dano_ataque)
+INSERT INTO undertale_schema.Aliado (nome, sala, tipo, gold_drop, xp_drop, dano_ataque)
 VALUES ('Sans', NULL, 'Aliado', 25, 30, 20);
 
 -- Inserir Papyrus como Aliado
-INSERT INTO Aliado (nome, sala, tipo, gold_drop, xp_drop, dano_ataque)
+INSERT INTO undertale_schema.Aliado (nome, sala, tipo, gold_drop, xp_drop, dano_ataque)
 VALUES ('Papyrus', NULL, 'Aliado', 20, 25, 15);
 
 -- MONSTROS
 -- Inserir Napstablook como Monstro
-INSERT INTO Monstro (nome, sala, tipo, dano_ataque, xp_drop, gold_drop, item_drop)
+INSERT INTO undertale_schema.Monstro (nome, sala, tipo, dano_ataque, xp_drop, gold_drop, item_drop)
 VALUES ('Napstablook', NULL, 'Monstro', 5, 5, 10, NULL);
 
 -- Inserir Doggo como Monstro
-INSERT INTO Monstro (nome, sala, tipo, dano_ataque, xp_drop, gold_drop, item_drop)
+INSERT INTO undertale_schema.Monstro (nome, sala, tipo, dano_ataque, xp_drop, gold_drop, item_drop)
 VALUES ('Doggo', NULL, 'Monstro', 12, 30, 15, NULL);
 
 -- Inserir Dogamy e Dogaressa como Monstros
-INSERT INTO Monstro (nome, sala, tipo, dano_ataque, xp_drop, gold_drop, item_drop)
+INSERT INTO undertale_schema.Monstro (nome, sala, tipo, dano_ataque, xp_drop, gold_drop, item_drop)
 VALUES ('Dogamy e Dogaressa', NULL, 'Monstro', 40, 40, 20, NULL);
 
 -- Inserir Dogão como Monstro
-INSERT INTO Monstro (nome, sala, tipo, dano_ataque, xp_drop, gold_drop, item_drop)
+INSERT INTO undertale_schema.Monstro (nome, sala, tipo, dano_ataque, xp_drop, gold_drop, item_drop)
 VALUES ('Dogão', NULL, 'Monstro', 80, 60, 50, NULL);
+
+-- Inserir uma nova loja
+INSERT INTO undertale_schema.Loja (nome, sala, item)
+VALUES ('Loja de Nevada', 1, 1);
+
+INSERT INTO undertale_schema.Loja (nome, sala, item)
+VALUES ('Loja do Gerson', 2, 1);
 
 -- MERCADOR
 -- Inserir Lojista de Nevada como Mercador
-INSERT INTO Mercador (nome, sala, tipo, loja)
+INSERT INTO undertale_schema.Mercador (nome, sala, tipo, loja)
 VALUES ('Lojista de Nevada', NULL, 'Mercador', 1);
 
 -- Inserir Gerson como Mercador
-INSERT INTO Mercador (nome, sala, tipo, loja)
+INSERT INTO undertale_schema.Mercador (nome, sala, tipo, loja)
 VALUES ('Gerson', 2, 'Mercador', 2);
 
+
+-- Inserir instâncias
+INSERT INTO undertale_schema.Instancia_item (id_instancia, item)
+VALUES (1, 1);
+
 -- Inserir uma nova defesa
-INSERT INTO Defesa (id_instancia, protecao)
+INSERT INTO undertale_schema.Defesa (id_instancia, protecao)
 VALUES (1, 10);
 
 -- Inserir um novo consumível
-INSERT INTO Consumivel (id_instancia, qtd_cura)
+INSERT INTO undertale_schema.Consumivel (id_instancia, qtd_cura)
 VALUES (2, 20);
 
 -- Inserir um novo ataque
-INSERT INTO Ataque (id_instancia, dano)
+INSERT INTO undertale_schema.Ataque (id_instancia, dano)
 VALUES (3, 25);
 
 -- Inserir uma nova porta
-INSERT INTO Porta (status, sala)
+INSERT INTO undertale_schema.Porta (status, sala)
 VALUES ('Fechada', 1);
 
 -- Inserir um novo baú
-INSERT INTO Bau (sala, capacidade, item)
+INSERT INTO undertale_schema.Bau (sala, capacidade, item)
 VALUES (1, 5, 1);
 
 -- Inserir uma nova afinidade
-INSERT INTO Afinidade (qtd_atual, qtd_max)
+INSERT INTO undertale_schema.Afinidade (qtd_atual, qtd_max)
 VALUES (0, 100);
 
--- Inserir uma nova loja
-INSERT INTO Loja (nome, sala, item)
-VALUES ('Loja de Nevada', 1, 1);
-
-INSERT INTO Loja (nome, sala, item)
-VALUES ('Loja do Gerson', 2, 1);
+INSERT INTO undertale_schema.Jogador (nome, item_equipado, nivel, qtd_xp, vida_maxima, vida_atual, afinidade, tipo_rota)
+VALUES ('Frisk', NULL, 1, 0, 100, 100, 0, 'Pacifista');
 
 -- Inserir uma nova interação
-INSERT INTO Interacao (npc, jogador, dialogo)
+INSERT INTO undertale_schema.Interacao (npc, jogador, dialogo)
 VALUES (1, 1, 1);
+
 ```
 
 #### 2. Atualização de Dados

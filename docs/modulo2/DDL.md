@@ -33,7 +33,7 @@ CREATE TABLE IF NOT EXISTS Item (
     descricao VARCHAR(100),
     valor DECIMAL(10,2) NOT NULL CHECK (valor >= 0),
     tipo VARCHAR(50) NOT NULL,
-    CHECK (tipo IN ('Armadura', 'Consumível', 'Chave'))
+    CHECK (tipo IN ('Ataque', 'Consumível', 'Defesa'))
 );
 
 -- Tabela: Jogador

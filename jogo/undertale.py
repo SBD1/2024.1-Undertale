@@ -2,7 +2,7 @@ from textual.app import App, ComposeResult
 from textual.containers import ScrollableContainer
 from textual.widgets import Button, Footer, Header, Static, Input, Label, Select
 import psycopg2
-from ddl import DatabaseController
+from control import DatabaseController
 
 class TelaInicial(Static):
     """Tela inicial do jogo"""
@@ -15,7 +15,7 @@ class TelaInicial(Static):
     def on_button_pressed(self, event: Button.Pressed) -> None:
         if event.button.id == "novo_jogador":
             jogador_nome = self.query_one('#input_nome').value.replace(' ', '_')
-            db_name = "Undertale4"
+            db_name = "Undertale5"
             #db_name = f"jogador_{jogador_nome}_db"
           #  self.db_controller.create_database(db_name)
            # self.db_controller.create_tables(db_name)
