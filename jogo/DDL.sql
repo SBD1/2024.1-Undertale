@@ -70,7 +70,7 @@ CREATE TABLE IF NOT EXISTS Bau (
 
 CREATE TABLE IF NOT EXISTS Jogador (
     id_jogador SERIAL PRIMARY KEY,
-    nome VARCHAR(50) NOT NULL,
+    nome VARCHAR(50) NOT NULL UNIQUE,
     item_equipado INT,
     nivel INT NOT NULL CHECK (nivel BETWEEN 1 AND 100),
     qtd_xp INT NOT NULL CHECK (qtd_xp BETWEEN 0 AND 1000),
