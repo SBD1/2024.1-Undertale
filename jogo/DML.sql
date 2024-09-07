@@ -116,13 +116,13 @@ INSERT INTO Bau (sala, capacidade, item)
 VALUES (1, 5, 1);
 
 -- Inserir uma nova afinidade
-INSERT INTO Afinidade (id_afinidade, qtd_atual, qtd_max)
-VALUES (1, 0, 100);
+INSERT INTO Afinidade (qtd_atual, qtd_max)
+VALUES (0, 100);
 
 INSERT INTO Jogador (nome, item_equipado, nivel, qtd_xp, vida_maxima, vida_atual, afinidade, tipo_rota)
 VALUES ('Frisk', NULL, 1, 0, 100, 100, 1, 'Pacifista');
 
 -- Inserir uma nova interação
-INSERT INTO Interacao (npc, jogador, dialogo)
-VALUES (1, 1, 1);
+--INSERT INTO Interacao (npc, jogador, dialogo)
+--VALUES (1, 1, 1);
 
