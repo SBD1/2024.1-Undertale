@@ -1,4 +1,4 @@
-import psycopg2
+# main.py
 from control import DatabaseController
 
 class TerminalInterface:
@@ -10,7 +10,8 @@ class TerminalInterface:
             print("\nMenu:")
             print("1. Adicionar Novo Jogador")
             print("2. Listar Jogadores")
-            print("3. Sair")
+            print("3. Executar Script SQL")
+            print("4. Sair")
             
             choice = input("Escolha uma opção: ").strip()
             
@@ -19,6 +20,8 @@ class TerminalInterface:
             elif choice == "2":
                 self.list_players()
             elif choice == "3":
+                self.run_sql_script()
+            elif choice == "4":
                 print("Saindo...")
                 break
             else:
@@ -30,34 +33,31 @@ class TerminalInterface:
             self.db_controller.connect()
             self.db_controller.add_player(jogador_nome)
             self.db_controller.close()
-            print(f"Jogador '{jogador_nome}' adicionado com sucesso!")
+
         else:
             print("Nome do jogador não pode estar vazio.")
 
     def list_players(self):
         self.db_controller.connect()
-        conn = self.db_controller.connection
-        if conn:
-            cursor = conn.cursor()
-            try:
-                cursor.execute("SELECT nome FROM Jogador")
-                jogadores = [row[0] for row in cursor.fetchall()]
-                if jogadores:
-                    print("Jogadores Registrados:")
-                    for jogador in jogadores:
-                        print(f"- {jogador}")
-                else:
-                    print("Nenhum jogador registrado.")
-            except psycopg2.Error as e:
-                print(f"Erro ao executar a consulta: {e}")
-            finally:
-                cursor.close()
-                self.db_controller.close()
+        jogadores = self.db_controller.get_registered_players()
+        self.db_controller.close()
+        if jogadores:
+            print("\nJogadores Registrados:")
+            for jogador in jogadores:
+                print(f"- {jogador}")
         else:
-            print("Erro ao conectar ao banco de dados.")
+            print("Nenhum jogador registrado.")
+
+    def run_sql_script(self):
+        script_path = input("Digite o caminho do script SQL a ser executado: ").strip()
+        if script_path:
+            self.db_controller.connect()
+            self.db_controller.execute_sql_script(script_path)
+            self.db_controller.close()
+        else:
+            print("Caminho do script não pode estar vazio.")
 
 if __name__ == "__main__":
-    db_controller = DatabaseController()  # Certifique-se de que o DatabaseController está configurado corretamente
+    db_controller = DatabaseController()
     terminal_interface = TerminalInterface(db_controller)
     terminal_interface.run()
-
