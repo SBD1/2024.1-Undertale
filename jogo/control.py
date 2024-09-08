@@ -128,3 +128,19 @@ class DatabaseController:
             return []
         finally:
             cursor.close()
+
+    def move_player(self, jogador_id, sala_destino_id):
+        """Move o jogador para uma nova sala."""
+        if self.connection is None or self.connection.closed:
+            self.connect()
+
+        cursor = self.connection.cursor()
+        try:
+            cursor.execute("CALL mover_jogador(%s, %s);", (jogador_id, sala_destino_id))
+            self.connection.commit()
+            print("Jogador movido com sucesso.")
+        except Exception as e:
+            print(f"Erro ao mover jogador: {e}")
+            self.connection.rollback()
+        finally:
+            cursor.close()
