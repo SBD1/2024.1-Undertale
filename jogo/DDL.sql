@@ -62,7 +62,7 @@ CREATE TABLE IF NOT EXISTS Porta (
 CREATE TABLE IF NOT EXISTS Bau (
     id_bau SERIAL PRIMARY KEY,
     sala INT NOT NULL,
-    capacidade INT NOT NULL CHECK (capacidade >= 1),
+    capacidade INT CHECK (capacidade >= 1),
     item INT,
     FOREIGN KEY (sala) REFERENCES Sala(id_sala),
     FOREIGN KEY (item) REFERENCES Item(id_item)
