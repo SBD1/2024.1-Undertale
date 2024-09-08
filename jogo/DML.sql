@@ -24,10 +24,16 @@ VALUES (3, 'Maçã de Siri', 'CR18 HP (Parece um siri.)', 25.00, 'Consumível');
 
 -- Inserir uma nova sala
 INSERT INTO Sala (id_sala, nome_sala, descricao)
+VALUES (0, 'Inicio', '...');
+
+INSERT INTO Sala (id_sala, nome_sala, descricao)
 VALUES (1, 'Ruinas', 'A entrada principal do mundo subterraneo');
 
 INSERT INTO Sala (id_sala, nome_sala, descricao)
-VALUES (2, 'Cachoeiras', 'Lugar misterioso protegido por uma poderosa guardiã');
+VALUES (2, 'Snowdin', 'Snowdin é um local de clima frio e está praticamente coberto com gelo e neve, bem como várias árvores em toda parte da região.');
+
+INSERT INTO Sala (id_sala, nome_sala, descricao)
+VALUES (3, 'Cachoeiras', 'Lugar misterioso protegido por uma poderosa guardiã');
 
 -- Inserir uma nova conexão entre salas
 INSERT INTO Conexao (id_sala_origem, id_sala_destino, direcao, descricao_conexao)
