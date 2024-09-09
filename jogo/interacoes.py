@@ -29,3 +29,24 @@ def exibir_dialogo(db_controller: DatabaseController, id_dialogo: int, jogador_i
         print(f"Erro ao recuperar diálogo: {e}")
     finally:
         db_controller.close()
+
+
+def exibir_dialogo_flowey(db_controller: DatabaseController, id_dialogo: int):
+    #"""Recupera e exibe um diálogo da tabela Dialogo."""
+    db_controller.connect()
+    
+    try:
+        # Obter o texto do diálogo a partir do banco de dados
+        dialogo = db_controller.get_dialog_by_id(id_dialogo)
+        if dialogo:
+            conteudo = dialogo[0]  # Supondo que o conteúdo é o primeiro campo do resultado
+            for char in conteudo:
+                print(char, end='', flush=True)
+                time.sleep(0.05)  # Pequeno atraso para simular o texto sendo digitado
+            print("\n")
+        else:
+            print("Diálogo não encontrado.")
+    except Exception as e:
+        print(f"Erro ao recuperar diálogo: {e}")
+    finally:
+        db_controller.close()

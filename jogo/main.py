@@ -1,6 +1,6 @@
 import time
 from control import DatabaseController
-from interacoes import exibir_dialogo
+from interacoes import exibir_dialogo, exibir_dialogo_flowey
 
 class TerminalInterface:
     def __init__(self, db_controller: DatabaseController):
@@ -84,25 +84,11 @@ class TerminalInterface:
 
         exibir_dialogo(self.db_controller, 1, jogador_id)
 
+        db_controller.criar_interacao_flowey(jogador_id)
+        exibir_dialogo_flowey(self.db_controller, 2)
+
         # Lógica de movimentação do jogador
         self.player_movement()
-
-    # def display_intro(self, jogador_id):
-    #     # Verificar se o jogador já viu a introdução
-    #     if self.db_controller.jogador_viu_introducao(jogador_id):
-    #         print("Você já viu a introdução. Deseja vê-la novamente? (s/n)")
-    #         choice = input().strip().lower()
-    #         if choice == 'n':
-    #             return  # Retorna sem mostrar a introdução novamente
-            
-    #     text = ("\nHá muito tempo, Humanos e Monstros conviviam juntos em harmonia sobre a Terra. \nUm dia, uma guerra se iniciou entre as duas raças e depois de um longo confronto, os humanos foram vitoriosos.\n"
-    #             "Eles confinaram todos os monstros existentes no subterrâneo do Monte Ebott com uma barreira mágica.\nApenas o poder de 7 almas humanas diferentes poderia romper a barreira permanentemente.\n\n"
-    #             "Muito tempo depois, em 201X, uma criança humana acabou escalando o Monte por razões desconhecidas e, consequentemente, caiu no subterrâneo, onde os monstros atualmente residem.\n")
-    #     for char in text:
-    #         print(char, end='', flush=True)
-    #         time.sleep(0.05)  # Pequeno atraso para simular o texto sendo digitado
-    #     print("\n")
-    #     self.db_controller.marcar_introducao_vista(jogador_id)
 
     def player_movement(self):
         # Logica de movimentacao do jogador utilizando `self.current_player_id`

@@ -137,3 +137,33 @@ Apenas o poder de 7 almas humanas diferentes poderia romper a barreira permanent
 Muito tempo depois, em 201X, uma crianca humana acabou escalando o Monte por razoes desconhecidas e, 
 consequentemente, caiu no subterraneo, onde os monstros atualmente residem');
 
+INSERT INTO Dialogo (texto) 
+VALUES (
+'Opa! Como vai! Eu sou FLOWEY.
+FLOWEY a FLOR!
+
+umm...
+
+É sua primeira vez no SUBSOLO, né?
+Puxa, Tudo deve parecer tão confuso.
+
+Alguem tem que te ensinar como as coisas funcionam por aqui!
+Acho que o bom e velho eu terei que cuidar disso.
+
+Tudo pronto vamos lá!
+
+Pise aqui!
+
+No começo sua alma é fraca , mas com o passar do tempo ela fica forte.
+
+Está vendo esses Mobis? Bom , Eles são ''Petalas da amizade''.
+
+Eles te darão LV. Oque é LV? LOVE, é claro.
+
+Eles te deixarão mais forte.
+
+Vou compartilhar um pouco com você.
+
+Tudo pronto, Mova-se, Pegue o máximo que puder!'
+)
+

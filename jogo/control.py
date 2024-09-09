@@ -175,7 +175,25 @@ class DatabaseController:
         """, (jogador_id,))
         self.connection.commit()
         print("Estado da introdução atualizado para 'visto'.")
-    
+
+    def criar_interacao_flowey(self, id_jogador):
+
+        if self.connection is None or self.connection.closed:
+            self.connect()
+        
+        cursor = self.connection.cursor()
+
+        try:
+            cursor.execute(
+                """
+                INSERT INTO Interacao (npc, jogador, dialogo) VALUES (1, %s, 2);
+                """, (id_jogador,))
+            self.connection.commit()
+        except Exception as e:
+            print(f"Erro ao criar interação: {e}")
+        finally:
+            cursor.close()
+        
     
 
 
