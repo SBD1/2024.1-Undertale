@@ -64,12 +64,14 @@ class DatabaseController:
 
             # Inserir na tabela Jogador usando o id_afinidade obtido
             cursor.execute(
-                "INSERT INTO Jogador (nome, nivel, qtd_xp, vida_maxima, vida_atual, afinidade, tipo_rota) "
-                "VALUES (%s, %s, %s, %s, %s, %s, %s);",
+                "INSERT INTO Jogador (nome, nivel, qtd_xp, vida_maxima, vida_atual, afinidade, tipo_rota, viu_introducao) "
+                "VALUES (%s, %s, %s, %s, %s, %s, %s, FALSE);",
                 (jogador_nome, 1, 0, 100, 100, id_afinidade, 'Pacifista')
             )
 
             self.connection.commit()
+            print(f"Jogador '{jogador_nome}' adicionado com sucesso.")
+
         except Exception as e:
             print(f"\nErro ao adicionar jogador: {e}")
             self.connection.rollback()
@@ -144,3 +146,35 @@ class DatabaseController:
             self.connection.rollback()
         finally:
             cursor.close()
+    
+    def jogador_viu_introducao(self, jogador_id):
+        if self.connection is None or self.connection.closed:
+            self.connect()
+        
+        cursor = self.connection.cursor()
+
+
+        cursor.execute("""
+            SELECT viu_introducao FROM Jogador
+            WHERE id_jogador = %s;
+        """, (jogador_id,))
+        result = cursor.fetchone()
+        return result[0] if result else False
+    
+    def marcar_introducao_vista(self, jogador_id):
+
+        if self.connection is None or self.connection.closed:
+            self.connect()
+        
+        cursor = self.connection.cursor()
+
+        cursor.execute("""
+            UPDATE Jogador
+            SET viu_introducao = TRUE
+            WHERE id_jogador = %s;
+        """, (jogador_id,))
+        self.connection.commit()
+        print("Estado da introdução atualizado para 'visto'.")
+
+
+        

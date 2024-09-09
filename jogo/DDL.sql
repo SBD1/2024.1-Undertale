@@ -79,6 +79,7 @@ CREATE TABLE IF NOT EXISTS Jogador (
     afinidade INT NOT NULL CHECK (afinidade BETWEEN 0 AND 100),
     tipo_rota VARCHAR(50) NOT NULL,
     sala_atual INT,
+    viu_introducao BOOLEAN DEFAULT FALSE,
     FOREIGN KEY (item_equipado) REFERENCES Item(id_item),
     FOREIGN KEY (afinidade) REFERENCES Afinidade(id_afinidade),
     FOREIGN KEY (sala_atual) REFERENCES Sala(id_sala),
