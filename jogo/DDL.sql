@@ -88,7 +88,7 @@ CREATE TABLE IF NOT EXISTS Jogador (
 
 CREATE TABLE IF NOT EXISTS Dialogo (
     id_dialogo SERIAL PRIMARY KEY,
-    texto VARCHAR(255) NOT NULL,
+    texto TEXT NOT NULL,
     id_interacao INT
 );
 

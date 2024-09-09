@@ -1,4 +1,4 @@
-import psycopg2
+import psycopg2 
 from psycopg2 import sql
 
 class DatabaseController:
@@ -106,7 +106,7 @@ class DatabaseController:
             # Consulta sem o schema
             cursor.execute("SELECT texto FROM Dialogo WHERE id_dialogo = %s;", (id_dialogo,))
             dialogo = cursor.fetchone()
-            return dialogo[0] if dialogo else None
+            return dialogo if dialogo else None
         except Exception as e:
             print(f"Erro ao buscar diálogo: {e}")
             return None
@@ -175,6 +175,8 @@ class DatabaseController:
         """, (jogador_id,))
         self.connection.commit()
         print("Estado da introdução atualizado para 'visto'.")
+    
+    
 
 
         
