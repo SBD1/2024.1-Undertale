@@ -128,7 +128,12 @@ VALUES (0, 100);
 INSERT INTO Jogador (nome, item_equipado, nivel, qtd_xp, vida_maxima, vida_atual, afinidade, tipo_rota)
 VALUES ('Frisk', NULL, 1, 0, 100, 100, 1, 'Pacifista');
 
--- Inserir uma nova interação
---INSERT INTO Interacao (npc, jogador, dialogo)
---VALUES (1, 1, 1);
+INSERT INTO Dialogo (texto)
+VALUES(
+'Ha muito tempo, Humanos e Monstros conviviam juntos em harmonia sobre a Terra. 
+Um dia, uma guerra se iniciou entre as duas raças e depois de um longo confronto, os humanos foram vitoriosos. 
+Eles confinaram todos os monstros existentes no subterraneo do Monte Ebott com uma barreira magica.
+Apenas o poder de 7 almas humanas diferentes poderia romper a barreira permanentemente.
+Muito tempo depois, em 201X, uma crianca humana acabou escalando o Monte por razoes desconhecidas e, 
+consequentemente, caiu no subterraneo, onde os monstros atualmente residem');
 
