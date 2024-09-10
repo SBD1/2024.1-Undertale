@@ -20,9 +20,6 @@
 ## Jogo
 
 "Undertale" é um RPG indie com uma história envolvente sobre um personagem humano que cai em um mundo subterrâneo habitado por monstros. O jogo se destaca por suas mecânicas de combate únicas, onde você pode escolher entre lutar ou resolver conflitos de maneira pacífica. Suas escolhas ao longo do jogo têm consequências significativas na narrativa e nos personagens, levando a múltiplos finais diferentes. Com gráficos pixelizados charmosos e uma trilha sonora marcante, "Undertale" é conhecido por sua originalidade e capacidade de cativar os jogadores com sua história e personagens cativantes.
-### Como o jogo funciona?
-
-Em andamento 🛠.
 
 **No vídeo abaixo é possível identificar de forma visual:**
 
@@ -31,12 +28,24 @@ Em andamento 🛠.
 </div>
 
 ### Como jogar?
+Instale as dependências
+```
+sudo apt install python3.10.12
 
-Em andamento 🛠.
+pip install psycopg2
 
-## Como jogar?
+```
+Instale Software necessários 
+- [VsCode](https://code.visualstudio.com/download) ou IDE de preferência
+- [PostgreSQL no Linux](https://www.hostinger.com.br/tutoriais/instalar-postgresql-ubuntu-20-04) ou [PostgreSQL no Windows](https://forum.casadodesenvolvedor.com.br/topic/46698-como-instalar-o-banco-de-dados-postgresql-no-windows/)
 
-Em andamento 🛠.
+### Como executar o jogo?
+**No vídeo abaixo é possível o tutorial de como executar ele:**
+<div align="center">
+<a href="https://youtu.be/RsICTPbPDlc"><img src="https://i.imgur.com/UoImP9d.png=" width="50%"></a>
+</div>
+
+
 
 ## Apresentações
 
@@ -44,8 +53,7 @@ Em andamento 🛠.
 | ------ | --------------------------------------------------------------------------------------------------- | ---------- |
 | 1      | [Apresentação Módulo 1](https://sbd1.github.io/2024.1-Undertale/apresentacao/modulo1/)                                  | 21/07/2024 |
 | 2      | [Apresentação Módulo 2](https://sbd1.github.io/2024.1-Undertale/apresentacao/modulo2/)                                  | 19/08/20024 |
-| 3      | [Apresentação Módulo 3]()    | Em andamento 🛠. |
-| Final  | [Apresentação Final]() | Em andamento 🛠. |
+| 3      | [Apresentação Módulo 3](https://sbd1.github.io/2024.1-Undertale/apresentacao/modulo3/)    | 09/09/2024 |
 
 ## Entregas
 
@@ -66,14 +74,11 @@ Em andamento 🛠.
 - Módulo 3
 
   - [Dinâmica do Jogo]()
-  - [Histórias de usuários adaptado]()
-  - [Stored Procedures, Triggers e Views]()
-
-- Módulo Final
-  - Jogo MUD
+  - [Stored Procedures]()
+  - [Triggers]()
 
 ### Histórico de versões
 
-| Versão |    Data    | Descrição                                      | Autor                                               | Revisão                                                      |
-| :----: | :--------: | ---------------------------------------------- | --------------------------------------------------- | ------------------------------------------------------------ |
-| `1.0`  | 08/04/2024 | Estruturação do README do projeto              | [Bianca Castro](https://github.com/BiancaPatrocinio7) |                                                              |
+| Versão |    Data    | Descrição                                      | Autor                                               |
+| :----: | :--------: | ---------------------------------------------- | --------------------------------------------------- | 
+| `1.0`  | 08/04/2024 | Estruturação do README do projeto              | [Bianca Castro](https://github.com/BiancaPatrocinio7) |                                                              
