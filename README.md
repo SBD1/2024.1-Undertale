@@ -73,9 +73,9 @@ Instale Software necessários
 
 - Módulo 3
 
-  - [Dinâmica do Jogo]()
-  - [Stored Procedures]()
-  - [Triggers]()
+  - [Dinâmica do Jogo](https://youtu.be/RsICTPbPDlc)
+  - [Stored Procedures](https://sbd1.github.io/2024.1-Undertale/modulo2/Procedures/)
+  - [Triggers](https://sbd1.github.io/2024.1-Undertale/modulo2/Trigger/)
 
 ### Histórico de versões
 
