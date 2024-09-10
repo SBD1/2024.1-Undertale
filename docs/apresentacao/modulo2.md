@@ -2,7 +2,7 @@
 
 Essa página tem como objetivo armazenar o vídeo da apresentação da Segunda Entrega. Caso não seja possível acessar o vídeo pela própria página, clique no link correspondente.
 
-## Apresentação 1
+## Apresentação 2
 <div align="center">
 <p style="text-align: center"><a href="" target="blanket">Vídeo 1: Apresentação 2</a></p>
 
