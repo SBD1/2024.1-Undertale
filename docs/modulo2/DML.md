@@ -8,167 +8,221 @@ A Data Manipulation Language (DML), ou Linguagem de Manipulação de Dados, é u
 #### 1. Inserção de Dados
 
 ```sql
-
-
 -- Inserir uma nova missão
-INSERT INTO undertale_schema.Missao (nome, descricao, status)
+INSERT INTO Missao (nome, descricao, status)
 VALUES ('Resolva o puzzle', 'Resolva o puzzle das Ruinas para liberar a porta para a outra sala', 'ativa');
 
 -- Inserir um novo item
-INSERT INTO undertale_schema.Item (nome, descricao, valor, tipo)
-VALUES ('Bandana Viril', '7DF - Tem abdominais nela', 50.00, 'Defesa');
+INSERT INTO Item (id_item, nome, descricao, valor, tipo)
+VALUES (1, 'Bandana Viril', '7DF - Tem abdominais nela', 50.00, 'Defesa');
 
 -- Inserir um novo item
-INSERT INTO undertale_schema.Item (nome, descricao, valor, tipo)
-VALUES ('Luva Forte', '5AT Na cara deles.', 50.00, 'Ataque');
+INSERT INTO Item (id_item, nome, descricao, valor, tipo)
+VALUES (2, 'Luva Forte', '5AT Na cara deles.', 50.00, 'Ataque');
 
 -- Inserir um novo item
-INSERT INTO undertale_schema.Item (nome, descricao, valor, tipo)
-VALUES ('Maçã de Siri', 'CR18 HP (Parece um siri.)', 25.00, 'Consumíve');
+INSERT INTO Item (id_item, nome, descricao, valor, tipo)
+VALUES (3, 'Maçã de Siri', 'CR18 HP (Parece um siri.)', 25.00, 'Consumível');
+
+-- Inserir portas
+INSERT INTO Porta (id_porta, status)
+VALUES (1, 'Aberta');
+
+INSERT INTO Porta (id_porta, status)
+VALUES (2, 'Fechada');
+
+INSERT INTO Porta (id_porta, status)
+VALUES (3, 'Fechada');
 
 -- Inserir uma nova sala
-INSERT INTO undertale_schema.Sala (nome_sala, descricao)
-VALUES ('Ruinas', 'A entrada principal do mundo subterraneo');
+INSERT INTO Sala (id_sala, nome_sala, descricao)
+VALUES (0, 'Inicio', '...');
 
-INSERT INTO undertale_schema.Sala (nome_sala, descricao)
-VALUES ('Cachoeiras', 'Lugar misterioso protegido por uma poderosa guardiã');
+INSERT INTO Sala (id_sala, nome_sala, descricao)
+VALUES (1, 'Ruinas', 'A entrada principal do mundo subterraneo');
+
+INSERT INTO Sala (id_sala, nome_sala, descricao)
+VALUES (2, 'Snowdin', 'Snowdin é um local de clima frio e está praticamente coberto com gelo e neve, bem como várias árvores em toda parte da região.');
+
+INSERT INTO Sala (id_sala, nome_sala, descricao)
+VALUES (3, 'Cachoeiras', 'Lugar misterioso protegido por uma poderosa guardiã');
 
 -- Inserir uma nova conexão entre salas
-INSERT INTO undertale_schema.Conexao (id_sala_origem, id_sala_destino, direcao, descricao_conexao)
-VALUES (1, 2, 'Norte', 'Caminho que leva ao centro das ruinas');
+INSERT INTO Conexao (id_sala_origem, id_sala_destino, direcao, descricao_conexao, porta)
+VALUES (0, 1, 'Norte', 'Caminho que leva ao centro das ruinas', 1);
+
+INSERT INTO Conexao (id_sala_origem, id_sala_destino, direcao, descricao_conexao, porta)
+VALUES (1, 0, 'Sul', 'Caminho que leva ao ínicio do jogo', 1);
+
+INSERT INTO Conexao (id_sala_origem, id_sala_destino, direcao, descricao_conexao, porta)
+VALUES (1, 2, 'Leste', 'Caminho que leva ao Snowdin', 2);
+
+INSERT INTO Conexao (id_sala_origem, id_sala_destino, direcao, descricao_conexao, porta)
+VALUES (2, 1, 'Oeste', 'Caminho que leva ao centro das ruinas', 2);
+
+INSERT INTO Conexao (id_sala_origem, id_sala_destino, direcao, descricao_conexao, porta)
+VALUES (2, 3, 'Leste', 'Caminho que leva a Cachoeiras', 3);
+
+INSERT INTO Conexao (id_sala_origem, id_sala_destino, direcao, descricao_conexao, porta)
+VALUES (3, 2, 'Oeste', 'Caminho que leva ao Snowdin', 3);
 
 -- ALIADOS
 --- Inserir Flowey como Aliado
-INSERT INTO undertale_schema.Aliado (nome, sala, tipo, gold_drop, xp_drop, dano_ataque)
+INSERT INTO Aliado (nome, sala, tipo, gold_drop, xp_drop, dano_ataque)
 VALUES ('Flowey', NULL, 'Aliado', 20, 10, 99);
 
 -- Inserir Toriel como Aliado
-INSERT INTO undertale_schema.Aliado (nome, sala, tipo, gold_drop, xp_drop, dano_ataque)
+INSERT INTO Aliado (nome, sala, tipo, gold_drop, xp_drop, dano_ataque)
 VALUES ('Toriel', NULL, 'Aliado', 15, 5, 10);
 
 -- Inserir Sans como Aliado
-INSERT INTO undertale_schema.Aliado (nome, sala, tipo, gold_drop, xp_drop, dano_ataque)
+INSERT INTO Aliado (nome, sala, tipo, gold_drop, xp_drop, dano_ataque)
 VALUES ('Sans', NULL, 'Aliado', 25, 30, 20);
 
 -- Inserir Papyrus como Aliado
-INSERT INTO undertale_schema.Aliado (nome, sala, tipo, gold_drop, xp_drop, dano_ataque)
+INSERT INTO Aliado (nome, sala, tipo, gold_drop, xp_drop, dano_ataque)
 VALUES ('Papyrus', NULL, 'Aliado', 20, 25, 15);
 
 -- MONSTROS
 -- Inserir Napstablook como Monstro
-INSERT INTO undertale_schema.Monstro (nome, sala, tipo, dano_ataque, xp_drop, gold_drop, item_drop)
+INSERT INTO Monstro (nome, sala, tipo, dano_ataque, xp_drop, gold_drop, item_drop)
 VALUES ('Napstablook', NULL, 'Monstro', 5, 5, 10, NULL);
 
 -- Inserir Doggo como Monstro
-INSERT INTO undertale_schema.Monstro (nome, sala, tipo, dano_ataque, xp_drop, gold_drop, item_drop)
+INSERT INTO Monstro (nome, sala, tipo, dano_ataque, xp_drop, gold_drop, item_drop)
 VALUES ('Doggo', NULL, 'Monstro', 12, 30, 15, NULL);
 
 -- Inserir Dogamy e Dogaressa como Monstros
-INSERT INTO undertale_schema.Monstro (nome, sala, tipo, dano_ataque, xp_drop, gold_drop, item_drop)
+INSERT INTO Monstro (nome, sala, tipo, dano_ataque, xp_drop, gold_drop, item_drop)
 VALUES ('Dogamy e Dogaressa', NULL, 'Monstro', 40, 40, 20, NULL);
 
 -- Inserir Dogão como Monstro
-INSERT INTO undertale_schema.Monstro (nome, sala, tipo, dano_ataque, xp_drop, gold_drop, item_drop)
+INSERT INTO Monstro (nome, sala, tipo, dano_ataque, xp_drop, gold_drop, item_drop)
 VALUES ('Dogão', NULL, 'Monstro', 80, 60, 50, NULL);
 
 -- Inserir uma nova loja
-INSERT INTO undertale_schema.Loja (nome, sala, item)
-VALUES ('Loja de Nevada', 1, 1);
+INSERT INTO Loja (id_loja, nome, sala, item)
+VALUES (1, 'Loja de Nevada', 1, 1);
 
-INSERT INTO undertale_schema.Loja (nome, sala, item)
-VALUES ('Loja do Gerson', 2, 1);
+INSERT INTO Loja (id_loja, nome, sala, item)
+VALUES (2, 'Loja do Gerson', 2, 3);
 
 -- MERCADOR
 -- Inserir Lojista de Nevada como Mercador
-INSERT INTO undertale_schema.Mercador (nome, sala, tipo, loja)
-VALUES ('Lojista de Nevada', NULL, 'Mercador', 1);
+INSERT INTO Mercador (nome, sala, tipo, loja)
+VALUES ('Lojista de Nevada', 1, 'Mercador', 1);
 
 -- Inserir Gerson como Mercador
-INSERT INTO undertale_schema.Mercador (nome, sala, tipo, loja)
+INSERT INTO Mercador (nome, sala, tipo, loja)
 VALUES ('Gerson', 2, 'Mercador', 2);
 
 
--- Inserir instâncias
-INSERT INTO undertale_schema.Instancia_item (id_instancia, item)
-VALUES (1, 1);
-
 -- Inserir uma nova defesa
-INSERT INTO undertale_schema.Defesa (id_instancia, protecao)
+INSERT INTO Defesa (id_instancia, protecao)
 VALUES (1, 10);
 
--- Inserir um novo consumível
-INSERT INTO undertale_schema.Consumivel (id_instancia, qtd_cura)
-VALUES (2, 20);
-
 -- Inserir um novo ataque
-INSERT INTO undertale_schema.Ataque (id_instancia, dano)
-VALUES (3, 25);
+INSERT INTO Ataque (id_instancia, dano)
+VALUES (2, 25);
 
--- Inserir uma nova porta
-INSERT INTO undertale_schema.Porta (status, sala)
-VALUES ('Fechada', 1);
+-- Inserir um novo consumível
+INSERT INTO Consumivel (id_instancia, qtd_cura)
+VALUES (3, 20);
 
 -- Inserir um novo baú
-INSERT INTO undertale_schema.Bau (sala, capacidade, item)
+INSERT INTO Bau (sala, capacidade, item)
 VALUES (1, 5, 1);
 
 -- Inserir uma nova afinidade
-INSERT INTO undertale_schema.Afinidade (qtd_atual, qtd_max)
+INSERT INTO Afinidade (qtd_atual, qtd_max)
 VALUES (0, 100);
 
-INSERT INTO undertale_schema.Jogador (nome, item_equipado, nivel, qtd_xp, vida_maxima, vida_atual, afinidade, tipo_rota)
-VALUES ('Frisk', NULL, 1, 0, 100, 100, 0, 'Pacifista');
+INSERT INTO Jogador (nome, item_equipado, nivel, qtd_xp, vida_maxima, vida_atual, afinidade, tipo_rota)
+VALUES ('Frisk', NULL, 1, 0, 100, 100, 1, 'Pacifista');
 
--- Inserir uma nova interação
-INSERT INTO undertale_schema.Interacao (npc, jogador, dialogo)
-VALUES (1, 1, 1);
+INSERT INTO Dialogo (texto)
+VALUES(
+'Ha muito tempo, Humanos e Monstros conviviam juntos em harmonia sobre a Terra. 
+Um dia, uma guerra se iniciou entre as duas raças e depois de um longo confronto, os humanos foram vitoriosos. 
+Eles confinaram todos os monstros existentes no subterraneo do Monte Ebott com uma barreira magica.
+Apenas o poder de 7 almas humanas diferentes poderia romper a barreira permanentemente.
+Muito tempo depois, em 201X, uma crianca humana acabou escalando o Monte por razoes desconhecidas e, 
+consequentemente, caiu no subterraneo, onde os monstros atualmente residem');
 
-```
+INSERT INTO Dialogo (texto) 
+VALUES (
+'Opa! Como vai! Eu sou FLOWEY.
+FLOWEY a FLOR!
 
-#### 2. Atualização de Dados
+umm...
 
-```sql
--- Atualizar o nível do jogador
-UPDATE Jogador
-SET nivel = 2
-WHERE id_jogador = 1;
+É sua primeira vez no SUBSOLO, né?
+Puxa, Tudo deve parecer tão confuso.
 
--- Atualizar o status da missão
-UPDATE Missao
-SET status = 'concluída'
-WHERE id_missao = 1;
+Alguem tem que te ensinar como as coisas funcionam por aqui!
+Acho que o bom e velho eu terei que cuidar disso.
 
--- Atualizar a descrição de um item
-UPDATE Item
-SET descricao = 'Espada de ferro com lâmina afiada.'
-WHERE id_item = 1;
+Tudo pronto vamos lá!
 
--- Atualizar a quantidade de cura de um consumível
-UPDATE Consumivel
-SET qtd_cura = 30
-WHERE id_instancia = 2;
-```
+Pise aqui!
 
-#### 3. Exclusão de Dados
+No começo sua alma é fraca , mas com o passar do tempo ela fica forte.
 
-```sql
--- Excluir um jogador
-DELETE FROM Jogador
-WHERE id_jogador = 1;
+Está vendo essas balas? Bom , Eles são ''Petalas da amizade''.
 
--- Excluir uma missão
-DELETE FROM Missao
-WHERE id_missao = 1;
+Eles te darão LV. Oque é LV? LOVE, é claro.
 
--- Excluir um item
-DELETE FROM Item
-WHERE id_item = 1;
+Eles te deixarão mais forte.
 
--- Exclusão em cascata com relação às chaves estrangeiras
+Vou compartilhar um pouco com você.
 
--- Excluir uma sala e suas conexões
-DELETE FROM Sala
-WHERE id_sala = 1;
+Tudo pronto, Mova-se, Pegue o máximo que puder!'
+);
+
+INSERT INTO Dialogo(texto)
+VALUES('Ei amigo, você perdeu as balas, tente novamente');
+
+INSERT INTO Dialogo(texto)
+VALUES('Você tá me fazendo de bobo?
+VÁ.
+EM.
+DIREÇÃO.
+ÀS. 
+BALAS!!!!!');
+
+INSERT INTO Dialogo(texto)
+VALUES('VOCÊ SABE O QUE ESTÁ ACONTECENDO AQUI, NÃO SABE??
+VOCÊ SÓ QUERIA ME VER SOFRER...
+*BALAS CIRCULAM POR TODA SUA ALMA, SEM CHANCE DE DESVIO* 
+MORRA HAHAHAHAHAHA
+
+
+
+
+
+
+*Toriel aparece e empurra Flowey para longe...'
+);
+
+INSERT INTO Dialogo(texto)
+VALUES('SEU TOLO HAHAHAHAHAHAH
+NESSE MUNDO......
+É MATAR...
+OU MORRER...
+
+
+
+*Toriel Aparece e empurra Flowey para longe..');
+
+INSERT INTO Dialogo(texto)
+VALUES('Olá, minha criança...
+Como você veio parar aqui?
+Deve estar morrendo de medo... Eu te protejo
+Me siga bem de perto pelas ruínas, vou te levar a um lugar seguro');
+
+
+
+
 ```
 
 <center>
@@ -180,4 +234,5 @@ WHERE id_sala = 1;
 | `1.0`  | 07/08/2024 | Criação do documento  | [Bianca Castro](https://github.com/BiancaPatrocinio7) |   
 | `1.1`  | 17/08/2024 | Primeira versão do DML | [Bianca Castro](https://github.com/BiancaPatrocinio7) |
 | `1.2`  | 18/08/2024 | Adicionando algumas informações do jogo | [Marcos Castilhos](https://github.com/Marcosatc147) |
+| `1.3`  | 09/09/2024 | Atualização como Banco |[Marcos Castilhos](https://github.com/Marcosatc147) |
 </center>

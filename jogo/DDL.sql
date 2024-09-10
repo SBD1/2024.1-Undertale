@@ -63,10 +63,27 @@ CREATE TABLE IF NOT EXISTS Bau (
     FOREIGN KEY (item) REFERENCES Item(id_item)
 );
 
+CREATE TABLE IF NOT EXISTS Jogador (
+    id_jogador SERIAL PRIMARY KEY,
+    nome VARCHAR(50) NOT NULL UNIQUE,
+    item_equipado INT,
+    nivel INT NOT NULL CHECK (nivel BETWEEN 1 AND 100),
+    qtd_xp INT NOT NULL CHECK (qtd_xp BETWEEN 0 AND 1000),
+    vida_maxima INT NOT NULL CHECK (vida_maxima BETWEEN 1 AND 1000),
+    vida_atual INT NOT NULL CHECK (vida_atual BETWEEN 0 AND 1000),
+    afinidade INT NOT NULL CHECK (afinidade BETWEEN 0 AND 100),
+    tipo_rota VARCHAR(50) NOT NULL,
+    sala_atual INT,
+    viu_introducao BOOLEAN DEFAULT FALSE,
+    FOREIGN KEY (item_equipado) REFERENCES Item(id_item),
+    FOREIGN KEY (afinidade) REFERENCES Afinidade(id_afinidade),
+    FOREIGN KEY (sala_atual) REFERENCES Sala(id_sala),
+    CHECK (tipo_rota IN ('Pacifista', 'Genocida', 'Neutra'))
+);
 
 CREATE TABLE IF NOT EXISTS Dialogo (
     id_dialogo SERIAL PRIMARY KEY,
-    texto VARCHAR(255) NOT NULL,
+    texto TEXT NOT NULL,
     id_interacao INT
 );
 
@@ -91,7 +108,7 @@ CREATE TABLE IF NOT EXISTS Loja (
 
 CREATE TABLE IF NOT EXISTS NPC (
     id_npc SERIAL PRIMARY KEY,
-    nome VARCHAR(50) NOT NULL,
+    nome VARCHAR(50) NOT NULL UNIQUE,
     sala INT,
     tipo VARCHAR(50) NOT NULL,
     FOREIGN KEY (sala) REFERENCES Sala(id_sala),
@@ -158,10 +175,10 @@ CREATE TABLE IF NOT EXISTS Inventario (
 
 CREATE TABLE IF NOT EXISTS Interacao (
     id_interacao SERIAL PRIMARY KEY,
-    npc INT NOT NULL,
+    npc VARCHAR(50) NOT NULL,
     jogador INT NOT NULL,
     dialogo INT,
-    FOREIGN KEY (npc) REFERENCES NPC(id_npc),
+    --FOREIGN KEY (npc) REFERENCES NPC(id_npc),
     FOREIGN KEY (jogador) REFERENCES Jogador(id_jogador),
     FOREIGN KEY (dialogo) REFERENCES Dialogo(id_dialogo)
 );

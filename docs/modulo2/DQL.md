@@ -6,126 +6,88 @@ DQL é a sigla para Data Query Language. É uma linguagem de consulta de dados q
 
 #### Consulta de Dados
 
-```sql
--- Consultar a sala atual do jogador
-SELECT sala_atual
-FROM Jogador
-WHERE id_jogador = 1;
+1. **Criar banco de dados:**
+   ```sql
+   CREATE DATABASE {dbname};
+   ```
 
--- Consultar as conexões disponíveis a partir da sala atual
-SELECT Conexao.id_sala_destino, Conexao.direcao, Sala.nome_sala
-FROM Conexao
-JOIN Sala ON Conexao.id_sala_destino = Sala.id_sala
-WHERE Conexao.id_sala_origem = (
-    SELECT sala_atual
-    FROM Jogador
-    WHERE id_jogador = 1
-);
+2. **Inserir afinidade:**
+   ```sql
+   INSERT INTO Afinidade (qtd_atual, qtd_max) VALUES (%s, %s) RETURNING id_afinidade;
+   ```
 
--- Atualizar a sala atual do jogador após a escolha de direção
-UPDATE Jogador
-SET sala_atual = (
-    SELECT id_sala_destino
-    FROM Conexao
-    WHERE id_sala_origem = (
-        SELECT sala_atual
-        FROM Jogador
-        WHERE id_jogador = 1
-    )
-    AND direcao = 'Norte' 
-)
-WHERE id_jogador = 1;
+3. **Inserir jogador:**
+   ```sql
+   INSERT INTO Jogador (nome, nivel, qtd_xp, vida_maxima, vida_atual, afinidade, tipo_rota, sala_atual, viu_introducao) 
+   VALUES (%s, %s, %s, %s, %s, %s, %s, %s, FALSE);
+   ```
 
+4. **Selecionar jogadores registrados:**
+   ```sql
+   SELECT nome FROM Jogador;
+   ```
 
--- Consultar nome de todos os jogadores
-SELECT nome FROM Jogador;
+5. **Selecionar diálogo por ID:**
+   ```sql
+   SELECT texto FROM Dialogo WHERE id_dialogo = %s;
+   ```
 
--- Consultar todas as missões ativas
-SELECT * FROM Missao
-WHERE status = 'ativa';
+6. **Selecionar escolhas para um diálogo:**
+   ```sql
+   SELECT escolha_id, escolha, prox_dialogo FROM EscolhaDialogo WHERE id_dialogo = %s;
+   ```
 
--- Consultar todos os itens do tipo 'Armadura'
-SELECT * FROM Item
-WHERE tipo = 'Armadura';
+7. **Mover jogador:**
+   ```sql
+   CALL mover_jogador(%s, %s);
+   ```
 
--- Consultar todos os NPCs em uma sala específica
-SELECT * FROM NPC
-WHERE sala = 1;
+8. **Selecionar conexões disponíveis:**
+   ```sql
+   SELECT id_sala_destino, direcao, descricao_conexao 
+   FROM Conexao 
+   WHERE id_sala_origem = (SELECT sala_atual FROM Jogador WHERE id_jogador = %s);
+   ```
 
--- Consultar todas as conexões entre salas
-SELECT * FROM Conexao;
+9. **Selecionar status do jogador:**
+   ```sql
+   SELECT Jogador.nome, Jogador.nivel, Jogador.qtd_xp, Jogador.vida_atual, Jogador.vida_maxima, Jogador.afinidade, Jogador.tipo_rota, Sala.nome_sala
+   FROM Jogador
+   JOIN Sala ON Sala.id_sala = Jogador.sala_atual
+   WHERE id_jogador = %s;
+   ```
 
--- Consultar todos os aliados e suas características
-SELECT * FROM Aliado;
+10. **Selecionar se o jogador viu introdução:**
+    ```sql
+    SELECT viu_introducao FROM Jogador WHERE id_jogador = %s;
+    ```
 
--- Consultar todos os monstros e seus itens de drop
-SELECT * FROM Monstro
-JOIN Item ON Monstro.item_drop = Item.id_item;
+11. **Marcar introdução como vista:**
+    ```sql
+    UPDATE Jogador SET viu_introducao = TRUE WHERE id_jogador = %s;
+    ```
 
--- Consultar o inventário de um jogador específico
-SELECT Jogador.nome, Inventario.qtd_item, Inventario.tamanho_total, Inventario.qtd_gold
-FROM Inventario
-JOIN Jogador ON Inventario.id_jogador = Jogador.id_jogador
-WHERE Jogador.nome = 'NomeDoJogador';
+12. **Criar interação com Flowey:**
+    ```sql
+    INSERT INTO Interacao (npc, jogador, dialogo) VALUES ('Flowey', %s, 2);
+    ```
 
--- Consultar os itens que um jogador específico tem equipado
-SELECT Jogador.nome, Item.nome AS item_equipado
-FROM Jogador
-JOIN Item ON Jogador.item_equipado = Item.id_item
-WHERE Jogador.nome = 'NomeDoJogador';
+13. **Criar interação com Toriel:**
+    ```sql
+    INSERT INTO Interacao (npc, jogador, dialogo) VALUES ('Toriel', %s, 7);
+    ```
 
--- Consultar a rota seguida por cada jogador
-SELECT nome, tipo_rota
-FROM Jogador;
+14. **Atualizar status da porta:**
+    ```sql
+    CALL atualizar_porta_status(%s, %s);
+    ```
 
--- Consultar todas as salas e os NPCs que estão nelas
-SELECT Sala.nome_sala, NPC.nome AS npc_nome
-FROM Sala
-LEFT JOIN NPC ON Sala.id_sala = NPC.sala;
+15. **Atualizar status da missão:**
+    ```sql
+    UPDATE Missao SET status = TRUE WHERE id_missao = %s;
 
--- Consultar diálogos possíveis a partir de uma escolha específica
-SELECT EscolhaDialogo.escolha, Dialogo.texto AS prox_dialogo_texto
-FROM EscolhaDialogo
-JOIN Dialogo ON EscolhaDialogo.prox_dialogo = Dialogo.id_dialogo
-WHERE EscolhaDialogo.id_dialogo = 1;
-
--- Consultar o total de XP acumulado por um jogador
-SELECT nome, SUM(qtd_xp) AS total_xp
-FROM Jogador
-GROUP BY nome;
-
--- Consultar todas as portas trancadas em uma sala específica
-SELECT Porta.id_porta, Sala.nome_sala
-FROM Porta
-JOIN Sala ON Porta.sala = Sala.id_sala
-WHERE Porta.status = 'Trancada' AND Sala.id_sala = 1;
-
--- Consultar jogadores que possuem afinidade máxima
-SELECT Jogador.nome, Afinidade.qtd_atual, Afinidade.qtd_max
-FROM Jogador
-JOIN Afinidade ON Jogador.afinidade = Afinidade.id_afinidade
-WHERE Afinidade.qtd_atual = Afinidade.qtd_max;
-
--- Consultar todos os itens em uma loja específica
-SELECT Loja.id_loja, Item.nome AS item_nome, Item.valor
-FROM Loja
-JOIN Item ON Loja.item = Item.id_item
-WHERE Loja.id_loja = 1;
-
--- Consultar todas as interações entre um jogador e um NPC específico
-SELECT Jogador.nome AS jogador_nome, NPC.nome AS npc_nome, Dialogo.texto AS dialogo
-FROM Interacao
-JOIN Jogador ON Interacao.jogador = Jogador.id_jogador
-JOIN NPC ON Interacao.npc = NPC.id_npc
-LEFT JOIN Dialogo ON Interacao.dialogo = Dialogo.id_dialogo
-WHERE NPC.nome = 'NomeDoNPC' AND Jogador.nome = 'NomeDoJogador';
-
---- Consultar Lojas e Seus respectivos Mercadores
-SELECT loja.nome, mercador.nome
-FROM loja 
-JOIN mercador ON id_loja = loja;
-
-```
+    
+    ```
 
 ### Histórico de Versão
 | Versão | Data | Descrição | Autor(es) |

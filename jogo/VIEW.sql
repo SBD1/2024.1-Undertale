@@ -7,6 +7,7 @@ FROM
     Sala s
     LEFT JOIN Bau b ON s.id_sala = b.sala
     LEFT JOIN Item i ON b.item = i.id_item;
+    
 CREATE VIEW status_missoes AS
 SELECT
     nome,

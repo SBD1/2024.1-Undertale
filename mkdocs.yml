@@ -8,16 +8,19 @@ nav:
     - Apresentações: 
         - Apresentação 1: "apresentacao/modulo1.md"
         - Apresentação 2: "apresentacao/modulo2.md"
-    - Módulo 1 (Modelagem):
+        - Apresentação 3: "apresentacao/modulo3.md"
+    - Modelagem:
         - Diagrama Entidade Relacionamento: "modulo1/DER.md"
         - Modelo Entidade Relacionamento: "modulo1/MER.md"
         - Dicionário de Dados: "modulo1/DD.md"
         - Modelo Relacional: "modulo1/MR.md"
-    - Módulo 2 (SQL):
+    - SQL:
         - Data Definition Language: "modulo2/DDL.md"
         - Data Manipulation Language: "modulo2/DML.md"
         - Data Query Language: "modulo2/DQL.md"
         - Algebra Relacional: "modulo2/algebra_rel.md"
+        - Trigger: "modulo2/Trigger.md"
+        - Storage Procedure: "modulo2/Procedures.md"
         
 theme:
   name: material

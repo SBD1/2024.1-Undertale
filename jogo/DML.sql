@@ -1,3 +1,4 @@
+
 -- Inserir uma nova missão
 INSERT INTO Missao (nome, descricao, status)
 VALUES ('Resolva o puzzle', 'Resolva o puzzle das Ruinas para liberar a porta para a outra sala', 'ativa');
@@ -127,10 +128,88 @@ VALUES (1, 5, 1);
 INSERT INTO Afinidade (qtd_atual, qtd_max)
 VALUES (0, 100);
 
-INSERT INTO Jogador ( nome, item_equipado, nivel, qtd_xp, vida_maxima, vida_atual, afinidade, tipo_rota, sala_atual)
-VALUES ( 'Frisk', NULL, 1, 0, 100, 100, 1, 'Pacifista', 0);
+INSERT INTO Jogador (nome, item_equipado, nivel, qtd_xp, vida_maxima, vida_atual, afinidade, tipo_rota)
+VALUES ('Frisk', NULL, 1, 0, 100, 100, 1, 'Pacifista');
 
--- Inserir uma nova interação
---INSERT INTO Interacao (npc, jogador, dialogo)
---VALUES (1, 1, 1);
+INSERT INTO Dialogo (texto)
+VALUES(
+'Ha muito tempo, Humanos e Monstros conviviam juntos em harmonia sobre a Terra. 
+Um dia, uma guerra se iniciou entre as duas raças e depois de um longo confronto, os humanos foram vitoriosos. 
+Eles confinaram todos os monstros existentes no subterraneo do Monte Ebott com uma barreira magica.
+Apenas o poder de 7 almas humanas diferentes poderia romper a barreira permanentemente.
+Muito tempo depois, em 201X, uma crianca humana acabou escalando o Monte por razoes desconhecidas e, 
+consequentemente, caiu no subterraneo, onde os monstros atualmente residem');
+
+INSERT INTO Dialogo (texto) 
+VALUES (
+'Opa! Como vai! Eu sou FLOWEY.
+FLOWEY a FLOR!
+
+umm...
+
+É sua primeira vez no SUBSOLO, né?
+Puxa, Tudo deve parecer tão confuso.
+
+Alguem tem que te ensinar como as coisas funcionam por aqui!
+Acho que o bom e velho eu terei que cuidar disso.
+
+Tudo pronto vamos lá!
+
+Pise aqui!
+
+No começo sua alma é fraca , mas com o passar do tempo ela fica forte.
+
+Está vendo essas balas? Bom , Eles são ''Petalas da amizade''.
+
+Eles te darão LV. Oque é LV? LOVE, é claro.
+
+Eles te deixarão mais forte.
+
+Vou compartilhar um pouco com você.
+
+Tudo pronto, Mova-se, Pegue o máximo que puder!'
+);
+
+INSERT INTO Dialogo(texto)
+VALUES('Ei amigo, você perdeu as balas, tente novamente');
+
+INSERT INTO Dialogo(texto)
+VALUES('Você tá me fazendo de bobo?
+VÁ.
+EM.
+DIREÇÃO.
+ÀS. 
+BALAS!!!!!');
+
+INSERT INTO Dialogo(texto)
+VALUES('VOCÊ SABE O QUE ESTÁ ACONTECENDO AQUI, NÃO SABE??
+VOCÊ SÓ QUERIA ME VER SOFRER...
+*BALAS CIRCULAM POR TODA SUA ALMA, SEM CHANCE DE DESVIO* 
+MORRA HAHAHAHAHAHA
+
+
+
+
+
+
+*Toriel aparece e empurra Flowey para longe...'
+);
+
+INSERT INTO Dialogo(texto)
+VALUES('SEU TOLO HAHAHAHAHAHAH
+NESSE MUNDO......
+É MATAR...
+OU MORRER...
+
+
+
+*Toriel Aparece e empurra Flowey para longe..');
+
+INSERT INTO Dialogo(texto)
+VALUES('Olá, minha criança...
+Como você veio parar aqui?
+Deve estar morrendo de medo... Eu te protejo
+Me siga bem de perto pelas ruínas, vou te levar a um lugar seguro');
+
+
 

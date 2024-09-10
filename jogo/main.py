@@ -1,5 +1,7 @@
 import time
+import psycopg2
 from control import DatabaseController
+from interacoes import exibir_dialogo, exibir_dialogo_flowey, exibir_dialogo_toriel
 
 class TerminalInterface:
     def __init__(self, db_controller: DatabaseController):
@@ -62,7 +64,6 @@ class TerminalInterface:
         else:
             print("Nenhuma conexão registrada.")
 
-
     def select_player_and_start_game(self):
         self.db_controller.connect()
         jogadores = self.db_controller.get_registered_players()
@@ -92,19 +93,18 @@ class TerminalInterface:
 
     def start_game(self):
         # Introdução ao jogo
-        self.display_intro()
+        jogador_id = self.current_player_id
+        # self.display_intro(jogador_id)
+
+        exibir_dialogo(self.db_controller, 1, jogador_id)
+
+        db_controller.criar_interacao_flowey(jogador_id)
+        exibir_dialogo_flowey(self.db_controller, 2)
+        db_controller.criar_interacao_toriel(jogador_id)
+        exibir_dialogo_toriel(self.db_controller, 7)
 
         # Lógica de movimentação do jogador
         self.player_movement()
-
-    def display_intro(self):
-        text = ("\nHá muito tempo, Humanos e Monstros conviviam juntos em harmonia sobre a Terra. \nUm dia, uma guerra se iniciou entre as duas raças e depois de um longo confronto, os humanos foram vitoriosos.\n"
-                "Eles confinaram todos os monstros existentes no subterrâneo do Monte Ebott com uma barreira mágica.\n Apenas o poder de 7 almas humanas diferentes poderia romper a barreira permanentemente.\n\n"
-                "Muito tempo depois, em 201X, uma criança humana acabou escalando o Monte por razões desconhecidas e, consequentemente, caiu no subterrâneo, onde os monstros atualmente residem.\n")
-        for char in text:
-            print(char, end='', flush=True)
-            time.sleep(0.05)  # Pequeno atraso para simular o texto sendo digitado
-        print("\n")
 
     def player_movement(self):
         # Logica de movimentacao do jogador utilizando `self.current_player_id`
@@ -160,6 +160,7 @@ class TerminalInterface:
             self.db_controller.close()
         else:
             print("Caminho do script não pode estar vazio.")
+
 
 if __name__ == "__main__":
     db_controller = DatabaseController()
