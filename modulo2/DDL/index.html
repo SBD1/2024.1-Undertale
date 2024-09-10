@@ -1,0 +1,1190 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://github.com/SBD1/2024.1-Undertale/modulo2/DDL/">
+      
+      
+        <link rel="prev" href="../../modulo1/MR/">
+      
+      
+        <link rel="next" href="../DML/">
+      
+      
+      <link rel="icon" href="../../images/logo.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.34">
+    
+    
+      
+        <title>Data Definition Language - Undertale</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.35f28582.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="purple" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#linguagem-de-definicao-de-dados-ddl" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Undertale" class="md-header__button md-logo" aria-label="Undertale" data-md-component="logo">
+      
+  <img src="../../images/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Undertale
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Data Definition Language
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="purple" data-md-color-accent="indigo"  aria-label="Mudar para o modo escuro"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Mudar para o modo escuro" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0 8a5 5 0 0 1-5-5 5 5 0 0 1 5-5 5 5 0 0 1 5 5 5 5 0 0 1-5 5m0-12.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="purple" data-md-color-accent="indigo"  aria-label="Mudar para o modo claro"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Mudar para o modo claro" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 9a3 3 0 0 1 3 3 3 3 0 0 1-3 3 3 3 0 0 1-3-3 3 3 0 0 1 3-3m0-4.5c5 0 9.27 3.11 11 7.5-1.73 4.39-6 7.5-11 7.5S2.73 16.39 1 12c1.73-4.39 6-7.5 11-7.5M3.18 12a9.821 9.821 0 0 0 17.64 0 9.821 9.821 0 0 0-17.64 0"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/SBD1/2024.1-Undertale" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    2024.1-Undertale
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+    
+  
+  Início
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../apresentacao/modulo1/" class="md-tabs__link">
+          
+  
+  Apresentações
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../modulo1/DER/" class="md-tabs__link">
+          
+  
+  Modelagem
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="./" class="md-tabs__link">
+          
+  
+  SQL
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Undertale" class="md-nav__button md-logo" aria-label="Undertale" data-md-component="logo">
+      
+  <img src="../../images/logo.png" alt="logo">
+
+    </a>
+    Undertale
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/SBD1/2024.1-Undertale" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    2024.1-Undertale
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Início
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Apresentações
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Apresentações
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../apresentacao/modulo1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Apresentação 1
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../apresentacao/modulo2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Apresentação 2
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../apresentacao/modulo3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Apresentação 3
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Modelagem
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Modelagem
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo1/DER/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Diagrama Entidade Relacionamento
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo1/MER/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Modelo Entidade Relacionamento
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo1/DD/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Dicionário de Dados
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo1/MR/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Modelo Relacional
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    SQL
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            SQL
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Data Definition Language
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Data Definition Language
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introducao" class="md-nav__link">
+    <span class="md-ellipsis">
+      Introdução
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ddl-undertale" class="md-nav__link">
+    <span class="md-ellipsis">
+      DDL - Undertale
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#historico-de-versao" class="md-nav__link">
+    <span class="md-ellipsis">
+      Histórico de Versão
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../DML/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Data Manipulation Language
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../DQL/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Data Query Language
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../algebra_rel/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Algebra Relacional
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Trigger/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Trigger
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Procedures/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Storage Procedure
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introducao" class="md-nav__link">
+    <span class="md-ellipsis">
+      Introdução
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ddl-undertale" class="md-nav__link">
+    <span class="md-ellipsis">
+      DDL - Undertale
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#historico-de-versao" class="md-nav__link">
+    <span class="md-ellipsis">
+      Histórico de Versão
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<h1 id="linguagem-de-definicao-de-dados-ddl">Linguagem de Definição de Dados (DDL)</h1>
+<h2 id="introducao">Introdução</h2>
+<p>A Linguagem de Definição de Dados (DDL), ou Data Definition Language, é um conjunto de comandos usados em sistemas de gerenciamento de banco de dados (SGBD) para criar, alterar e gerenciar a estrutura dos bancos de dados.</p>
+<h2 id="ddl-undertale">DDL - Undertale</h2>
+<p>Após a modelagem criamos todas as tabelas mapeadas com a ajuda do DD (Data Dictionary) para dar progresso ao trabalho.</p>
+<pre><code class="language-sql">
+CREATE TABLE IF NOT EXISTS Afinidade (
+    id_afinidade SERIAL PRIMARY KEY,
+    qtd_atual INT NOT NULL CHECK (qtd_atual &gt;= 0),
+    qtd_max INT NOT NULL CHECK (qtd_max &gt; 0)
+);
+
+CREATE TABLE IF NOT EXISTS Sala (
+    id_sala SERIAL PRIMARY KEY,
+    nome_sala VARCHAR(255) NOT NULL,
+    descricao TEXT
+);
+
+CREATE TABLE IF NOT EXISTS Missao (
+    id_missao SERIAL PRIMARY KEY,
+    nome VARCHAR(50) NOT NULL,
+    descricao VARCHAR(150),
+    status VARCHAR(50) NOT NULL,
+    CHECK (status IN ('ativa', 'concluída', 'pendente'))
+);
+
+CREATE TABLE IF NOT EXISTS Item (
+    id_item SERIAL PRIMARY KEY,
+    nome VARCHAR(50) NOT NULL,
+    descricao VARCHAR(100),
+    valor DECIMAL(10,2) NOT NULL CHECK (valor &gt;= 0),
+    tipo VARCHAR(50) NOT NULL,
+    CHECK (tipo IN ('Ataque', 'Consumível', 'Defesa'))
+);
+
+CREATE TABLE IF NOT EXISTS Instancia_Item (
+    id_instancia SERIAL PRIMARY KEY,
+    item INT NOT NULL,
+    FOREIGN KEY (item) REFERENCES Item(id_item)
+);
+
+CREATE TABLE IF NOT EXISTS Defesa (
+    id_instancia INT PRIMARY KEY,
+    protecao INT NOT NULL CHECK (protecao &gt;= 0)
+);
+
+CREATE TABLE IF NOT EXISTS Consumivel (
+    id_instancia INT PRIMARY KEY,
+    qtd_cura INT NOT NULL CHECK (qtd_cura &gt;= 0)
+);
+
+CREATE TABLE IF NOT EXISTS Ataque (
+    id_instancia INT PRIMARY KEY,
+    dano INT NOT NULL CHECK (dano &gt;= 0)
+);
+
+CREATE TABLE IF NOT EXISTS Porta (
+    id_porta SERIAL PRIMARY KEY,
+    status VARCHAR(50) NOT NULL,
+    CHECK (status IN ('Aberta', 'Fechada', 'Trancada'))
+);
+
+CREATE TABLE IF NOT EXISTS Bau (
+    id_bau SERIAL PRIMARY KEY,
+    sala INT NOT NULL,
+    capacidade INT CHECK (capacidade &gt;= 1),
+    item INT,
+    FOREIGN KEY (sala) REFERENCES Sala(id_sala),
+    FOREIGN KEY (item) REFERENCES Item(id_item)
+);
+
+CREATE TABLE IF NOT EXISTS Jogador (
+    id_jogador SERIAL PRIMARY KEY,
+    nome VARCHAR(50) NOT NULL UNIQUE,
+    item_equipado INT,
+    nivel INT NOT NULL CHECK (nivel BETWEEN 1 AND 100),
+    qtd_xp INT NOT NULL CHECK (qtd_xp BETWEEN 0 AND 1000),
+    vida_maxima INT NOT NULL CHECK (vida_maxima BETWEEN 1 AND 1000),
+    vida_atual INT NOT NULL CHECK (vida_atual BETWEEN 0 AND 1000),
+    afinidade INT NOT NULL CHECK (afinidade BETWEEN 0 AND 100),
+    tipo_rota VARCHAR(50) NOT NULL,
+    sala_atual INT,
+    viu_introducao BOOLEAN DEFAULT FALSE,
+    FOREIGN KEY (item_equipado) REFERENCES Item(id_item),
+    FOREIGN KEY (afinidade) REFERENCES Afinidade(id_afinidade),
+    FOREIGN KEY (sala_atual) REFERENCES Sala(id_sala),
+    CHECK (tipo_rota IN ('Pacifista', 'Genocida', 'Neutra'))
+);
+
+CREATE TABLE IF NOT EXISTS Dialogo (
+    id_dialogo SERIAL PRIMARY KEY,
+    texto TEXT NOT NULL,
+    id_interacao INT
+);
+
+CREATE TABLE IF NOT EXISTS EscolhaDialogo (
+    id_dialogo INT,
+    escolha_id INT,
+    escolha VARCHAR(50) NOT NULL,
+    prox_dialogo INT,
+    PRIMARY KEY (id_dialogo, escolha_id),
+    FOREIGN KEY (id_dialogo) REFERENCES Dialogo(id_dialogo),
+    FOREIGN KEY (prox_dialogo) REFERENCES Dialogo(id_dialogo)
+);
+
+CREATE TABLE IF NOT EXISTS Loja (
+    id_loja SERIAL PRIMARY KEY,
+    nome VARCHAR(100),
+    sala INT,
+    item INT,
+    FOREIGN KEY (sala) REFERENCES Sala(id_sala),
+    FOREIGN KEY (item) REFERENCES Item(id_item)
+);
+
+CREATE TABLE IF NOT EXISTS NPC (
+    id_npc SERIAL PRIMARY KEY,
+    nome VARCHAR(50) NOT NULL UNIQUE,
+    sala INT,
+    tipo VARCHAR(50) NOT NULL,
+    FOREIGN KEY (sala) REFERENCES Sala(id_sala),
+    CHECK (tipo IN ('Mercador', 'Aliado', 'Monstro'))
+);
+
+CREATE TABLE IF NOT EXISTS Mercador (
+    loja INT PRIMARY KEY,
+    FOREIGN KEY (loja) REFERENCES Loja(id_loja)
+) INHERITS (NPC);
+
+CREATE TABLE IF NOT EXISTS Aliado (
+    gold_drop INT NOT NULL CHECK (gold_drop &gt;= 0),
+    xp_drop INT NOT NULL CHECK (xp_drop &gt;= 0),
+    dano_ataque INT NOT NULL CHECK (dano_ataque &gt;= 0)
+) INHERITS (NPC);
+
+CREATE TABLE IF NOT EXISTS Monstro (
+    dano_ataque INT NOT NULL CHECK (dano_ataque &gt;= 0),
+    xp_drop INT NOT NULL CHECK (xp_drop &gt;= 0),
+    gold_drop INT NOT NULL CHECK (gold_drop &gt;= 0),
+    item_drop INT
+) INHERITS (NPC);
+
+
+CREATE TABLE IF NOT EXISTS Conexao (
+    id_conexao SERIAL PRIMARY KEY,
+    id_sala_origem INT NOT NULL,
+    id_sala_destino INT NOT NULL,
+    direcao VARCHAR(20) NOT NULL,
+    descricao_conexao TEXT,
+    porta INT NOT NULL,
+    FOREIGN KEY (porta) REFERENCES Porta(id_porta),
+    FOREIGN KEY (id_sala_origem) REFERENCES Sala(id_sala),
+    FOREIGN KEY (id_sala_destino) REFERENCES Sala(id_sala),
+    CHECK (direcao IN ('Norte', 'Sul', 'Leste', 'Oeste'))
+);
+
+CREATE TABLE IF NOT EXISTS Jogador (
+    id_jogador SERIAL PRIMARY KEY,
+    nome VARCHAR(50) NOT NULL UNIQUE,
+    item_equipado INT,
+    nivel INT NOT NULL CHECK (nivel BETWEEN 1 AND 100),
+    qtd_xp INT NOT NULL CHECK (qtd_xp BETWEEN 0 AND 1000),
+    vida_maxima INT NOT NULL CHECK (vida_maxima BETWEEN 1 AND 1000),
+    vida_atual INT NOT NULL CHECK (vida_atual BETWEEN 0 AND 1000),
+    afinidade INT NOT NULL CHECK (afinidade BETWEEN 0 AND 100),
+    tipo_rota VARCHAR(50) NOT NULL,
+    sala_atual INT,
+    FOREIGN KEY (item_equipado) REFERENCES Item(id_item),
+    FOREIGN KEY (afinidade) REFERENCES Afinidade(id_afinidade),
+    FOREIGN KEY (sala_atual) REFERENCES Sala(id_sala),
+    CHECK (tipo_rota IN ('Pacifista', 'Genocida', 'Neutra'))
+);
+
+CREATE TABLE IF NOT EXISTS Inventario (
+    qtd_item INT NOT NULL CHECK (qtd_item BETWEEN 0 AND 10000),
+    tamanho_total DECIMAL(10,2) NOT NULL CHECK (tamanho_total &gt;= 0),
+    qtd_gold INT NOT NULL CHECK (qtd_gold &gt;= 0),
+    id_jogador INT PRIMARY KEY,
+    FOREIGN KEY (id_jogador) REFERENCES Jogador(id_jogador)
+);
+
+
+CREATE TABLE IF NOT EXISTS Interacao (
+    id_interacao SERIAL PRIMARY KEY,
+    npc VARCHAR(50) NOT NULL,
+    jogador INT NOT NULL,
+    dialogo INT,
+    --FOREIGN KEY (npc) REFERENCES NPC(id_npc),
+    FOREIGN KEY (jogador) REFERENCES Jogador(id_jogador),
+    FOREIGN KEY (dialogo) REFERENCES Dialogo(id_dialogo)
+);
+
+</code></pre>
+<p><center></p>
+<h2 id="historico-de-versao">Histórico de Versão</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">Versão</th>
+<th style="text-align: center;">Data</th>
+<th style="text-align: center;">Descrição</th>
+<th style="text-align: center;">Autor(es)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><code>1.0</code></td>
+<td style="text-align: center;">07/08/2024</td>
+<td style="text-align: center;">Primeira versão  do DDL</td>
+<td style="text-align: center;"><a href="https://github.com/BiancaPatrocinio7">Bianca Castro</a></td>
+</tr>
+<tr>
+<td style="text-align: center;"><code>1.1</code></td>
+<td style="text-align: center;">17/08/2024</td>
+<td style="text-align: center;">Correção dos dados do DDL</td>
+<td style="text-align: center;"><a href="https://github.com/BiancaPatrocinio7">Bianca Castro</a></td>
+</tr>
+<tr>
+<td style="text-align: center;"><code>1.2</code></td>
+<td style="text-align: center;">19/08/2024</td>
+<td style="text-align: center;">Correção das ordens das tabelas</td>
+<td style="text-align: center;"><a href="https://github.com/BiancaPatrocinio7">Bianca Castro</a></td>
+</tr>
+<tr>
+<td style="text-align: center;"><code>1.3</code></td>
+<td style="text-align: center;">09/09/2024</td>
+<td style="text-align: center;">Atualização como Banco</td>
+<td style="text-align: center;"><a href="https://github.com/BiancaPatrocinio7">Bianca Castro</a></td>
+</tr>
+<tr>
+<td style="text-align: center;"></center></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+</tbody>
+</table>
+<hr />
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs"], "search": "../../assets/javascripts/workers/search.07f07601.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.56dfad97.min.js"></script>
+      
+    
+  </body>
+</html>
