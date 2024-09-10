@@ -1,13 +1,4 @@
-# Linguagem de Manipulação de Dados (MDL)
 
-## Introdução
-
-A Data Manipulation Language (DML), ou Linguagem de Manipulação de Dados, é uma parte essencial do SQL (Structured Query Language), utilizada para gerenciar e manipular dados dentro de um banco de dados relacional. Os comandos DML permitem que os desenvolvedores e administradores de banco de dados realizem tarefas essenciais como inserção, atualização, remoção e consulta de dados. Esses comandos são fundamentais para garantir que as informações sejam mantidas atualizadas e precisas, permitindo assim que as aplicações que dependem desses dados funcionem corretamente.
-
-
-#### 1. Inserção de Dados
-
-```sql
 -- Inserir uma nova missão
 INSERT INTO Missao (nome, descricao, status)
 VALUES ('Resolva o puzzle', 'Resolva o puzzle das Ruinas para liberar a porta para a outra sala', 'ativa');
@@ -222,17 +213,3 @@ Me siga bem de perto pelas ruínas, vou te levar a um lugar seguro');
 
 
 
-
-```
-
-<center>
-
-
-### Histórico de Versão
-| Versão | Data | Descrição | Autor(es) |
-| :-: | :-: | :-: | :-: | 
-| `1.0`  | 07/08/2024 | Criação do documento  | [Bianca Castro](https://github.com/BiancaPatrocinio7) |   
-| `1.1`  | 17/08/2024 | Primeira versão do DML | [Bianca Castro](https://github.com/BiancaPatrocinio7) |
-| `1.2`  | 18/08/2024 | Adicionando algumas informações do jogo | [Marcos Castilhos](https://github.com/Marcosatc147) |
-| `1.3`  | 09/09/2024 | Atualização como Banco |[Marcos Castilhos](https://github.com/Marcosatc147) |
-</center>

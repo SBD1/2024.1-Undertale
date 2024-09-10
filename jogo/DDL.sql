@@ -1,16 +1,3 @@
-
-# Linguagem de Definição de Dados (DDL)
-
-## Introdução
-
-A Linguagem de Definição de Dados (DDL), ou Data Definition Language, é um conjunto de comandos usados em sistemas de gerenciamento de banco de dados (SGBD) para criar, alterar e gerenciar a estrutura dos bancos de dados.
-
-## DDL - Undertale
-
-Após a modelagem criamos todas as tabelas mapeadas com a ajuda do DD (Data Dictionary) para dar progresso ao trabalho.
-
-```sql
-
 CREATE TABLE IF NOT EXISTS Afinidade (
     id_afinidade SERIAL PRIMARY KEY,
     qtd_atual INT NOT NULL CHECK (qtd_atual >= 0),
@@ -195,18 +182,3 @@ CREATE TABLE IF NOT EXISTS Interacao (
     FOREIGN KEY (jogador) REFERENCES Jogador(id_jogador),
     FOREIGN KEY (dialogo) REFERENCES Dialogo(id_dialogo)
 );
-
-```
-
-<center>
-
-## Histórico de Versão
-| Versão | Data | Descrição | Autor(es) |
-| :-: | :-: | :-: | :-: | 
-| `1.0`  | 07/08/2024 | Primeira versão  do DDL  | [Bianca Castro](https://github.com/BiancaPatrocinio7) |       
-| `1.1`  | 17/08/2024 | Correção dos dados do DDL | [Bianca Castro](https://github.com/BiancaPatrocinio7) |
-| `1.2`  | 19/08/2024 | Correção das ordens das tabelas | [Bianca Castro](https://github.com/BiancaPatrocinio7) |
-| `1.3`  | 09/09/2024 | Atualização como Banco | [Bianca Castro](https://github.com/BiancaPatrocinio7) |
-</center>
-
----
