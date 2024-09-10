@@ -1,10 +1,3 @@
-SELECT * FROM NPC;
-
-DELETE FROM Item
-WHERE id_item = 8;
-
-DELETE FROM Afinidade
-WHERE id_afinidade = 1;
 
 -- Inserir uma nova missão
 INSERT INTO Missao (nome, descricao, status)

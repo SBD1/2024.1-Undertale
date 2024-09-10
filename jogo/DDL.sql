@@ -113,7 +113,7 @@ CREATE TABLE IF NOT EXISTS Loja (
 
 CREATE TABLE IF NOT EXISTS NPC (
     id_npc SERIAL PRIMARY KEY,
-    nome VARCHAR(50) NOT NULL,
+    nome VARCHAR(50) NOT NULL UNIQUE,
     sala INT,
     tipo VARCHAR(50) NOT NULL,
     FOREIGN KEY (sala) REFERENCES Sala(id_sala),
@@ -148,10 +148,10 @@ CREATE TABLE IF NOT EXISTS Inventario (
 
 CREATE TABLE IF NOT EXISTS Interacao (
     id_interacao SERIAL PRIMARY KEY,
-    npc INT NOT NULL,
+    npc VARCHAR(50) NOT NULL,
     jogador INT NOT NULL,
     dialogo INT,
-    FOREIGN KEY (npc) REFERENCES NPC(id_npc),
+    --FOREIGN KEY (npc) REFERENCES NPC(id_npc),
     FOREIGN KEY (jogador) REFERENCES Jogador(id_jogador),
     FOREIGN KEY (dialogo) REFERENCES Dialogo(id_dialogo)
 );

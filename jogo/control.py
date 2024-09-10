@@ -185,9 +185,8 @@ class DatabaseController:
 
         try:
             cursor.execute(
-                """
-                INSERT INTO Interacao (npc, jogador, dialogo) VALUES (1, %s, 2);
-                """, (id_jogador,))
+            "INSERT INTO Interacao (npc, jogador, dialogo) VALUES ('Flowey', %s, 2);", (id_jogador,))
+            #print(f"\n\nid npc: {id_npc}\n\n\n")
             self.connection.commit()
         except Exception as e:
             print(f"Erro ao criar interação: {e}")
