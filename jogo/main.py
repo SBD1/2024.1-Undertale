@@ -51,6 +51,18 @@ class TerminalInterface:
         else:
             print("Nenhum jogador registrado.")
 
+    
+    def list_connections(self):
+        self.db_controller.connect()
+        connections = self.db_controller.get_available_connections(self.current_player_id)
+        self.db_controller.close()
+        if connections:
+            for connection in connections:
+                print(f"-[{connection[0]}] {connection[1]}: {connection[2]}")
+        else:
+            print("Nenhuma conexão registrada.")
+
+
     def select_player_and_start_game(self):
         self.db_controller.connect()
         jogadores = self.db_controller.get_registered_players()
@@ -63,6 +75,8 @@ class TerminalInterface:
         print("\nEscolha um jogador para iniciar:")
         for index, jogador in enumerate(jogadores):
             print(f"{index + 1}. {jogador}")
+
+        print("")
 
         choice = input("Digite o número do jogador escolhido: ").strip()
         try:
@@ -102,8 +116,10 @@ class TerminalInterface:
 
             choice = input("Escolha uma opção: ").strip()
 
+            print("")
+
             if choice == "1":
-                # Chama a procedure de movimentação usando o `self.current_player_id`
+                self.list_connections()
                 self.move_player()
             elif choice == "2":
                 self.show_player_status()
@@ -114,21 +130,27 @@ class TerminalInterface:
                 print("Opção inválida, tente novamente.")
 
     def move_player(self):
-        destino = input("Digite o ID da sala de destino: ").strip()
+        print("")
+        destino = input("Digite o número da direção para se mover: ").strip()
         if destino.isdigit():
             try:
                 self.db_controller.connect()
                 self.db_controller.move_player(self.current_player_id, int(destino))
                 self.db_controller.close()
-                print("Jogador movido com sucesso.")
             except Exception as e:
-                print(f"Erro ao mover jogador: {e}")
+                print(f"Ero ao mover jogador{e}")
         else:
-            print("ID da sala inválido.")
+            print("Número da sala inválido.")
 
     def show_player_status(self):
-        # Lógica para mostrar o status do jogador selecionado
-        pass
+        self.db_controller.connect()
+        jogador_status = self.db_controller.get_status(self.current_player_id)
+        self.db_controller.close()
+        if jogador_status:
+            jogador = jogador_status[0]
+            print(f"[Status do jogador] \n Nome: {jogador[0]} \n Nível: {jogador[1]} \n Quantidade de XP: {jogador[2]} \n Quantidade de vida: {jogador[3]}/{jogador[4]}  \n Afiniddade: {jogador[5]} \n Tipo da rota: {jogador[6]} \n Sala atual: {jogador[7]}")
+        else:
+            print("Nenhuma conexão registrada.")
 
     def run_sql_script(self):
         script_path = input("Digite o caminho do script SQL a ser executado: ").strip()

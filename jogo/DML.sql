@@ -1,11 +1,3 @@
-SELECT * FROM NPC;
-
-DELETE FROM Item
-WHERE id_item = 8;
-
-DELETE FROM Afinidade
-WHERE id_afinidade = 1;
-
 -- Inserir uma nova missão
 INSERT INTO Missao (nome, descricao, status)
 VALUES ('Resolva o puzzle', 'Resolva o puzzle das Ruinas para liberar a porta para a outra sala', 'ativa');
@@ -22,6 +14,16 @@ VALUES (2, 'Luva Forte', '5AT Na cara deles.', 50.00, 'Ataque');
 INSERT INTO Item (id_item, nome, descricao, valor, tipo)
 VALUES (3, 'Maçã de Siri', 'CR18 HP (Parece um siri.)', 25.00, 'Consumível');
 
+-- Inserir portas
+INSERT INTO Porta (id_porta, status)
+VALUES (1, 'Aberta');
+
+INSERT INTO Porta (id_porta, status)
+VALUES (2, 'Fechada');
+
+INSERT INTO Porta (id_porta, status)
+VALUES (3, 'Fechada');
+
 -- Inserir uma nova sala
 INSERT INTO Sala (id_sala, nome_sala, descricao)
 VALUES (0, 'Inicio', '...');
@@ -36,8 +38,23 @@ INSERT INTO Sala (id_sala, nome_sala, descricao)
 VALUES (3, 'Cachoeiras', 'Lugar misterioso protegido por uma poderosa guardiã');
 
 -- Inserir uma nova conexão entre salas
-INSERT INTO Conexao (id_sala_origem, id_sala_destino, direcao, descricao_conexao)
-VALUES (1, 2, 'Norte', 'Caminho que leva ao centro das ruinas');
+INSERT INTO Conexao (id_sala_origem, id_sala_destino, direcao, descricao_conexao, porta)
+VALUES (0, 1, 'Norte', 'Caminho que leva ao centro das ruinas', 1);
+
+INSERT INTO Conexao (id_sala_origem, id_sala_destino, direcao, descricao_conexao, porta)
+VALUES (1, 0, 'Sul', 'Caminho que leva ao ínicio do jogo', 1);
+
+INSERT INTO Conexao (id_sala_origem, id_sala_destino, direcao, descricao_conexao, porta)
+VALUES (1, 2, 'Leste', 'Caminho que leva ao Snowdin', 2);
+
+INSERT INTO Conexao (id_sala_origem, id_sala_destino, direcao, descricao_conexao, porta)
+VALUES (2, 1, 'Oeste', 'Caminho que leva ao centro das ruinas', 2);
+
+INSERT INTO Conexao (id_sala_origem, id_sala_destino, direcao, descricao_conexao, porta)
+VALUES (2, 3, 'Leste', 'Caminho que leva a Cachoeiras', 3);
+
+INSERT INTO Conexao (id_sala_origem, id_sala_destino, direcao, descricao_conexao, porta)
+VALUES (3, 2, 'Oeste', 'Caminho que leva ao Snowdin', 3);
 
 -- ALIADOS
 --- Inserir Flowey como Aliado
@@ -90,17 +107,6 @@ INSERT INTO Mercador (nome, sala, tipo, loja)
 VALUES ('Gerson', 2, 'Mercador', 2);
 
 
--- Inserir instâncias
-INSERT INTO Instancia_item (id_instancia, item)
-VALUES (1, 1);
-
-INSERT INTO Instancia_item (id_instancia, item)
-VALUES (2, 2);
-
-INSERT INTO Instancia_item (id_instancia, item)
-VALUES (3, 3);
-
-
 -- Inserir uma nova defesa
 INSERT INTO Defesa (id_instancia, protecao)
 VALUES (1, 10);
@@ -113,10 +119,6 @@ VALUES (2, 25);
 INSERT INTO Consumivel (id_instancia, qtd_cura)
 VALUES (3, 20);
 
--- Inserir uma nova porta
-INSERT INTO Porta (status, sala)
-VALUES ('Fechada', 1);
-
 -- Inserir um novo baú
 INSERT INTO Bau (sala, capacidade, item)
 VALUES (1, 5, 1);
@@ -125,8 +127,8 @@ VALUES (1, 5, 1);
 INSERT INTO Afinidade (qtd_atual, qtd_max)
 VALUES (0, 100);
 
-INSERT INTO Jogador (nome, item_equipado, nivel, qtd_xp, vida_maxima, vida_atual, afinidade, tipo_rota)
-VALUES ('Frisk', NULL, 1, 0, 100, 100, 1, 'Pacifista');
+INSERT INTO Jogador ( nome, item_equipado, nivel, qtd_xp, vida_maxima, vida_atual, afinidade, tipo_rota, sala_atual)
+VALUES ( 'Frisk', NULL, 1, 0, 100, 100, 1, 'Pacifista', 0);
 
 -- Inserir uma nova interação
 --INSERT INTO Interacao (npc, jogador, dialogo)

@@ -35,27 +35,22 @@ CREATE TABLE IF NOT EXISTS Instancia_Item (
 
 CREATE TABLE IF NOT EXISTS Defesa (
     id_instancia INT PRIMARY KEY,
-    protecao INT NOT NULL CHECK (protecao >= 0),
-    FOREIGN KEY (id_instancia) REFERENCES Instancia_Item(id_instancia)
+    protecao INT NOT NULL CHECK (protecao >= 0)
 );
 
 CREATE TABLE IF NOT EXISTS Consumivel (
     id_instancia INT PRIMARY KEY,
-    qtd_cura INT NOT NULL CHECK (qtd_cura >= 0),
-    FOREIGN KEY (id_instancia) REFERENCES Instancia_Item(id_instancia)
+    qtd_cura INT NOT NULL CHECK (qtd_cura >= 0)
 );
 
 CREATE TABLE IF NOT EXISTS Ataque (
     id_instancia INT PRIMARY KEY,
-    dano INT NOT NULL CHECK (dano >= 0),
-    FOREIGN KEY (id_instancia) REFERENCES Instancia_Item(id_instancia)
+    dano INT NOT NULL CHECK (dano >= 0)
 );
 
 CREATE TABLE IF NOT EXISTS Porta (
     id_porta SERIAL PRIMARY KEY,
     status VARCHAR(50) NOT NULL,
-    sala INT NOT NULL,
-    FOREIGN KEY (sala) REFERENCES Sala(id_sala),
     CHECK (status IN ('Aberta', 'Fechada', 'Trancada'))
 );
 
@@ -68,22 +63,6 @@ CREATE TABLE IF NOT EXISTS Bau (
     FOREIGN KEY (item) REFERENCES Item(id_item)
 );
 
-CREATE TABLE IF NOT EXISTS Jogador (
-    id_jogador SERIAL PRIMARY KEY,
-    nome VARCHAR(50) NOT NULL UNIQUE,
-    item_equipado INT,
-    nivel INT NOT NULL CHECK (nivel BETWEEN 1 AND 100),
-    qtd_xp INT NOT NULL CHECK (qtd_xp BETWEEN 0 AND 1000),
-    vida_maxima INT NOT NULL CHECK (vida_maxima BETWEEN 1 AND 1000),
-    vida_atual INT NOT NULL CHECK (vida_atual BETWEEN 0 AND 1000),
-    afinidade INT NOT NULL CHECK (afinidade BETWEEN 0 AND 100),
-    tipo_rota VARCHAR(50) NOT NULL,
-    sala_atual INT,
-    FOREIGN KEY (item_equipado) REFERENCES Item(id_item),
-    FOREIGN KEY (afinidade) REFERENCES Afinidade(id_afinidade),
-    FOREIGN KEY (sala_atual) REFERENCES Sala(id_sala),
-    CHECK (tipo_rota IN ('Pacifista', 'Genocida', 'Neutra'))
-);
 
 CREATE TABLE IF NOT EXISTS Dialogo (
     id_dialogo SERIAL PRIMARY KEY,
@@ -137,6 +116,37 @@ CREATE TABLE IF NOT EXISTS Monstro (
     item_drop INT
 ) INHERITS (NPC);
 
+
+CREATE TABLE IF NOT EXISTS Conexao (
+    id_conexao SERIAL PRIMARY KEY,
+    id_sala_origem INT NOT NULL,
+    id_sala_destino INT NOT NULL,
+    direcao VARCHAR(20) NOT NULL,
+    descricao_conexao TEXT,
+    porta INT NOT NULL,
+    FOREIGN KEY (porta) REFERENCES Porta(id_porta),
+    FOREIGN KEY (id_sala_origem) REFERENCES Sala(id_sala),
+    FOREIGN KEY (id_sala_destino) REFERENCES Sala(id_sala),
+    CHECK (direcao IN ('Norte', 'Sul', 'Leste', 'Oeste'))
+);
+
+CREATE TABLE IF NOT EXISTS Jogador (
+    id_jogador SERIAL PRIMARY KEY,
+    nome VARCHAR(50) NOT NULL UNIQUE,
+    item_equipado INT,
+    nivel INT NOT NULL CHECK (nivel BETWEEN 1 AND 100),
+    qtd_xp INT NOT NULL CHECK (qtd_xp BETWEEN 0 AND 1000),
+    vida_maxima INT NOT NULL CHECK (vida_maxima BETWEEN 1 AND 1000),
+    vida_atual INT NOT NULL CHECK (vida_atual BETWEEN 0 AND 1000),
+    afinidade INT NOT NULL CHECK (afinidade BETWEEN 0 AND 100),
+    tipo_rota VARCHAR(50) NOT NULL,
+    sala_atual INT,
+    FOREIGN KEY (item_equipado) REFERENCES Item(id_item),
+    FOREIGN KEY (afinidade) REFERENCES Afinidade(id_afinidade),
+    FOREIGN KEY (sala_atual) REFERENCES Sala(id_sala),
+    CHECK (tipo_rota IN ('Pacifista', 'Genocida', 'Neutra'))
+);
+
 CREATE TABLE IF NOT EXISTS Inventario (
     qtd_item INT NOT NULL CHECK (qtd_item BETWEEN 0 AND 10000),
     tamanho_total DECIMAL(10,2) NOT NULL CHECK (tamanho_total >= 0),
@@ -144,6 +154,7 @@ CREATE TABLE IF NOT EXISTS Inventario (
     id_jogador INT PRIMARY KEY,
     FOREIGN KEY (id_jogador) REFERENCES Jogador(id_jogador)
 );
+
 
 CREATE TABLE IF NOT EXISTS Interacao (
     id_interacao SERIAL PRIMARY KEY,
@@ -153,15 +164,4 @@ CREATE TABLE IF NOT EXISTS Interacao (
     FOREIGN KEY (npc) REFERENCES NPC(id_npc),
     FOREIGN KEY (jogador) REFERENCES Jogador(id_jogador),
     FOREIGN KEY (dialogo) REFERENCES Dialogo(id_dialogo)
-);
-
-CREATE TABLE IF NOT EXISTS Conexao (
-    id_conexao SERIAL PRIMARY KEY,
-    id_sala_origem INT NOT NULL,
-    id_sala_destino INT NOT NULL,
-    direcao VARCHAR(20) NOT NULL,
-    descricao_conexao TEXT,
-    FOREIGN KEY (id_sala_origem) REFERENCES Sala(id_sala),
-    FOREIGN KEY (id_sala_destino) REFERENCES Sala(id_sala),
-    CHECK (direcao IN ('Norte', 'Sul', 'Leste', 'Oeste', 'Noroeste', 'Nordeste', 'Sudoeste', 'Sudeste'))
 );

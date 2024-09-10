@@ -1,5 +1,4 @@
 -- Chamada da procedure
---CALL atualizar_item_equipado(1, 2);
 
 CREATE OR REPLACE PROCEDURE adicionar_item_sala(
     p_id_sala INT,
@@ -47,9 +46,10 @@ BEGIN
     -- Verificar se a conexão entre as salas existe
     SELECT EXISTS(
         SELECT 1 FROM Conexao
+        JOIN Porta ON Conexao.porta = Porta.id_porta
         WHERE id_sala_origem = v_id_sala_origem
         AND id_sala_destino = p_id_sala_destino
-        AND status = 'Aberta'
+        AND Porta.status = 'Aberta'
     ) INTO v_conexao_existe;
 
     IF NOT v_conexao_existe THEN
@@ -61,11 +61,21 @@ BEGIN
     SET sala_atual = p_id_sala_destino
     WHERE id_jogador = p_id_jogador;
 
-    -- Adicione aqui quaisquer lógicas adicionais, como ativar triggers ou eventos
-
-    COMMIT;
+    -- Lógica adicional, como triggers ou eventos, pode ser adicionada aqui
 END;
 $$;
 
-
-
+CREATE OR REPLACE PROCEDURE atualizar_porta_status(id_missao INT)
+AS $$
+BEGIN
+    -- Atualiza o status da porta para 'Aberta' quando a missão está concluída
+    UPDATE Porta
+    SET status = 'Aberta'
+    WHERE id_porta = (SELECT id_porta FROM Missao WHERE id_missao = id_missao)
+    AND EXISTS (
+        SELECT 1 FROM Missao
+        WHERE id_missao = id_missao
+        AND status = 'concluída'
+    );
+END;
+$$ LANGUAGE plpgsql;

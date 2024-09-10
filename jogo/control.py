@@ -64,9 +64,9 @@ class DatabaseController:
 
             # Inserir na tabela Jogador usando o id_afinidade obtido
             cursor.execute(
-                "INSERT INTO Jogador (nome, nivel, qtd_xp, vida_maxima, vida_atual, afinidade, tipo_rota) "
-                "VALUES (%s, %s, %s, %s, %s, %s, %s);",
-                (jogador_nome, 1, 0, 100, 100, id_afinidade, 'Pacifista')
+                "INSERT INTO Jogador (nome, nivel, qtd_xp, vida_maxima, vida_atual, afinidade, tipo_rota, sala_atual) "
+                "VALUES (%s, %s, %s, %s, %s, %s, %s, %s);",
+                (jogador_nome, 1, 0, 100, 100, id_afinidade, 'Pacifista', 0)
             )
 
             self.connection.commit()
@@ -140,7 +140,52 @@ class DatabaseController:
             self.connection.commit()
             print("Jogador movido com sucesso.")
         except Exception as e:
-            print(f"Erro ao mover jogador: {e}")
+            print(f"A porta está trancada.")
             self.connection.rollback()
         finally:
             cursor.close()
+
+    def get_available_connections(self, id_jogador):
+        """Retorna as conexões disponíveis no banco de dados para um jogador específico."""
+        if self.connection is None or self.connection.closed == 1:  # Verifica se a conexão está fechada
+            self.connect()
+
+        cursor = self.connection.cursor()
+        try:
+            query = """
+            SELECT id_conexao, direcao, descricao_conexao 
+            FROM Conexao 
+            WHERE id_sala_origem = (SELECT sala_atual FROM Jogador WHERE id_jogador = %s);
+            """
+            cursor.execute(query, (id_jogador,))  # Passa o id_jogador como uma tupla
+            connections = cursor.fetchall()
+            return connections
+        except Exception as e:
+            print(f"Erro ao buscar conexões registradas: {e}")
+            return []
+        finally:
+            cursor.close()
+
+
+    def get_status(self, id_jogador):
+        """Retorna o status do jogador."""
+        if self.connection is None or self.connection.closed == 1:  # Verifica se a conexão está fechada
+            self.connect()
+
+        cursor = self.connection.cursor()
+        try:
+            query = """
+                SELECT Jogador.nome, Jogador.nivel, Jogador.qtd_xp, Jogador.vida_atual, Jogador.vida_maxima, Jogador.afinidade, Jogador.tipo_rota, Sala.nome_sala
+                FROM Jogador
+                JOIN Sala ON Sala.id_sala = Jogador.sala_atual
+                WHERE id_jogador = %s;
+            """
+            cursor.execute(query, (id_jogador,))  # Passa o id_jogador como uma tupla
+            jogador = cursor.fetchall()
+            return jogador
+        except Exception as e:
+            print(f"Erro ao buscar conexões registradas: {e}")
+            return []
+        finally:
+            cursor.close()
+
